@@ -281,15 +281,22 @@ Amazon DocumentDB is a managed service that emulates the MongoDB API but does no
 | **Consulting and Training**                    | Limited                                       | Extensive consulting and training services        |
 
 
-## Exemples of architecture design
+## [MongoDB Drivers](https://www.mongodb.com/docs/drivers/)
+MongoDB drivers provide the interface for applications to interact with MongoDB databases. They offer:
 
+- **Native Language Support**: Drivers are available for various programming languages, including JavaScript (Node.js), Python, Java, C#, PHP, Ruby, Go, and more.
+- **Asynchronous Operations**: Many drivers support non-blocking, asynchronous operations to improve performance.
+- **Comprehensive Documentation**: Detailed guides and examples to help developers implement database operations.
+- **Compatibility**: Drivers are designed to work seamlessly with MongoDB features, ensuring reliable and efficient data manipulation.
+
+These drivers ensure that applications can efficiently and securely communicate with MongoDB databases across different programming environments.
 ## MongoDB Main Tools
 
-### MongoDB Developer Tools
+### [MongoDB Developer Tools](https://www.mongodb.com/products/tools)
 
 - [**VS Code Extension**](https://www.mongodb.com/products/tools/vs-code): Integrates MongoDB with Visual Studio Code, allowing developers to browse, modify, and interact with MongoDB databases directly within the VS Code environment.
 - [**MongoDB Compass**](https://www.mongodb.com/products/tools/compass): A graphical user interface (GUI) for MongoDB, providing a visual exploration of your data, performance insights, and query building tools.
-- [**Mongo Shell**](https://www.mongodb.com/docs/mongodb-shell/): An interactive JavaScript interface for MongoDB, enabling command-line access to MongoDB instance operations, queries, and administrative functions.
+- [**MongoDB Shell**](https://www.mongodb.com/docs/mongodb-shell/): An interactive JavaScript interface for MongoDB, enabling command-line access to MongoDB instance operations, queries, and administrative functions.
 
 ### [MongoDB Command Line Tools](https://www.mongodb.com/docs/database-tools/#the-mongodb-database-tools-documentation)
 
@@ -300,7 +307,7 @@ Amazon DocumentDB is a managed service that emulates the MongoDB API but does no
 - **mongostat**: Provides a real-time overview of MongoDB server performance metrics, helping in monitoring and troubleshooting.
 - **mongotop**: Displays read and write activity on a MongoDB instance, sorted by collection, helping to identify performance bottlenecks.
 
-### MongoDB Migration Tools
+### [MongoDB Migration Tools](https://www.mongodb.com/docs/tools-and-connectors/#migrators--tools--and-connectors)
 #### [Relational Migrator](https://www.mongodb.com/docs/relational-migrator/)
 MongoDB Relational Migrator is a tool designed to facilitate the migration of data from relational databases to MongoDB. It automates the process of converting schemas, importing data, and transforming SQL queries into MongoDB's query language. This tool aids in the seamless transition from traditional relational databases to MongoDB's flexible, document-oriented model, minimizing the effort and complexity involved in database migration.
 
@@ -329,13 +336,12 @@ Hatchet is a powerful and sophisticated logs analyzer and viewer specifically de
 mtools is a collection of helper scripts to parse, filter, and visualize MongoDB log files (mongod, mongos). mtools also includes mlaunch, a utility to quickly set up complex MongoDB test environments on a local machine, and mtransfer, a tool for transferring databases between MongoDB instances.
 ## Ressources
 
-### mongoDB documentation
-### mongoDB 
-### Reference architecture 
-### mongoDB roadmap ?
-### mongoDB university
-### mongoDB Communauty
-### mongoDB Dev Center
+#### [MongoDB Documentation](https://www.mongodb.com/docs/)
+#### [MongoDB Reference architecture](https://www.mongodb.com/resources/products/fundamentals/mongodb-architecture-guide)
+#### mongoDB roadmap ?
+#### [MongoDB University](https://learn.mongodb.com/)
+#### [MongoDB Community](https://www.mongodb.com/community/)
+#### [MongoDB Developer Center](https://www.mongodb.com/developer/)
 
 ## We want your feedback!
 
