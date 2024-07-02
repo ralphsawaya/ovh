@@ -12,32 +12,238 @@ MongoDB's architecture is built for high availability and horizontal scalability
 
 The database engine uses a storage model based on collections and documents, where collections hold sets of documents and documents are the basic units of data. This structure simplifies the development process, allowing developers to interact with data using native and intuitive APIs. MongoDB's powerful querying capabilities, including ad-hoc queries, indexing, and real-time aggregation, enable developers to create robust and efficient applications.
 
-MongoDB also offers comprehensive security features, including encryption at rest and in transit, role-based access control, and auditing. These features ensure that data is protected and meets compliance requirements. [The MongoDB community](https://www.mongodb.com/community/forums/) and enterprise support options, provide developers and organizations with the resources and assistance needed to optimize their use of the database.
+MongoDB also offers comprehensive security features, including encryption at rest and in transit, role-based access control, and auditing. These features ensure that data is protected and meets compliance requirements. The MongoDB community and enterprise support options, provide developers and organizations with the resources and assistance needed to optimize their use of the database.
 
-**This guide explains the reason why xxx.**
+## Main Benefits of Choosing MongoDB
+- [**Flexible Schema**](https://www.mongodb.com/docs/manual/data-modeling/): MongoDB's document-oriented storage allows for dynamic schema, making it easy to handle unstructured and semi-structured data.
+
+- [**Scalability**](https://www.mongodb.com/resources/basics/scaling): Horizontal scaling with replica sets ensures high availability and scalability to meet growing data and workload demands.
+
+- [**High Performance**](https://www.mongodb.com/docs/manual/administration/analyzing-mongodb-performance/#mongodb-performance): Efficient storage and indexing mechanisms enable fast query responses and data processing.
+
+- [**Rich Query Language**](https://www.mongodb.com/docs/manual/tutorial/query-documents/#query-documents): Supports complex queries, including ad-hoc queries, indexing, aggregation, and geospatial queries.
+
+- [**High Availability**](https://www.mongodb.com/resources/basics/high-availability): Automatic failover and data redundancy through replica sets ensure data is always available.
+
+- [**Document Model**](https://www.mongodb.com/resources/basics/json-and-bson): The document data model is a powerful way to store and retrieve data in any modern programming language, allowing developers to move quickly.
+
+- [**Real-Time Analytics**](https://www.mongodb.com/solutions/use-cases/analytics/real-time-analytics): Built-in aggregation framework allows for real-time data analysis and transformation.
+
+- [**Strong Security**](https://www.mongodb.com/docs/manual/security/): Comprehensive security features such as encryption at rest and in transit, In-Use Encryption, role-based access control, and auditing.
+
+- [**Robust Ecosystem**](https://www.mongodb.com/products/tools): Integration with various tools and platforms such as VS Code, Terraform, Kubernetes, and kafka, enhancing functionality and ease of use.
+
+- **[Community](https://www.mongodb.com/community/forums/) and [Enterprise Support](https://www.mongodb.com/services/support/enterprise-advanced-support-plans)**: Access to a large community and enterprise-level support ensures help and resources are readily available.
+
+## MongoDB vs SQL Database Engines
+
+| Feature                    | MongoDB                                  | RDBMS (e.g., MySQL, PostgreSQL)          |
+|----------------------------|------------------------------------------|------------------------------------------|
+| **Data Model**             | Document-oriented (JSON-like documents)  | Table-based (rows and columns)           |
+| **Schema**                 | Flexible, dynamic schema                 | Fixed, predefined schema                 |
+| **Scalability**            | Horizontal scaling with ease             | Primarily vertical scaling, horizontal scaling is complex |
+| **Transactions**           | Supports multi-document ACID transactions | Supports ACID transactions               |
+| **Query Language**         | MongoDB Query Language (MQL)              | SQL (Structured Query Language)          |
+| **Indexing**               | Supports various types of indexes, including compound, geospatial, text, etc. | Supports various types of indexes, primarily B-tree and hash |
+| **Joins**                  | Supports joins using `$lookup`            | Supports joins to combine data from multiple tables |
+| **Performance**            | Optimized for read and write performance, especially for large volumes of data | Performance can degrade with complex joins and large datasets |
+| **Flexibility**            | High flexibility due to dynamic schema   | Less flexible due to rigid schema constraints |
+| **Use Cases**              | Best for unstructured data, real-time analytics, and applications with rapidly changing data requirements | Best for structured data and applications requiring complex transactions and relationships |
+| **Deployment**             | Cloud-native, on-premises, hybrid        | On-premises, cloud                        |
+| **Community and Support**  | Strong community, enterprise support available | Strong community, enterprise support available |
+
+## MongoDB vs Other Document Databases
+### [MongoDB vs Azure Cosmos DB](https://www.mongodb.com/resources/compare/mongodb-vs-cosmos-db)
+
+#### General Features
+
+| Feature                                                    | MongoDB                                         | Azure Cosmos DB                                 |
+|------------------------------------------------------------|-------------------------------------------------|-------------------------------------------------|
+| **Choice of Cloud Providers**                              | Yes                                             | No                                              |
+| **Integrated Text Search, Geospatial Processing**          | Yes                                             | Limited                                         |
+| **Supports All MongoDB Features**                          | Yes                                             | No                                              |
+| **Access to Latest MongoDB Version**                       | Yes                                             | No                                              |
+| **Free Tier**                                              | Yes                                             | Limited                                         |
+| **Live Migration**                                         | Yes                                             | Only for eligible accounts                      |
+| **Choice of Instance Configuration**                       | Yes                                             | No                                              |
+| **Support for Multi-Document ACID Transactions**           | Yes                                             | Limited                                         |
+| **JSON Data Type Support**                                 | BSON                                            | BSON                                            |
+| **Maximum Document Size**                                  | 16 MB                                           | 2 MB                                            |
+| **JSON Schema for Data Governance Controls**               | Yes                                             | No                                              |
+| **Integrated Text Search and Graph Queries**               | Yes                                             | No                                              |
+| **Integrated Querying of Data in Cloud Object Storage**    | Yes                                             | No                                              |
+| **Automatically Tier Data to Cloud Object Storage**        | Yes                                             | No                                              |
+| **Blend Data with Joins and Unions for Analytics Queries** | Yes                                             | No                                              |
+| **Automatic Performance Recommendations**                  | Yes                                             | No                                              |
+| **Replica Set Configuration**                              | Up to 50 replicas                               | 3 data-bearing nodes                            |
+| **Automatic Sharding Support**                             | Yes                                             | Yes                                             |
+| **Hedged Reads**                                           | Yes                                             | No                                              |
+| **Pause and Resume Clusters**                              | Yes                                             | No                                              |
+| **Data Explorer**                                          | Yes                                             | Yes                                             |
+| **SQL-Based Connectivity**                                 | Yes                                             | Yes                                             |
+| **Native Data Visualization**                              | Yes                                             | No                                              |
+| **Supported in On-Premise and Hybrid Deployments**         | Yes                                             | No                                              |
+| **Embeddable Database with Sync for Mobile Devices**       | Yes                                             | No                                              |
+
+#### Global Clusters
+
+| Feature                                                    | MongoDB                                         | Azure Cosmos DB                                 |
+|------------------------------------------------------------|-------------------------------------------------|-------------------------------------------------|
+| **Multi-Cloud Deployment**                                 | Yes                                             | No                                              |
+| **Active-Active Clusters Supporting Global Writes**        | Yes                                             | Yes                                             |
+| **Cross-Region Replication**                               | Yes                                             | Yes                                             |
+
+#### Monitoring and Disaster Recovery
+
+| Feature                                                    | MongoDB                                         | Azure Cosmos DB                                 |
+|------------------------------------------------------------|-------------------------------------------------|-------------------------------------------------|
+| **Automatic Scaling of Compute and Storage**               | Yes                                             | Yes (with limitations)                          |
+| **Monitoring of Database Health with Automated Alerting**  | Yes                                             | Partial                                         |
+| **Backup Snapshots with On-Demand Point in Time Restore**  | Yes                                             | Yes                                             |
+| **Queryable Backups**                                      | Yes                                             | No                                              |
+| **Automated & Consistent Snapshots of Sharded Clusters**   | Yes                                             | No                                              |
+
+#### Security Controls
+
+| Feature                                                    | MongoDB                                         | Azure Cosmos DB                                 |
+|------------------------------------------------------------|-------------------------------------------------|-------------------------------------------------|
+| **Granular Role-Based Access Control**                     | Yes                                             | Limited                                         |
+| **AWS VPC Peering**                                        | Yes                                             | N/A                                             |
+| **Encryption of Data In-Flight**                           | Yes                                             | Yes                                             |
+| **Encryption of Data At-Rest**                             | Yes                                             | Yes                                             |
+| **Client-Side Field Level Encryption**                     | Yes                                             | No                                              |
+| **Encryption of Data In-Use**                              | Yes                                             | No                                              |
+| **Queryable Encryption**                                   | Yes                                             | No                                              |
+| **LDAP Integration**                                       | Yes                                             | Yes                                             |
+| **Database-Level Auditing**                                | Yes                                             | Yes                                             |
+| **Bring Your Own KMS**                                     | Yes                                             | No                                              |
+
+#### Support and Services
+
+| Feature                                                    | MongoDB                                         | Azure Cosmos DB                                 |
+|------------------------------------------------------------|-------------------------------------------------|-------------------------------------------------|
+| **Direct Support by Database Engineers**                   | Yes                                             | No                                              |
+| **Consulting Services**                                    | Yes                                             | No                                              |
+
+### [Amazon DocumentDB vs MongoDB](https://www.mongodb.com/resources/compare/documentdb-vs-mongodb)
+
+#### General Features
+
+| Feature                                                    | MongoDB                                         | Amazon DocumentDB                                 |
+|------------------------------------------------------------|-------------------------------------------------|--------------------------------------------------|
+| **Fully compatible with MongoDB**                          | Yes                                             | No, incomplete                                   |
+| **Support for latest MongoDB version**                     | Yes                                             | No, resembles MongoDB 3.0/3.2                    |
+| **Scale writes and partition data beyond a single node**   | Yes, full sharding support                      | Limited, only within Elastic Clusters             |
+| **Replicate and scale beyond a single region**             | Yes, global clusters with up to 50 replicas     | No, constrained to a single region                |
+| **High resilience, rapid failure recovery**                | Yes, typical failover sub-5 seconds             | No, ~120 second failover                          |
+| **Multi-statement distributed ACID transactions**          | Yes                                             | Limited                                           |
+| **Integrated text search, geospatial processing**          | Yes                                             | Limited                                           |
+| **Native support for time series data**                    | Yes                                             | No                                                |
+| **Hedged Reads**                                           | Yes                                             | No                                                |
+| **Online Archive**                                         | Yes, automatically tier data to cloud storage   | No                                                |
+| **Integrated querying of data in cloud object storage**    | Yes                                             | No                                                |
+| **On-demand Materialized Views**                           | Yes                                             | No                                                |
+| **Schema governance**                                      | Yes, JSON schema                                | No, enforced in the app                           |
+| **Rich data types**                                        | Yes                                             | Limited                                           |
+| **Reactive, event-driven data pipelines**                  | Yes, Change Streams & Atlas Triggers            | Limited                                           |
+| **Support for role-based access control**                  | Yes                                             | Limited                                           |
+| **Fine-grained monitoring telemetry**                      | Yes, 100+ metrics                               | No, <50 metrics                                   |
+| **Client-side field level encryption**                     | Yes                                             | No                                                |
+| **Queryable Encryption**                                   | Yes                                             | No                                                |
+| **Availability of advanced developer and analysis tools**  | Yes, Compass, Charts, SQL, Tableau, Power BI, Spark Connectors | Limited                                   |
+| **Freedom from vendor lock-in**                            | Yes, AWS, Azure, Google Cloud                   | No, AWS only                                      |
+| **Develop & run anywhere**                                 | Yes, mobile, laptop, data center, hybrid        | No, AWS only                                      |
+| **Mobile & Edge Sync**                                     | Yes                                             | No                                                |
+| **Access to MongoDB expertise**                            | Yes, hundreds of engineers                      | No                                                |
 
 
-## Main benefits of choosing mongoDB
+## MongoDB Use Cases
+
+### 1. Real-Time Analytics
+**Example:** E-commerce Websites
+- **Scenario:** An e-commerce website needs to analyze user behavior, sales data, and inventory in real-time to optimize user experience and sales strategies.
+- **MongoDB Advantage:** MongoDB's document model allows for flexible data structures that can store complex data types. Its aggregation framework supports real-time analytics by processing data directly within the database, reducing the need for additional ETL processes.
+
+### 2. Content Management Systems (CMS)
+**Example:** Blogging Platforms
+- **Scenario:** A blogging platform needs to manage and serve diverse content types, including articles, images, and metadata, with varying schema requirements.
+- **MongoDB Advantage:** MongoDB's flexible schema makes it easy to handle different content types and adapt to changing requirements without significant changes to the database schema. This flexibility accelerates development and iteration cycles.
+
+### 3. Internet of Things (IoT)
+**Example:** Smart Home Devices
+- **Scenario:** A smart home system collects and processes data from various sensors and devices in real-time to automate and optimize home environments.
+- **MongoDB Advantage:** MongoDB can efficiently store and process large volumes of time-series data from IoT devices. Its horizontal scalability ensures it can handle the growing amount of data generated by an increasing number of connected devices.
+
+### 4. Mobile Applications
+**Example:** Social Media Apps
+- **Scenario:** A social media app requires a backend that can handle a high volume of user-generated content, real-time interactions, and complex relationships between data.
+- **MongoDB Advantage:** MongoDB's document-oriented model suits the storage of user profiles, posts, comments, and likes, all within a single database. Its scalability supports growing user bases, and features like Realm Sync ensure real-time data synchronization between users' devices and the backend.
+
+## Main MongoDB Engine Concepts
+
+### 1. Documents
+- **Definition:** The basic unit of data in MongoDB, similar to a row in a relational database, but more flexible.
+- **Format:** JSON-like (BSON) structure, allowing for nested objects and arrays.
+
+### 2. Collections
+- **Definition:** A group of MongoDB documents, similar to a table in a relational database.
+- **Characteristics:** Collections do not enforce a schema, allowing for a diverse set of documents.
+
+### 3. Databases
+- **Definition:** A container for collections.
+- **Usage:** Each database has its own set of files on the file system.
+
+### 4. Replica Sets
+- **Definition:** A group of MongoDB servers that maintain the same data set, providing redundancy and high availability.
+- **Components:** Consists of a primary node and secondary nodes, with automatic failover.
+
+### 5. Sharding
+- **Definition:** The process of distributing data across multiple machines to support large datasets and high throughput operations.
+- **Components:** Shards, config servers, and query routers.
+
+### 6. Indexes
+- **Definition:** Special data structures that store a small portion of the data set in an easy-to-traverse form.
+- **Usage:** Improve query performance by allowing MongoDB to quickly locate documents.
+
+### 7. Aggregation Framework
+- **Definition:** A powerful tool for performing data processing and transformation operations directly within the database.
+- **Usage:** Supports operations like filtering, grouping, and sorting.
+
+### 8. Transactions
+- **Definition:** Multi-document ACID transactions that ensure data integrity.
+- **Usage:** Allows for operations across multiple documents to be executed in a way that ensures atomicity, consistency, isolation, and durability.
+
+### 9. Storage Engines
+- **Definition:** The components responsible for managing how data is stored, retrieved, and maintained on disk.
+- **Common Engines:** WiredTiger (default), In-Memory, and MMAPv1 (deprecated).
+
+### 10. Security
+- **Features:** Role-based access control, encryption at rest, encryption in transit, and auditing capabilities.
+- **Purpose:** Ensure data security and compliance with various regulations.
 
 
-## Differences with SQL database engines
 
-### mongoDB vs SQL database engines
+## MongoDB Community vs MongoDB Enterprise
 
-### mongoDB vs others document database engines
+| Feature                                        | MongoDB Community                             | MongoDB Enterprise                                |
+|------------------------------------------------|-----------------------------------------------|--------------------------------------------------|
+| **License**                                    | Open Source (SSPL)                            | Commercial (with additional features)             |
+| **Deployment Options**                         | Self-managed                                  | Self-managed, MongoDB Atlas, Enterprise Advanced  |
+| **Security**                                   | Basic security features                       | Advanced security (LDAP, Kerberos, auditing)      |
+| **Data Encryption**                            | Encryption at rest and in transit             | FIPS 140-2 encryption, Key Management Encryption  |
+| **Backup and Recovery**                        | Manual backups                                | Automated backups, point-in-time recovery         |
+| **Monitoring**                                 | Basic monitoring                              | Advanced monitoring (MongoDB Ops Manager, Cloud Manager) |
+| **Operational Tools**                          | Basic tools                                   | Advanced tools (Ops Manager, Cloud Manager)       |
+| **Performance Optimization**                   | Basic performance tools                       | Advanced performance tools and auto-tuning        |
+| **Scalability**                                | Sharding and replication                      | Advanced scalability features, multi-region clusters |
+| **Support**                                    | Community support                             | 24/7 enterprise-grade support                     |
+| **Advanced Analytics and Visualization**       | Basic tools                                   | MongoDB Charts, BI Connector                      |
+| **Time Series**                                | Supported                                     | Enhanced features and optimizations               |
+| **Mobile Sync**                                | Basic sync                                    | Advanced mobile sync with MongoDB Realm           |
+| **Search**                                     | Basic text search                             | Advanced full-text search with MongoDB Atlas Search |
+| **Data Lake**                                  | Basic integration                             | Advanced data lake capabilities with MongoDB Atlas Data Lake |
+| **Consulting and Training**                    | Limited                                       | Extensive consulting and training services        |
 
-## Use cases
-
-### use case 1
-
-### use case 2...
-
-### Main mongoDB engine concept
-
-### Communauty or Entreprise edition
-### cluster
-### Documents
-### ...
 
 ## Exemples of architecture design
 
