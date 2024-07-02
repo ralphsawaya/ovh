@@ -213,7 +213,7 @@ Amazon DocumentDB is a managed service that emulates the MongoDB API but does no
 ### 4. Mobile Applications
 **Example:** Social Media Apps
 - **Scenario:** A social media app requires a backend that can handle a high volume of user-generated content, real-time interactions, and complex relationships between data.
-- **MongoDB Advantage:** MongoDB's document-oriented model suits the storage of user profiles, posts, comments, and likes, all within a single database. Its scalability supports growing user bases, and features like Realm Sync ensure real-time data synchronization between users' devices and the backend.
+- **MongoDB Advantage:** MongoDB's document-oriented model suits the storage of user profiles, posts, comments, and likes, all within a single database. Furthermore, Its scalability supports growing user bases.
 
 ## Main MongoDB Engine Concepts
 
