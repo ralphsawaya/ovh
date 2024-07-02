@@ -18,7 +18,6 @@ MongoDB also offers comprehensive security features, including encryption at res
 - [**Flexible Schema**](https://www.mongodb.com/docs/manual/data-modeling/): MongoDB's document-oriented storage allows for dynamic schema, making it easy to handle unstructured and semi-structured data.
   - #### Example of a MongoDB Collection:
     ```json
-    [
       {
         "_id": 1,
         "name": "John Doe",
@@ -40,7 +39,6 @@ MongoDB also offers comprehensive security features, including encryption at res
         "phone_numbers": ["555-8765"],
         "date_of_birth": "1985-01-01"
       }
-    ]
     ```
   - #### Key Points:
     - <ins>Nested Documents</ins>: The address field in both documents is a nested document containing subfields like street, city, and postal_code.
