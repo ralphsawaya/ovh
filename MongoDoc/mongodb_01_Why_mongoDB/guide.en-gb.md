@@ -16,40 +16,40 @@ MongoDB also offers comprehensive security features, including encryption at res
 
 ## Main Benefits of Choosing MongoDB
 - [**Flexible Schema**](https://www.mongodb.com/docs/manual/data-modeling/): MongoDB's document-oriented storage allows for dynamic schema, making it easy to handle unstructured and semi-structured data.
-  #### Example of MongoDB Collection:
+  - #### Example of a MongoDB Collection:
+    ```json
+    [
+      {
+        "_id": 1,
+        "name": "John Doe",
+        "address": {
+          "street": "123 Main St",
+          "city": "Springfield",
+          "postal_code": "12345"
+        },
+        "phone_numbers": ["555-1234", "555-5678"],
+        "email": "john.doe@example.com"
+      },
+      {
+        "_id": 2,
+        "name": "Jane Smith",
+        "address": {
+          "street": "456 Elm St",
+          "city": "Shelbyville"
+        },
+        "phone_numbers": ["555-8765"],
+        "date_of_birth": "1985-01-01"
+      }
+    ]
+    ```
+  - #### Key Points:
+    - <ins>Nested Documents</ins>: The address field in both documents is a nested document containing subfields like street, city, and postal_code.
+    - <ins>Array Fields</ins>: The phone_numbers field in both documents is an array containing multiple phone numbers.
+    - <ins>Varying Fields</ins>: The email field is present only in the first document, while the date_of_birth field is present only in the second document. The structure and number of fields vary between the two documents within the same collection.
 
-```json
-[
-  {
-    "_id": 1,
-    "name": "John Doe",
-    "address": {
-      "street": "123 Main St",
-      "city": "Springfield",
-      "postal_code": "12345"
-    },
-    "phone_numbers": ["555-1234", "555-5678"],
-    "email": "john.doe@example.com"
-  },
-  {
-    "_id": 2,
-    "name": "Jane Smith",
-    "address": {
-      "street": "456 Elm St",
-      "city": "Shelbyville"
-    },
-    "phone_numbers": ["555-8765"],
-    "date_of_birth": "1985-01-01"
-  }
-]
-```
-  #### Key Points:
-  &nbsp; - Nested Documents: The address field in both documents is a nested document containing subfields like street, city, and postal_code.
-    
-  &nbsp; - Array Fields: The phone_numbers field in both documents is an array containing multiple phone numbers.
-  
-  &nbsp; - Varying Fields: The email field is present only in the first document, while the date_of_birth field is present only in the second document. The structure and number of fields vary between the two documents within the same collection.
 - [**Scalability**](https://www.mongodb.com/resources/basics/scaling): Horizontal scaling with replica sets ensures high availability and scalability to meet growing data and workload demands.
+
+  ![alt text](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_01_Why_mongoDB/images/replicaset.png)
 
 - [**High Performance**](https://www.mongodb.com/docs/manual/administration/analyzing-mongodb-performance/#mongodb-performance): Efficient storage and indexing mechanisms enable fast query responses and data processing.
 
