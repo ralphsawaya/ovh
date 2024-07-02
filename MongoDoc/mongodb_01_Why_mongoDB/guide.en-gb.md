@@ -6,13 +6,13 @@ updated: 2024-06-27
 
 ## Introduction
 
-MongoDB is a leading NoSQL database that provides a flexible, scalable, and high-performance solution for modern application development. It stores data in JSON-like documents, which allows for a dynamic schema, making it ideal for handling unstructured and semi-structured data. This document-oriented approach ensures high flexibility in how data is stored, queried, and indexed.
+[MongoDB](https://www.mongodb.com/) is a leading NoSQL database that provides a flexible, scalable, and high-performance solution for modern application development. It stores data in JSON-like documents, which allows for a dynamic schema, making it ideal for handling unstructured and semi-structured data. This document-oriented approach ensures high flexibility in how data is stored, queried, and indexed.
 
 MongoDB's architecture is built for high availability and horizontal scalability. It supports replica sets, providing automatic failover and data redundancy to ensure data availability and reliability. This ensures that applications can continue to run smoothly even in the event of hardware failures.
 
 The database engine uses a storage model based on collections and documents, where collections hold sets of documents and documents are the basic units of data. This structure simplifies the development process, allowing developers to interact with data using native and intuitive APIs. MongoDB's powerful querying capabilities, including ad-hoc queries, indexing, and real-time aggregation, enable developers to create robust and efficient applications.
 
-MongoDB also offers comprehensive security features, including encryption at rest and in transit, role-based access control, and auditing. These features ensure that data is protected and meets compliance requirements. The MongoDB community and enterprise support options provide developers and organizations with the resources and assistance needed to optimize their use of the database.
+MongoDB also offers comprehensive security features, including encryption at rest and in transit, role-based access control, and auditing. These features ensure that data is protected and meets compliance requirements. [The MongoDB community](https://www.mongodb.com/community/forums/) and enterprise support options, provide developers and organizations with the resources and assistance needed to optimize their use of the database.
 
 **This guide explains the reason why xxx.**
 
