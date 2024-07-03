@@ -194,7 +194,7 @@ To connect to your MongoDB database hosted on OVH using MongoDB Compass, follow 
 3. **Whitelist your IP address**: Navigate to your MongoDB cluster, under the **Authorized IPs** tab, make sure to include your IP.
 4. **Open MongoDB Compass**: Launch MongoDB Compass on your computer.
 5. **Obtain Connection String**: In your OVHcloud account, navigate to your MongoDB cluster, and obtain the connection string. This string includes necessary information such as the hostname and authentication details.
-6. **Edit Connection String**: Make sure to replace within the <username> and <password> with user information you created in the previous step.
+6. **Edit Connection String**: Make sure to replace the `<username>` and `<password>` with user information you created in the previous step.
 
 ![alt text](./images/compassConnection.png)
    
@@ -239,6 +239,28 @@ bulk.execute();
 print("100 random documents inserted into the 'customer' collection.");
 ```
 ![alt text](./images/compassShell.png)
+
+### Query the data with the aggregation framemork
+
+The below MongoDB aggregation pipeline uses the MongoDB aggregation Framework to group customers by age and count each occurence. You can use the mongoshell to execute:
+
+```javascript
+db.customer.aggregate([
+    {
+        $group: {
+            _id: "$age",
+            count: { $sum: 1 }
+        }
+    },
+    {
+        $sort: { _id: 1 }
+    }
+]);
+```
+
+You can use the UI with Compass to execute the aggregation pipeline.
+
+
 ## We want your feedback!
 
 We would love to help answer questions and appreciate any feedback you may have.
