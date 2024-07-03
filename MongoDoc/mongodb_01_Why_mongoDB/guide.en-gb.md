@@ -16,7 +16,7 @@ MongoDB also offers comprehensive security features, including encryption at res
 
 ## Main Benefits of Choosing MongoDB
 - [**Flexible Schema**](https://www.mongodb.com/docs/manual/data-modeling/): MongoDB's document-oriented storage allows for dynamic schema, making it easy to handle unstructured and semi-structured data.
-  - #### Example of a MongoDB Collection:
+  - #### Example of a MongoDB Collection with 2 Documents:
     ```json
       {
         "_id": 1,
@@ -82,7 +82,6 @@ MongoDB also offers comprehensive security features, including encryption at res
 | **Deployment**             | Cloud-native, on-premises, hybrid        | On-premises, cloud                        |
 | **Community and Support**  | Strong community, enterprise support available | Strong community, enterprise support available |
 
-### Terminology
 ![alt text](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_01_Why_mongoDB/images/terminology.png)
 ## MongoDB vs Other Document Databases
 ### [MongoDB vs Azure Cosmos DB](https://www.mongodb.com/resources/compare/mongodb-vs-cosmos-db)
@@ -282,6 +281,8 @@ Amazon DocumentDB is a managed service that emulates the MongoDB API but does no
 
 
 ## [MongoDB Drivers](https://www.mongodb.com/docs/drivers/)
+![alt text](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_01_Why_mongoDB/images/languageSupport.png)
+
 MongoDB drivers provide the interface for applications to interact with MongoDB databases. They offer:
 
 - **Native Language Support**: Drivers are available for various programming languages, including JavaScript (Node.js), Python, Java, C#, PHP, Ruby, Go, and more.
