@@ -6,11 +6,7 @@ updated: 2024-06-27
 
 ## Objective
 
-Public Cloud Databases allow you to focus on building and deploying cloud applications while OVHcloud takes care of the database infrastructure and maintenance in operational conditions. 
-
-blablabla
-
-**This guide explains the reason why xxx.**
+To get you started with MongoDB on OVH, the following page will show you how to determine the initial sizing for a MongoDB deployment, considering whether to opt for an Advanced or Production subscription on a public or Vrack network. After deploying the cluster, we will provide guidelines on how to connect with Compass and then how to upscale and downscale an OVH cluster. Additionally, we will cover MongoDB basics such as Design Patterns, indexing, and querying to help you  get started effectively with MongoDB.
 
 ## MongoDB Cluster Sizing
 
