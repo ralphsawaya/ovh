@@ -181,6 +181,24 @@ You can add the `compressors` parameter to the connection string to enable compr
 
 mongodb://localhost/?compressors=snappy
 
+## Connecting to MongoDB Database Hosted on OVH with MongoDB Compass
+
+To connect to your MongoDB database hosted on OVH using MongoDB Compass, follow these steps:
+
+1. **Install MongoDB Compass**: If you haven't already, download and install MongoDB Compass from the [official website](https://www.mongodb.com/try/download/compass).
+2. **Add a Database User**: In your OVHcloud account, navigate to your MongoDB cluster and add a new database user with the appropriate permissions.
+3. **Whitelist your IP address**: Navigate to your MongoDB cluster, under the **Authorized IPs** tab, make sure to include your IP.
+4. **Open MongoDB Compass**: Launch MongoDB Compass on your computer.
+5. **Obtain Connection String**: In your OVHcloud account, navigate to your MongoDB cluster, and obtain the connection string. This string includes necessary information such as the hostname, port, and authentication details.
+6. **Edit Connection String**: Make sure to replace within the <username> and <password> with user information you created in the previous step.
+   
+9. **Connect**: Once the connection test is successful, click the "Connect" button to establish a connection to your MongoDB database hosted on OVH.
+
+By following these steps, you will be able to connect to your MongoDB database hosted on OVH using MongoDB Compass, enabling you to manage and interact with your data through the Compass GUI.
+
+By following these steps, you will be able to connect to your MongoDB database hosted on OVH using MongoDB Compass, enabling you to manage and interact with your data through the Compass GUI.
+
+
 ## We want your feedback!
 
 We would love to help answer questions and appreciate any feedback you may have.
