@@ -240,9 +240,9 @@ print("100 random documents inserted into the 'customer' collection.");
 ```
 ![alt text](./images/compassShell.png)
 
-### Query the data with the aggregation framemork
+### Query the data with the aggregation framework
 
-The below MongoDB aggregation pipeline uses the MongoDB aggregation Framework to group customers by age and count each occurence. You can use the mongoshell to execute:
+The below MongoDB aggregation pipeline uses the [MongoDB aggregation Framework](https://www.mongodb.com/docs/manual/aggregation/) to group customers by age and count each occurence. You can use the mongoshell to execute:
 
 ```javascript
 db.customer.aggregate([
@@ -260,6 +260,7 @@ db.customer.aggregate([
 
 You can use the UI with Compass to execute the aggregation pipeline.
 
+![alt text](./images/compassAggregation.png)
 
 ## We want your feedback!
 
