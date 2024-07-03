@@ -201,7 +201,7 @@ To connect to your MongoDB database hosted on OVH using MongoDB Compass, follow 
 8. **Connect**: click the "Connect" button to establish a connection to your MongoDB database.
 
 ## Insert and Query Data
-you can use the [mongoshell](https://www.mongodb.com/docs/mongodb-shell/), integrated in Compass, to create your first database and collection. Below is a script that creates the database **company** and collection **customers** and inserts 100 random documents.
+you can use the [mongoshell](https://www.mongodb.com/docs/mongodb-shell/), integrated in Compass, to create your first database and collection. Below is a script that creates the database **company** and collection **customer** and inserts 100 random documents.
 
 ### Loading Data into MongoDB
 
@@ -238,7 +238,7 @@ bulk.execute();
 
 print("100 random documents inserted into the 'customer' collection.");
 ```
-
+![alt text](./images/compassShell.png)
 ## We want your feedback!
 
 We would love to help answer questions and appreciate any feedback you may have.
