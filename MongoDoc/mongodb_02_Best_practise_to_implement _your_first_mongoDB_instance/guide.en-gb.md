@@ -258,7 +258,7 @@ db.customer.aggregate([
 ]);
 ```
 
-You can use the UI with Compass to execute the aggregation pipeline.
+You can also use the UI with Compass to execute the aggregation pipeline.
 
 ![alt text](./images/compassAggregation.png)
 
