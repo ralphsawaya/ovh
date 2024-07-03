@@ -177,7 +177,7 @@ The following blog article describes how to use design patterns to improve data 
 
 As a distributed database, MongoDB relies on efficient network transport during query routing and inter-node replication. Based on the snappy compression algorithm, network traffic across a MongoDB cluster can be compressed by up to 80%, providing major performance benefits in bandwidth-constrained environments and reducing networking costs.
 
-You can add the `compressors` parameter to the connection string to enable compression:
+You can add the [compressors](https://www.mongodb.com/docs/manual/reference/connection-string/#compression-options) parameter to the connection string to enable compression:
 
 mongodb://localhost/?compressors=snappy
 
@@ -200,6 +200,44 @@ To connect to your MongoDB database hosted on OVH using MongoDB Compass, follow 
    
 8. **Connect**: click the "Connect" button to establish a connection to your MongoDB database.
 
+## Insert and Query Data
+you can use the [mongoshell](https://www.mongodb.com/docs/mongodb-shell/), integrated in Compass, to create your first database and collection. Below is a script that creates the database **company** and collection **customers** and inserts 100 random documents.
+
+### Loading Data into MongoDB
+
+To load 100 documents into a collection called `customer` with random data, use the following `mongosh` script:
+
+```javascript
+use company;
+
+// Function to generate random data
+function getRandomData() {
+    const firstNames = ["John", "Jane", "Mary", "Michael", "Sarah", "Robert", "Linda", "James", "Patricia", "David"];
+    const lastNames = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller", "Wilson", "Moore", "Taylor"];
+    const domains = ["example.com", "email.com", "mail.com", "test.com", "demo.com"];
+    
+    function getRandomItem(array) {
+        return array[Math.floor(Math.random() * array.length)];
+    }
+    
+    return {
+        firstName: getRandomItem(firstNames),
+        lastName: getRandomItem(lastNames),
+        email: `${getRandomItem(firstNames).toLowerCase()}.${getRandomItem(lastNames).toLowerCase()}@${getRandomItem(domains)}`,
+        age: Math.floor(Math.random() * 60) + 18,
+        createdAt: new Date()
+    };
+}
+
+// Insert 100 random documents into the customer collection
+const bulk = db.customer.initializeUnorderedBulkOp();
+for (let i = 0; i < 100; i++) {
+    bulk.insert(getRandomData());
+}
+bulk.execute();
+
+print("100 random documents inserted into the 'customer' collection.");
+```
 
 ## We want your feedback!
 
