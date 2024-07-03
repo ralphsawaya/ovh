@@ -47,7 +47,7 @@ MongoDB also offers comprehensive security features, including encryption at res
 
 - [**Scalability**](https://www.mongodb.com/resources/basics/scaling): Horizontal scaling with replica sets ensures high availability and scalability to meet growing data and workload demands.
 
-  ![alt text](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_01_Why_mongoDB/images/replicaset.png)
+  ![alt text](./images/replicaset.png)
 
 - [**High Performance**](https://www.mongodb.com/docs/manual/administration/analyzing-mongodb-performance/#mongodb-performance): Efficient storage and indexing mechanisms enable fast query responses and data processing.
 
@@ -82,7 +82,7 @@ MongoDB also offers comprehensive security features, including encryption at res
 | **Deployment**             | Cloud-native, on-premises, hybrid        | On-premises, cloud                        |
 | **Community and Support**  | Strong community, enterprise support available | Strong community, enterprise support available |
 
-![alt text](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_01_Why_mongoDB/images/terminology.png)
+![alt text](./images/terminology.png)
 ## MongoDB vs Other Document Databases
 ### [MongoDB vs Azure Cosmos DB](https://www.mongodb.com/resources/compare/mongodb-vs-cosmos-db)
 
@@ -281,7 +281,7 @@ Amazon DocumentDB is a managed service that emulates the MongoDB API but does no
 
 
 ## [MongoDB Drivers](https://www.mongodb.com/docs/drivers/)
-![alt text](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_01_Why_mongoDB/images/languageSupport.png)
+![alt text](./images/languageSupport.png)
 
 MongoDB drivers provide the interface for applications to interact with MongoDB databases. They offer:
 
