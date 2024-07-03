@@ -203,7 +203,7 @@ To connect to your MongoDB database hosted on OVH using MongoDB Compass, follow 
 ## Insert and Query Data
 you can use the [mongoshell](https://www.mongodb.com/docs/mongodb-shell/), integrated in Compass, to create your first database and collection. Below is a script that creates the database **company** and collection **customer** and inserts 100 random documents.
 
-### Loading Data into MongoDB
+### Load Data into MongoDB
 
 To load 100 documents into a collection called `customer` with random data, use the following `mongosh` script:
 
@@ -240,9 +240,9 @@ print("100 random documents inserted into the 'customer' collection.");
 ```
 ![alt text](./images/compassShell.png)
 
-### Query the data with the aggregation framework
+### Query Data with the Aggregation Framework
 
-The below MongoDB aggregation pipeline uses the [MongoDB aggregation Framework](https://www.mongodb.com/docs/manual/aggregation/) to group customers by age and count each occurence. You can use the mongoshell to execute:
+The below MongoDB aggregation pipeline uses the [MongoDB Aggregation Framework](https://www.mongodb.com/docs/manual/aggregation/) to group customers by age and count each occurence. You can use the mongoshell to execute:
 
 ```javascript
 db.customer.aggregate([
@@ -261,6 +261,51 @@ db.customer.aggregate([
 You can also use the UI with Compass to execute the aggregation pipeline.
 
 ![alt text](./images/compassAggregation.png)
+
+## MongoDB Developer Best Practices
+
+### Data Modeling and Design Patterns
+
+- **Understand Your Application Requirements**: Start by thoroughly understanding the application requirements and how data will be accessed. This helps in designing schemas that meet performance and scalability needs.
+
+- **Use Schema Design Patterns**: Utilize common [schema design patterns](https://www.mongodb.com/blog/post/building-with-patterns-a-summary) like the **Bucket Pattern**, **Outlier Pattern**, and **Subset Pattern** to handle large datasets efficiently. Each pattern has specific use cases:
+  - **Bucket Pattern**: Ideal for time-series data, this pattern groups related data into buckets to reduce the number of documents and improve query performance.
+  - **Outlier Pattern**: Manage outliers separately to maintain efficient indexing and querying for the majority of your data.
+  - **Subset Pattern**: Break down large datasets into manageable subsets to enhance performance and maintainability.
+
+- **Avoid Schema Design Anti-Patterns**: Be aware of and avoid common [schema design anti-patterns](https://www.mongodb.com/developer/products/mongodb/schema-design-anti-pattern-summary/) such as:
+  - **Massive Arrays**: Arrays with large numbers of elements can lead to inefficient querying and increased memory usage.
+  - **Overly Deeply Nested Documents**: Deeply nested documents can complicate queries and degrade performance. Instead, consider flattening your data structure or using references.
+  - **Monolithic Collections**: Avoid storing unrelated data in a single collection, which can lead to inefficient indexing and querying.
+
+- **Leverage Document Validation**: Use MongoDB’s [schema validation](https://www.mongodb.com/docs/manual/core/schema-validation/#schema-validation) to enforce data integrity and ensure that documents adhere to a defined structure.
+
+### Indexing
+
+- **Create Indexes Based on Query Patterns**: Analyze your query patterns and create indexes that support the most frequent and performance-critical queries. Use [compound indexes](https://www.mongodb.com/docs/manual/core/indexes/index-types/index-compound/#compound-indexes) where multiple fields are queried together.
+
+- **Use Covered Queries**: Design [indexes that cover the fields](https://www.mongodb.com/docs/manual/core/query-optimization/#covered-query) required by your queries. This allows MongoDB to satisfy the query using only the index, without scanning the documents, leading to significant performance improvements.
+
+- **Optimize Index Size**: Regularly monitor and optimize the size of your indexes. Use MongoDB’s built-in tools to calculate the total index size and ensure it fits within the available RAM to avoid excessive disk I/O.
+
+- **Avoid Over-Indexing**: While indexes improve query performance, too many indexes can degrade write performance and increase storage requirements. Only create indexes that are necessary for your application’s queries.
+
+- **Use TTL Indexes for Expiring Data**: For data that needs to expire after a certain period, such as session information or logs, use [TTL (Time-To-Live) indexes](https://www.mongodb.com/docs/manual/core/index-ttl/#ttl-indexes). This helps in automatically removing expired data and maintaining an efficient dataset.
+
+### Monitoring
+
+- **Implement Comprehensive Monitoring**: Utilize MongoDB’s monitoring tools, such as MongoDB Atlas, Ops Manager, or third-party monitoring solutions, to continuously monitor database performance, resource utilization, and operational metrics.
+
+- **Set Up Alerts**: Configure alerts for key performance indicators such as high CPU usage, memory consumption, disk I/O, and slow queries. This enables proactive management and quick resolution of potential issues.
+
+- **Analyze Query Performance**: Regularly review and analyze query performance using tools like the MongoDB Profiler and explain plans. Identify and optimize slow queries to ensure efficient data retrieval.
+
+- **Monitor Index Performance**: Keep track of index usage statistics to identify unused or underutilized indexes. Remove or optimize these indexes to maintain optimal performance.
+
+- **Plan for Backups and Disaster Recovery**: Ensure regular backups are scheduled and tested. Utilize MongoDB’s backup tools to create consistent and reliable backups, and have a well-defined disaster recovery plan in place.
+
+By following these best practices, developers can design efficient and scalable MongoDB databases that meet the performance and operational needs of their applications.
+
 
 ## We want your feedback!
 
