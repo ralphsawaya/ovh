@@ -268,10 +268,11 @@ You can also use the UI with Compass to execute the aggregation pipeline.
 
 - **Understand Your Application Requirements**: Start by thoroughly understanding the application requirements and how data will be accessed. This helps in designing schemas that meet performance and scalability needs.
 
-- **Use Schema Design Patterns**: Utilize common [schema design patterns](https://www.mongodb.com/blog/post/building-with-patterns-a-summary) like the **Bucket Pattern**, **Outlier Pattern**, and **Subset Pattern** to handle large datasets efficiently. Each pattern has specific use cases:
-  - **Bucket Pattern**: Ideal for time-series data, this pattern groups related data into buckets to reduce the number of documents and improve query performance.
-  - **Outlier Pattern**: Manage outliers separately to maintain efficient indexing and querying for the majority of your data.
-  - **Subset Pattern**: Break down large datasets into manageable subsets to enhance performance and maintainability.
+- **Use Schema Design Patterns**: Utilize common [schema design patterns](https://www.mongodb.com/blog/post/building-with-patterns-a-summary) like the **Bucket Pattern**, **Outlier Pattern**, **Subset Pattern**, and **Attribute Pattern** to handle large datasets efficiently. Each pattern has specific use cases:
+  - [Bucket Pattern](https://www.mongodb.com/blog/post/building-with-patterns-the-bucket-pattern): Ideal for time-series data, this pattern groups related data into buckets to reduce the number of documents and improve query performance.
+  - [Outlier Pattern](https://www.mongodb.com/blog/post/building-with-patterns-the-outlier-pattern): Manage outliers separately to maintain efficient indexing and querying for the majority of your data.
+  - [Subset Pattern](https://www.mongodb.com/blog/post/building-with-patterns-the-subset-pattern): Break down large datasets into manageable subsets to enhance performance and maintainability.
+  - [Attribute Pattern](https://www.mongodb.com/blog/post/building-with-patterns-the-attribute-pattern): used to handle scenarios where documents contain a large number of similar fields, by consolidating them into a key-value pair array, thus optimizing for query flexibility and storage efficiency.
 
 - **Avoid Schema Design Anti-Patterns**: Be aware of and avoid common [schema design anti-patterns](https://www.mongodb.com/developer/products/mongodb/schema-design-anti-pattern-summary/) such as:
   - **Massive Arrays**: Arrays with large numbers of elements can lead to inefficient querying and increased memory usage.
@@ -281,6 +282,8 @@ You can also use the UI with Compass to execute the aggregation pipeline.
 - **Leverage Document Validation**: Use MongoDB’s [schema validation](https://www.mongodb.com/docs/manual/core/schema-validation/#schema-validation) to enforce data integrity and ensure that documents adhere to a defined structure.
 
 ### Indexing
+
+When developing your [indexing strategy](https://www.mongodb.com/docs/manual/applications/indexes/#indexing-strategies) you should have a deep understanding of your application's queries. Before you build indexes, map out the types of queries you will run so that you can build indexes that reference those fields. Indexes come with a performance cost, but are more than worth the cost for frequent queries on large data sets. 
 
 - **Create Indexes Based on Query Patterns**: Analyze your query patterns and create indexes that support the most frequent and performance-critical queries. Use [compound indexes](https://www.mongodb.com/docs/manual/core/indexes/index-types/index-compound/#compound-indexes) where multiple fields are queried together.
 
@@ -292,9 +295,13 @@ You can also use the UI with Compass to execute the aggregation pipeline.
 
 - **Use TTL Indexes for Expiring Data**: For data that needs to expire after a certain period, such as session information or logs, use [TTL (Time-To-Live) indexes](https://www.mongodb.com/docs/manual/core/index-ttl/#ttl-indexes). This helps in automatically removing expired data and maintaining an efficient dataset.
 
+- **Equality Sort Range Rule (ESR)**: The [ESR rule](https://www.mongodb.com/docs/manual/tutorial/equality-sort-range-rule/#the-esr--equality--sort--range--rule) in MongoDB is a guideline for optimizing query performance by structuring compound indexes. The rule suggests placing fields used for equality comparisons first, followed by fields used for sorting, and finally fields used for range queries. This order maximizes the efficiency of index utilization and improves query performance.
+
 ### Leverage MongoDB Change Streams
 
 MongoDB [Change Streams](https://www.mongodb.com/docs/manual/changeStreams/) provide a powerful way to listen and react to real-time changes in your MongoDB collections. This feature allows applications to be more responsive by enabling real-time updates and notifications. With Change Streams, you can watch for changes such as insertions, updates, deletions, and more in your collections, and then trigger specific actions based on these changes. This capability is essential for building reactive applications, enabling real-time analytics, synchronizing data across different systems, and more.
+
+Refer to the indexing Strategies for more 
 
 ### Monitoring
 
@@ -302,7 +309,7 @@ MongoDB [Change Streams](https://www.mongodb.com/docs/manual/changeStreams/) pro
 
 - **Set Up Alerts**: Configure alerts for key performance indicators such as high CPU usage, memory consumption, disk I/O, and slow queries. This enables proactive management and quick resolution of potential issues.
 
-- **Analyze Query Performance**: Regularly review and analyze query performance using tools like the MongoDB Profiler and explain plans. Identify and optimize slow queries to ensure efficient data retrieval.
+- **Analyze Query Performance**: Regularly review and analyze query performance using tools like the [MongoDB Profiler](https://www.mongodb.com/docs/manual/reference/database-profiler/) and [explain plans](https://www.mongodb.com/docs/manual/reference/explain-results/). Identify and optimize slow queries to ensure efficient data retrieval.
 
 - **Monitor Index Performance**: Keep track of index usage statistics to identify unused or underutilized indexes. Remove or optimize these indexes to maintain optimal performance.
 
