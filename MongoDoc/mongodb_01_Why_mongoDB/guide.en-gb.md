@@ -82,6 +82,8 @@ MongoDB also offers comprehensive security features, including encryption at res
 | **Deployment**             | Cloud-native, on-premises, hybrid        | On-premises, cloud                        |
 | **Community and Support**  | Strong community, enterprise support available | Strong community, enterprise support available |
 
+### Terminology
+![alt text](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_01_Why_mongoDB/images/terminology.png)
 ## MongoDB vs Other Document Databases
 ### [MongoDB vs Azure Cosmos DB](https://www.mongodb.com/resources/compare/mongodb-vs-cosmos-db)
 
