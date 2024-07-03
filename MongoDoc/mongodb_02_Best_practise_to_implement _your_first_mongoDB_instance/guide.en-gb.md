@@ -279,7 +279,7 @@ You can also use the UI with Compass to execute the aggregation pipeline.
   - **Overly Deeply Nested Documents**: Deeply nested documents can complicate queries and degrade performance. Instead, consider flattening your data structure or using references.
   - **Monolithic Collections**: Avoid storing unrelated data in a single collection, which can lead to inefficient indexing and querying.
 
-- **Leverage Document Validation**: Use MongoDB’s [schema validation](https://www.mongodb.com/docs/manual/core/schema-validation/#schema-validation) to enforce data integrity and ensure that documents adhere to a defined structure.
+- **Leverage Document Validation**: Leverage, whenever necessary, MongoDB’s [schema validation](https://www.mongodb.com/docs/manual/core/schema-validation/#schema-validation) to enforce data integrity and ensure that documents adhere to a defined structure. Careful not to overuse this feature as it uses extra ressources, and after all, MongoDB is meant to be flexible.
 
 ### Indexing
 
