@@ -190,7 +190,7 @@ You can refer to the [Getting Started](https://help.ovhcloud.com/csm/en-public-c
 To connect to your MongoDB database hosted on OVH using MongoDB Compass, follow these steps:
 
 1. **Install MongoDB Compass**: If you haven't already, [download and install MongoDB Compass](https://www.mongodb.com/try/download/compass)
-2. [**Add a Database User**](https://help.ovhcloud.com/csm/en-public-cloud-databases-mongodb-managing-service?id=kb_article_view&sysparm_article=KB0049061): In your OVHcloud account, navigate to your MongoDB cluster under section **General Information > Login Information > Manage users** and add a new database user with the appropriate permissions.
+2. [**Add a Database User**](https://help.ovhcloud.com/csm/en-public-cloud-databases-mongodb-managing-service?id=kb_article_view&sysparm_article=KB0049061): In your OVHcloud account, navigate to your MongoDB cluster under section **General Information > Login Information > Manage users** and add a new [database user with the appropriate permissions](https://www.mongodb.com/docs/manual/tutorial/manage-users-and-roles/).
 3. **Whitelist your IP address**: Navigate to your MongoDB cluster, under the **Authorized IPs** tab, make sure to include your IP.
 4. **Open MongoDB Compass**: Launch MongoDB Compass on your computer.
 5. **Obtain Connection String**: In your OVHcloud account, navigate to your MongoDB cluster under **General Information**, and obtain the connection string. This string includes necessary information such as the hostname and authentication details.
