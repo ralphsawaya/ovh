@@ -69,7 +69,7 @@ The [mongosync](https://www.mongodb.com/docs/cluster-to-cluster-sync/current/ref
 - Consider future growth and scalability needs. You might want to consider how to [size a MongoDB clsuter](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_02_Best_practise_to_implement%20_your_first_mongoDB_instance/guide.en-gb.md#mongodb-cluster-sizing).
 
 ## 2. Setup OVH Cluster
-- **Create Cluster**: Set up the new OVH managed MongoDB cluster.
+- **Create Cluster**: [Set up the new OVH managed MongoDB cluster](https://help.ovhcloud.com/csm/en-public-cloud-databases-getting-started?id=kb_article_view&sysparm_article=KB0048745).
 - **Configuration**: Configure the OVH cluster settings to match your current MongoDB cluster's configuration as closely as possible.
 
 ## 3. Data Migration Tools
@@ -79,7 +79,7 @@ Use one of the tools mentioned in the [previous section](https://github.com/ralp
 ## 5. Migration Execution
 
 ### Test Migration
-- Perform a test migration on a dataset to validate the process. Use the SimRunner and YCSB tools, mentioned in previous section, to help you do so.
+- Perform a test migration on a dataset to validate the process. Use the SimRunner and YCSB tools mentioned in the [previous section](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_03_Move%20to%20OVHcloud%20mongoDB%20managed%20from%20an%20existing%20mongoDB%20instance/guide.en-gb.md#migration-tools).
 - Verify data integrity and performance on the OVH cluster.
 
 ### Schedule Migration
