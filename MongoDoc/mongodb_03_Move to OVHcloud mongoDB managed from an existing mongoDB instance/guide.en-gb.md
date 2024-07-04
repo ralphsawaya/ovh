@@ -104,23 +104,9 @@ Use one of the tools mentioned in the [previous section](https://github.com/ralp
 - Validate that all data has been transferred and is accessible.
 - Check for any discrepancies or missing data.
 
-### Update Configuration
-- Update application configurations to point to the new OVH MongoDB cluster.
-- Test all application functionalities to ensure smooth operation.
-
 ### Monitor Performance
 - Continuously monitor the new OVH cluster to ensure it meets performance expectations.
 - Adjust configurations as needed based on performance metrics.
-
-## Example Commands for Mongodump and Mongorestore
-
-```sh
-# Dump data from current cluster
-mongodump --host your-current-cluster-host --port 27017 --username your-username --password your-password --authenticationDatabase admin --out /path/to/backup
-
-# Restore data to OVH cluster
-mongorestore --host your-ovh-cluster-host --port 27017 --username your-username --password your-password --authenticationDatabase admin /path/to/backup
-
 
 ## We want your feedback!
 
