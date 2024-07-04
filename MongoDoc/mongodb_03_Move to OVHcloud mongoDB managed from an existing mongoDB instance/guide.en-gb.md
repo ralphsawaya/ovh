@@ -74,7 +74,7 @@ The [mongosync](https://www.mongodb.com/docs/cluster-to-cluster-sync/current/ref
 
 ## 3. Data Migration Tools
 
-Use one of the tools mentioned in the previous paragraph.
+Use one of the tools mentioned in the [previous section](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_03_Move%20to%20OVHcloud%20mongoDB%20managed%20from%20an%20existing%20mongoDB%20instance/guide.en-gb.md#migration-tools).
 
 ## 5. Migration Execution
 
