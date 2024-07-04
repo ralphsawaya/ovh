@@ -21,7 +21,7 @@ These tools are used for preparation, simulation, and design before starting the
 [YCSB](https://github.com/brianfrankcooper/YCSB/blob/master/mongodb/README.md) is a benchmarking tool for evaluating the performance of different databases, including MongoDB. It helps in understanding the performance characteristics and ensuring that the migrated database meets the required performance standards.
 
 #### 3. MongoDB Relational Migrator
-[MongoDB Relational Migrator](https://www.mongodb.com/docs/relational-migrator/) is designed to simplify the process of migrating data from relational databases to MongoDB. It provides an intuitive interface and powerful mapping features to transform and import data efficiently.
+[MongoDB Relational Migrator](https://www.mongodb.com/docs/relational-migrator/) is designed to simplify the process of migrating data from relational databases to MongoDB. It provides an intuitive interface and powerful mapping features to transform and import data efficiently. It keeps the clusters in continuous sync during migration.
 
 ### Tools Used to execute the Migration - With Downtime
 
