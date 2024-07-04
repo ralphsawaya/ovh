@@ -90,6 +90,14 @@ Use one of the tools mentioned in the [previous section](https://github.com/ralp
 - Execute the chosen migration method.
 - Monitor the process to ensure data is transferred correctly.
 
+### Cut Off Process
+- **Continuous Synchronization**: If using tools like `mongosync` or `Relational Migrator` which offer continuous synchronization, monitor the synchronization logs.
+- **Identify Synchronization Lag**: Wait until the logs indicate that the target cluster is only a few seconds behind (e.g., 2 seconds) the source cluster.
+- **Stop Writes to Source Cluster**: At this point, stop all write operations to the source cluster to ensure no data loss.
+- **Update Application Configuration**: Change the application configuration to point to the new OVH cluster.
+- **Deploy Changes**: Deploy the updated configuration to your application.
+- **Restart Application**: Restart the application to begin using the new OVH target cluster.
+
 ## 6. Post-Migration Tasks
 
 ### Verify Data
