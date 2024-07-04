@@ -23,7 +23,7 @@ These tools are used for preparation, simulation, and design before starting the
 #### 3. MongoDB Relational Migrator
 [MongoDB Relational Migrator](https://www.mongodb.com/docs/relational-migrator/) is designed to simplify the process of migrating data from relational databases to MongoDB. It provides an intuitive interface and powerful mapping features to transform and import data efficiently. It keeps the clusters in continuous sync during migration.
 
-### Tools Used to execute the Migration - With Downtime
+### Tools Used to Execute the Migration - With Downtime
 
 These tools are used during migration processes where some expected downtime.
 
