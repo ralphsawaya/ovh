@@ -6,7 +6,7 @@ updated: 2024-06-27
 
 ## Objective
 
-The primary objective of this documentation is to provide a comprehensive, step-by-step approach to MongoDB database migration, ensuring data integrity, minimal downtime, and optimal performance. Whether you are migrating from:
+The primary objective of this documentation is to provide a comprehensive approach to MongoDB database migration, ensuring data integrity, minimal downtime, and optimal performance. Whether you are migrating from:
 
 - MongoDB instance to a new MongoDB instance.
 - RDBMS to MongoDB.
@@ -36,21 +36,83 @@ These tools are used during migration processes where some expected downtime.
 #### 1. mongodump
 [mongodump](https://www.mongodb.com/docs/database-tools/mongodump/) is a utility for creating a binary export of the contents of a MongoDB database. It is particularly useful for backing up databases and migrating data between MongoDB instances.
 
+Use the [`--dumpDbUsersAndRoles`](https://www.mongodb.com/docs/database-tools/mongodump/#std-option-mongodump.--dumpDbUsersAndRoles) option to include user and role definitions in the database's dump directory when performing mongodump on a specific database. This option applies only when you specify a database in the --db option
+
 #### 2. mongorestore
 [mongorestore](https://www.mongodb.com/docs/database-tools/mongorestore/) complements mongodump by allowing you to restore a binary dump created by mongodump. This tool is essential for restoring data to a MongoDB instance.
+
+Use the [`restoreDbUsersAndRoles`](https://www.mongodb.com/docs/database-tools/mongorestore/#std-option-mongorestore.--restoreDbUsersAndRoles) option to Restore user and role definitions for the given database. Restoring the admin database by specifying `--db admin` to mongorestore already restores all users and roles.
 
 ### Tools Used to execute the Migration - Minimal Downtime
 
 These tools are designed to minimize downtime during the migration process.
 
 #### 1. mongosync
-The [mongosync](https://www.mongodb.com/docs/cluster-to-cluster-sync/current/reference/mongosync/) binary is the primary process used in Cluster-to-Cluster Sync. mongosync migrates data from one cluster to another and can keep the clusters in continuous sync. It keeps the clusters in continuous sync during migration.
+The [mongosync](https://www.mongodb.com/docs/cluster-to-cluster-sync/current/reference/mongosync/) binary is the primary process used in Cluster-to-Cluster Sync. provides you with continuous, uni-directional data synchronization of MongoDB clusters in the same or different environments. Check the mongosync [limitations](https://www.mongodb.com/docs/cluster-to-cluster-sync/current/reference/limitations/) before starting the migration.
 
 #### 2. MongoDB Relational Migrator
 [MongoDB Relational Migrator](https://www.mongodb.com/docs/relational-migrator/) is designed to simplify the process of migrating data from relational databases to MongoDB. It provides an intuitive interface and powerful mapping features to transform and import data efficiently.
 
 #### 3. MongoDB Kafka Connector
 [MongoDB Kafka Connector](https://www.mongodb.com/docs/kafka-connector/current/) allows you to integrate MongoDB with Apache Kafka, enabling real-time data synchronization and minimizing downtime during migrations by streaming data changes directly to MongoDB.
+
+# Migration Strategy
+
+## 1. Preparation
+
+### Assess Current Environment
+- **Metrics Collection**: Collect current metrics such as CPU usage, RAM, IOPS, disk space, and network usage. This will help you choose the appropriate OVH cluster size.
+- **Backup**: Create a comprehensive backup of your current MongoDB instance.
+
+### Select OVH Plan
+- Based on the metrics collected (CPU, RAM, Disk IOPS, Disk Space, etc.), choose an OVH plan that meets or exceeds the current specifications of your MongoDB instance.
+- Consider future growth and scalability needs.
+
+## 2. Setup OVH Cluster
+- **Create Cluster**: Set up the new OVH managed MongoDB cluster.
+- **Configuration**: Configure the OVH cluster settings to match your current MongoDB cluster's configuration as closely as possible.
+
+## 3. Data Migration Tools
+
+Use one of the tools mentioned in the previous paragraph.
+
+## 5. Migration Execution
+
+### Test Migration
+- Perform a test migration on a dataset to validate the process. Use the SimRunner and YCSB tools, mentioned in previous section, to help you do so.
+- Verify data integrity and performance on the OVH cluster.
+
+### Schedule Migration
+- Plan the migration during a maintenance window to minimize impact.
+- Inform stakeholders of potential downtime.
+
+### Migrate Data
+- Execute the chosen migration method.
+- Monitor the process to ensure data is transferred correctly.
+
+## 6. Post-Migration Tasks
+
+### Verify Data
+- Validate that all data has been transferred and is accessible.
+- Check for any discrepancies or missing data.
+
+### Update Configuration
+- Update application configurations to point to the new OVH MongoDB cluster.
+- Test all application functionalities to ensure smooth operation.
+
+### Monitor Performance
+- Continuously monitor the new OVH cluster to ensure it meets performance expectations.
+- Adjust configurations as needed based on performance metrics.
+
+## Example Commands for Mongodump and Mongorestore
+
+```sh
+# Dump data from current cluster
+mongodump --host your-current-cluster-host --port 27017 --username your-username --password your-password --authenticationDatabase admin --out /path/to/backup
+
+# Restore data to OVH cluster
+mongorestore --host your-ovh-cluster-host --port 27017 --username your-username --password your-password --authenticationDatabase admin /path/to/backup
+
 
 ## We want your feedback!
 
