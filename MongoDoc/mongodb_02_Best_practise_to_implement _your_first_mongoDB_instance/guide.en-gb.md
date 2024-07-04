@@ -185,6 +185,13 @@ mongodb://localhost/?compressors=snappy
 
 You can refer to the [Getting Started](https://help.ovhcloud.com/csm/en-public-cloud-databases-getting-started?id=kb_article_view&sysparm_article=KB0048745) documentation to create your MongoDB cluster based on the result of the sizing.
 
+## Private vs Public Networks for Managed MongoDB Database
+When deploying a managed MongoDB database, one critical decision involves choosing between a [private and public network setup](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-configure-vrack?id=kb_article_view&sysparm_article=KB0048817). Each option has its own set of advantages and considerations. Understanding these differences can help you make an informed decision that best suits your application's requirements. Check the following
+
+## Scale up MongoDB Cluster
+
+## Scale Down MongoDB Cluster
+
 ## Connecting to MongoDB Database with MongoDB Compass
 
 To connect to your MongoDB database hosted on OVH using MongoDB Compass, follow these steps:
