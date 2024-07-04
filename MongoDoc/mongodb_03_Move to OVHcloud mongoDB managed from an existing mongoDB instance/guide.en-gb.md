@@ -6,7 +6,13 @@ updated: 2024-06-27
 
 ## Objective
 
-The primary objective of this documentation is to provide a comprehensive, step-by-step approach to MongoDB database migration, ensuring data integrity, minimal downtime, and optimal performance. Whether you are migrating to a new MongoDB instance from an existing MongoDB instance, or transitioning from an RDBMS to MongoDB, this guide covers the essential tools and processes required for a successful migration.
+The primary objective of this documentation is to provide a comprehensive, step-by-step approach to MongoDB database migration, ensuring data integrity, minimal downtime, and optimal performance. Whether you are migrating from:
+
+- MongoDB instance to a new MongoDB instance.
+- RDBMS to MongoDB.
+- Any Document DB to MongoDB.
+
+this guide covers the essential tools and processes required for a successful migration.
 
 ## Migration Tools
 
@@ -21,7 +27,7 @@ These tools are used for preparation, simulation, and design before starting the
 [YCSB](https://github.com/brianfrankcooper/YCSB/blob/master/mongodb/README.md) is a benchmarking tool for evaluating the performance of different databases, including MongoDB. It helps in understanding the performance characteristics and ensuring that the migrated database meets the required performance standards.
 
 #### 3. MongoDB Relational Migrator
-[MongoDB Relational Migrator](https://www.mongodb.com/docs/relational-migrator/) is designed to simplify the process of migrating data from relational databases to MongoDB. It provides an intuitive interface and powerful mapping features to transform and import data efficiently. It keeps the clusters in continuous sync during migration.
+[MongoDB Relational Migrator](https://www.mongodb.com/docs/relational-migrator/) is designed to simplify the process of migrating data from relational databases to MongoDB. It provides an intuitive interface and powerful mapping features to transform and import data efficiently.
 
 ### Tools Used to Execute the Migration - With Downtime
 
@@ -38,7 +44,7 @@ These tools are used during migration processes where some expected downtime.
 These tools are designed to minimize downtime during the migration process.
 
 #### 1. mongosync
-The [mongosync](https://www.mongodb.com/docs/cluster-to-cluster-sync/current/reference/mongosync/) binary is the primary process used in Cluster-to-Cluster Sync. mongosync migrates data from one cluster to another and can keep the clusters in continuous sync.
+The [mongosync](https://www.mongodb.com/docs/cluster-to-cluster-sync/current/reference/mongosync/) binary is the primary process used in Cluster-to-Cluster Sync. mongosync migrates data from one cluster to another and can keep the clusters in continuous sync. It keeps the clusters in continuous sync during migration.
 
 #### 2. MongoDB Relational Migrator
 [MongoDB Relational Migrator](https://www.mongodb.com/docs/relational-migrator/) is designed to simplify the process of migrating data from relational databases to MongoDB. It provides an intuitive interface and powerful mapping features to transform and import data efficiently.
