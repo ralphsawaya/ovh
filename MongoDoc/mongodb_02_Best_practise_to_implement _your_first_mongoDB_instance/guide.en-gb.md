@@ -182,16 +182,16 @@ You can add the [compressors](https://www.mongodb.com/docs/manual/reference/conn
 mongodb://localhost/?compressors=snappy
 
 ## Create your MongoDB Database Cluster
-
 You can refer to the [Getting Started](https://help.ovhcloud.com/csm/en-public-cloud-databases-getting-started?id=kb_article_view&sysparm_article=KB0048745) documentation to create your MongoDB cluster based on the result of the sizing.
 
 ## Private vs Public Networks for Managed MongoDB Database
-When deploying a managed MongoDB database, one critical decision involves choosing between a [private and public network setup](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-configure-vrack?id=kb_article_view&sysparm_article=KB0048817). Each option has its own set of advantages and considerations. Understanding these differences can help you make an informed decision that best suits your application's requirements. Check the following
+When deploying a managed MongoDB database, one critical decision involves choosing between a [private and public network setup](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-configure-vrack?id=kb_article_view&sysparm_article=KB0048817). Each option has its own set of advantages and considerations. Understanding these differences can help you make an informed decision that best suits your application's requirements.
 
-## Scale up MongoDB Cluster
+## Scale Up MongoDB Cluster
+[Upscaling a MongoDB cluster](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-update-cluster-plan?id=kb_article_view&sysparm_article=KB0061030) by adding more CPU, RAM, and I/O resources ensures optimal performance as workloads increase. Additional CPU power enhances query processing capabilities, while increased RAM allows more data to be cached in memory, speeding up read operations. Enhanced I/O capacity improves data read/write speeds, essential for high-throughput applications. Overall, upscaling maintains database responsiveness and reliability, supporting evolving business needs.
 
 ## Scale Down MongoDB Cluster
-
+Not available for now.
 ## Connecting to MongoDB Database with MongoDB Compass
 
 To connect to your MongoDB database hosted on OVH using MongoDB Compass, follow these steps:
