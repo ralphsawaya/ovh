@@ -12,7 +12,7 @@ The primary objective of this documentation is to provide a comprehensive, step-
 - RDBMS to MongoDB.
 - Any Document DB to MongoDB.
 
-this guide covers the essential tools and processes required for a successful migration.
+This guide covers the essential tools and processes required for a successful migration.
 
 ## Migration Tools
 
