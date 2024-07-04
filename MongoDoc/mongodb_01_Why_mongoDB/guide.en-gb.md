@@ -297,9 +297,9 @@ These drivers ensure that applications can efficiently and securely communicate 
 
 [MongoDB Developer Tools](https://www.mongodb.com/products/tools) provide the easiest way for you to connect and work with your MongoDB data from an interface that you are most comfortable and familiar with.
 
-- [**VS Code Extension**](https://www.mongodb.com/products/tools/vs-code): Integrates MongoDB with Visual Studio Code, allowing developers to browse, modify, and interact with MongoDB databases directly within the VS Code environment.
-- [**MongoDB Compass**](https://www.mongodb.com/products/tools/compass): A graphical user interface (GUI) for MongoDB, providing a visual exploration of your data, performance insights, and query building tools.
-- [**MongoDB Shell**](https://www.mongodb.com/docs/mongodb-shell/): An interactive JavaScript interface for MongoDB, enabling command-line access to MongoDB instance operations, queries, and administrative functions.
+- [VS Code Extension](https://www.mongodb.com/products/tools/vs-code): Integrates MongoDB with Visual Studio Code, allowing developers to browse, modify, and interact with MongoDB databases directly within the VS Code environment.
+- [MongoDB Compass](https://www.mongodb.com/products/tools/compass): A graphical user interface (GUI) for MongoDB, providing a visual exploration of your data, performance insights, and query building tools.
+- [MongoDB Shell](https://www.mongodb.com/docs/mongodb-shell/): An interactive JavaScript interface for MongoDB, enabling command-line access to MongoDB instance operations, queries, and administrative functions.
 
 ### MongoDB Command Line Tools
 
