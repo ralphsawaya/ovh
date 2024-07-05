@@ -346,7 +346,6 @@ While Compass and Studio 3T both offer graphical interfaces for MongoDB, Studio 
 
 #### [MongoDB Documentation](https://www.mongodb.com/docs/)
 #### [MongoDB Reference architecture](https://www.mongodb.com/resources/products/fundamentals/mongodb-architecture-guide)
-#### mongoDB roadmap ?
 #### [MongoDB University](https://learn.mongodb.com/)
 #### [MongoDB Community](https://www.mongodb.com/community/)
 #### [MongoDB Developer Center](https://www.mongodb.com/developer/)
