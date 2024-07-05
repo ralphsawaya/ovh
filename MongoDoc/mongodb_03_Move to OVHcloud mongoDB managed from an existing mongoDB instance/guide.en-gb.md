@@ -16,7 +16,7 @@ This guide covers the essential tools and processes required for a successful mi
 
 ## Migration Tools
 
-### Tools Used to Prepare for Migration
+### Tools to Prepare for Migration
 
 These tools are used for preparation, simulation, and design before starting the actual migration process.
 
