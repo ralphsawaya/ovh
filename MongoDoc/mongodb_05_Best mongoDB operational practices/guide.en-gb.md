@@ -13,17 +13,53 @@ This articles discusses essential best practices for managing MongoDB post-deplo
 
 ## 1. Monitoring
 - **OVH Built-in Monitoring Tools:**
-  - [**Metrics tab**](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-mongodb-monitoring?id=kb_article_view&sysparm_article=KB0061661): Provides comprehensive monitoring dashboards.
+  - [Metrics tab](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-mongodb-monitoring?id=kb_article_view&sysparm_article=KB0061661): Provides comprehensive monitoring dashboards.
 - **Third-Party Tools:**
-  - **Prometheus:** Integrates with MongoDB Exporter for metrics collection.
-  - **Grafana:** Visualizes metrics collected by Prometheus.
-  - **Datadog:** Offers deep MongoDB integration for metrics and alerts.
-- **Key Metrics to Monitor:**
-  - **Operation Performance:** Latency, throughput, and queue depth.
-  - **Memory Usage:** Resident memory, virtual memory, and page faults.
-  - **Connections:** Number of active connections.
-  - **Replication Status:** Oplog lag, replication headroom.
-  - **Storage Metrics:** Disk usage, index usage, and fragmentation.
+  - [Prometheus](https://prometheus.io/): Integrates with MongoDB Exporter for metrics collection.
+  - [Grafana](https://grafana.com/): Visualizes metrics collected by Prometheus.
+  - [Datadog](https://docs.datadoghq.com/integrations/mongo/?tab=replicaset): Offers deep MongoDB integration for metrics and alerts.
+    
+- **Key Metrics for Monitoring MongoDB Cluster**
+  - **CPU Utilization**: 
+    - Measures the percentage of CPU resources in use.
+    - High CPU usage can indicate heavy load or the need for hardware scaling.
+
+  - **Memory (RAM) Utilization**: 
+    - Indicates the amount of RAM used by MongoDB.
+    - High memory usage can enhance performance but may suggest the need for more RAM if consistently high.
+
+  - **Disk Usage**: 
+    - Shows the amount of disk space used by MongoDB data.
+    - Monitoring helps ensure sufficient disk space to avoid performance issues or downtime.
+
+  - **Replication Lag**: 
+    - The delay between the primary and secondary nodes in a replica set.
+    - High replication lag can affect data consistency and availability.
+
+  - **Read/Write Tickets**: 
+    - MongoDB controls the number of concurrent read and write operations using a ticketing system.
+    - Monitoring used vs. available tickets helps identify potential workload bottlenecks.
+
+  - **Disk IOPS (Input/Output Operations Per Second)**: 
+    - Measures the speed of read and write operations on the disk.
+    - High IOPS indicates good performance but may suggest the need for faster storage if consistently high.
+
+  - **Network Latency**: 
+    - Measures the time taken for data to travel between the client and the database server.
+    - High network latency can slow down database operations and impact performance.
+
+  - **Connections**: 
+    - The number of active connections to the database.
+    - A sudden increase can indicate a spike in traffic or issues with connection management.
+
+  - **OpCounters (Operation Counters)**: 
+    - Tracks the number of operations (insert, query, update, delete, getmore, command) executed by the database.
+    - Helps understand workload and identify potential performance issues.
+
+  - **Replication Oplog Window**: 
+    - Indicates the time range covered by the operations log (oplog).
+    - A larger oplog window provides more time for secondaries to catch up, which is crucial for data consistency during replication.
+
 
 ## 2. Backup
 - **OVH Automated Backup Solutions:**
