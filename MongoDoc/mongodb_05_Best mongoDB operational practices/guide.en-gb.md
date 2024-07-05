@@ -63,11 +63,10 @@ This articles discusses essential best practices for managing MongoDB post-deplo
 
 ## 2. Backup
 - **OVH Automated Backup Solutions:**
-  - **Bakup Databse:** OVH offers [Automated Cloud Backup]([Automated Backups](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-backups?id=kb_article_view&sysparm_article=KB0048698)).
-  - **Restore Databse:** [Restore backup](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-restore-backup?id=kb_article_view&sysparm_article=KB0048800)
-- **Backup Strategies:**
-  - **Snapshot-based Backups:** Regular snapshots of the data.
-  - **Oplog-based Continuous Backups:** Captures all changes from the oplog.
+  - [OVH Automated Cloud Backup](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-backups?id=kb_article_view&sysparm_article=KB0048698).
+  - [OVH Restore backup](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-restore-backup?id=kb_article_view&sysparm_article=KB0048800)
+- **Snapshot-based Backups**
+  - [mongodump and mongorestore](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-mongodb-backups-restores?id=kb_article_view&sysparm_article=KB0049107): Regular snapshots of the data.
 - **Backup Best Practices:**
   - **Frequency:** Regular backups (daily or hourly) depending on data criticality.
   - **Retention Policy:** Define retention policies to balance cost and availability.
