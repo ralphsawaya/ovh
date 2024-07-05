@@ -26,8 +26,9 @@ This articles discusses essential best practices for managing MongoDB post-deplo
   - **Storage Metrics:** Disk usage, index usage, and fragmentation.
 
 ## 2. Backup
-- **Automated Backup Solutions:**
-  - **OVH :** ????.
+- **OVH Automated Backup Solutions:**
+  - **Bakup Databse:** OVH offers [Automated Cloud Backup]([Automated Backups](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-backups?id=kb_article_view&sysparm_article=KB0048698)).
+  - **Restore Databse:** [Restore backup](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-restore-backup?id=kb_article_view&sysparm_article=KB0048800)
 - **Backup Strategies:**
   - **Snapshot-based Backups:** Regular snapshots of the data.
   - **Oplog-based Continuous Backups:** Captures all changes from the oplog.
@@ -83,9 +84,6 @@ This articles discusses essential best practices for managing MongoDB post-deplo
 - **Indexes:**
   - **Use Appropriate Indexes:** Create indexes to support query patterns.
   - **Index Management:** Regularly review and optimize indexes.
-- **Sharding:**
-  - **Enable Sharding:** Distribute data across multiple servers for scalability.
-  - **Shard Keys:** Choose effective shard keys based on query patterns and data distribution.
 - **Configuration Optimization:**
   - **Memory Allocation:** Adjust `wiredTigerCacheSizeGB` for optimal performance.
   - **Connection Limits:** Set appropriate limits for maximum connections.
