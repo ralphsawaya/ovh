@@ -57,7 +57,7 @@ The [mongosync](https://www.mongodb.com/docs/cluster-to-cluster-sync/current/ref
 [MongoDB Kafka Connector](https://www.mongodb.com/docs/kafka-connector/current/) allows you to integrate MongoDB with Apache Kafka, enabling real-time data synchronization and minimizing downtime during migrations by streaming data changes directly to MongoDB.
 
 # Migration Strategy
-![alt text](./images/flow_chart_migration_strategy.png)
+![alt text](./images/diagram_migration_strategy.png)
 
 ## 1. Preparation
 
