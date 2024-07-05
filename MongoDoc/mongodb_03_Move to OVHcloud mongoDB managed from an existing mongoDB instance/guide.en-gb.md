@@ -29,7 +29,7 @@ These tools are used for preparation, simulation, and design before starting the
 #### 3. MongoDB Relational Migrator
 [MongoDB Relational Migrator](https://www.mongodb.com/docs/relational-migrator/) is designed to simplify the process of migrating data from relational databases to MongoDB. It provides an intuitive interface and powerful mapping features to transform and import data efficiently.
 
-### Tools Used to Execute the Migration - With Downtime
+### Tools to Execute the Migration - With Downtime
 
 These tools are used during migration processes where some expected downtime.
 
@@ -43,7 +43,7 @@ Use the [`--dumpDbUsersAndRoles`](https://www.mongodb.com/docs/database-tools/mo
 
 Use the [`restoreDbUsersAndRoles`](https://www.mongodb.com/docs/database-tools/mongorestore/#std-option-mongorestore.--restoreDbUsersAndRoles) option to Restore user and role definitions for the given database. Restoring the admin database by specifying `--db admin` to mongorestore already restores all users and roles.
 
-### Tools Used to execute the Migration - Minimal Downtime
+### Tools to execute the Migration - Minimal Downtime
 
 These tools are designed to minimize downtime during the migration process.
 
