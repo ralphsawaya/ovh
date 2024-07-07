@@ -4,13 +4,9 @@ excerpt: Main reasons to choose mongoDB as your database engine
 updated: 2024-06-27
 ---
 
-## Objective
-
-The purpose of this documentation is to provide a comprehensive guide to the [MongoDB Relational Migrator tool](https://www.mongodb.com/products/tools/relational-migrator). This tool is designed to help users seamlessly migrate their data from traditional relational databases to MongoDB, taking advantage of MongoDB's flexible document model. This document will cover the key features, usage instructions, best practices, and troubleshooting tips for the MongoDB Relational Migrator.
-
 ## Introduction
 
-The MongoDB Relational Migrator is a powerful tool designed to facilitate the migration of data from traditional relational databases, such as MySQL, PostgreSQL, and Oracle, to MongoDB. This tool simplifies the complex process of data migration by providing an intuitive interface and automated features to ensure data integrity and consistency.
+The [MongoDB Relational Migrator](https://www.mongodb.com/fr-fr/products/tools/relational-migrator) is a powerful tool designed to facilitate the migration of data from traditional relational databases, such as MySQL, PostgreSQL, and Oracle, to MongoDB. This tool simplifies the complex process of data migration by providing an intuitive interface and automated features to ensure data integrity and consistency.
 
 ## Key Features
 
@@ -20,7 +16,6 @@ The MongoDB Relational Migrator is a powerful tool designed to facilitate the mi
 4. [**Continuous Data Migration**](https://www.mongodb.com/docs/relational-migrator/jobs/sync-jobs/#sync-jobs): Allows for incremental data migration to minimize downtime and ensure data consistency during the transition period.
 5. [**Data Validation**](https://www.mongodb.com/docs/relational-migrator/jobs/data-verification/use-data-verification/#use-data-verification): Provides tools for validating data integrity and consistency post-migration.
 6. [**User-Friendly Interface**](https://www.mongodb.com/docs/relational-migrator/getting-started/overview/#user-interface-overview): Offers an intuitive, web-based interface for managing and monitoring the migration process.
-7. **Comprehensive Logging and Reporting**: Generates detailed logs and reports for tracking the migration progress and diagnosing issues.
 
 ## Getting Started
 
