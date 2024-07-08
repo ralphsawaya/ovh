@@ -339,7 +339,7 @@ These connectors provide a seamless way to connect MongoDB with Kafka, supportin
 While Compass and Studio 3T both offer graphical interfaces for MongoDB, Studio 3T provides advanced features like SQL query support and an integrated development environment (IDE), whereas MongoDB Compass focuses more on visual data exploration and basic query building.
 
 #### Hatchet
-[Hatchet](https://github.com/simagix/hatchet) is a powerful and sophisticated logs analyzer and viewer specifically designed for MongoDB JSON logs. It provides advanced features for logs processing, aggregation and storage of the processed data.
+[Hatchet](https://github.com/simagix/hatchet) is a powerful and sophisticated logs analyzer and viewer specifically designed for MongoDB JSON logs. It provides advanced features for logs processing, aggregation and storage of the processed data. You need to [setup logs forwarding with OVH cloud](https://help.ovhcloud.com/csm/en-gb-public-cloud-databases-logs-to-customers?id=kb_article_view&sysparm_article=KB0062093) in order to collect logs and analyze them with Hatchet.
 #### mtools
 [mtools](https://github.com/rueckstiess/mtools) is a collection of helper scripts to parse, filter, and visualize MongoDB log files (mongod, mongos). mtools also includes mlaunch, a utility to quickly set up complex MongoDB test environments on a local machine, and mtransfer, a tool for transferring databases between MongoDB instances.
 ## Ressources
