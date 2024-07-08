@@ -18,6 +18,7 @@ This articles discusses essential best practices for managing MongoDB post-deplo
   - [Prometheus](https://prometheus.io/): Integrates with MongoDB Exporter for metrics collection.
   - [Grafana](https://grafana.com/): Visualizes metrics collected by Prometheus.
   - [Datadog](https://docs.datadoghq.com/integrations/mongo/?tab=replicaset): Offers deep MongoDB integration for metrics and alerts.
+  - [Hatchet](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_01_Why_mongoDB/guide.en-gb.md#hatchet): Parses the logs to help you identify slow queries.
     
 - **Key Metrics for Monitoring MongoDB Cluster**
   - **CPU Utilization**: 
