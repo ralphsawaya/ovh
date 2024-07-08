@@ -43,19 +43,19 @@ Install SimRunner and configure it to simulate the load based on your current da
 - MongoDB's storage engine (WiredTiger by default) is designed to handle high IOPS efficiently. Compare the IOPS requirements with the results from your benchmarks.
 - Consider the total data size and the rate of growth to estimate the storage requirements. MongoDB compresses data, so account for the compression ratio when sizing storage.
 
-### Step 4: Select OVH cloud Plan
+## Step 4: Select OVH cloud Plan
 - Based on the metrics collected (CPU, RAM, Disk IOPS, Disk Space, etc.), choose an OVH cloud plan that meets or exceeds the current specifications of your MongoDB instance.
 - Consider future growth and scalability needs. You might want to consider how to [size a MongoDB cluster](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_02_Best_practise_to_implement%20_your_first_mongoDB_instance/guide.en-gb.md#mongodb-cluster-sizing).
 
-### Step 5: Setup OVH cloud Cluster
+## Step 5: Setup OVH cloud Cluster
 - **Create Cluster**: [Set up the new OVH managed MongoDB cluster](https://help.ovhcloud.com/csm/en-public-cloud-databases-getting-started?id=kb_article_view&sysparm_article=KB0048745).
 - **Configuration**: Configure the OVH cloud cluster settings to match your current MongoDB cluster's configuration as closely as possible.
 
-### Step 6: Performance Testing
+## Step 6: Performance Testing
 - Run performance tests using YCSB and SimRunner on your MongoDB cluster.
 - Monitor the performance and adjust the cluster size and configurations as needed.
 
-### Step 7: Validation
+## Step 7: Validation
 - Validate that your application performs as expected with MongoDB.
 - Ensure that all functionalities are working correctly and that the performance meets your requirements.
 
