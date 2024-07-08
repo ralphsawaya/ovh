@@ -21,7 +21,7 @@ The [MongoDB Relational Migrator](https://www.mongodb.com/fr-fr/products/tools/r
 
 ### Prerequisites
 
-- OVH MongoDB instance
+- OVH cloud MongoDB instance
 - Access to the relational database you wish to migrate
 - Basic understanding of MongoDB and relational database concepts
 
