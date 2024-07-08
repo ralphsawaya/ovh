@@ -112,7 +112,6 @@ This articles discusses essential best practices for managing MongoDB post-deplo
   - **Enable MFA:** OVH cloud offers already MFA.
 
 ## 6. Performance Tuning
-- **Indexes:**
   - [**Use Appropriate Indexes:**](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_02_Best_practise_to_implement%20_your_first_mongoDB_instance/guide.en-gb.md#indexing) Create indexes to support query patterns and Regularly review and optimize indexes.
 
 ## We want your feedback!
