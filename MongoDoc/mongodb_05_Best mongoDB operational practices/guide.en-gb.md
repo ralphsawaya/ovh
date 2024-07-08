@@ -89,7 +89,7 @@ This articles discusses essential best practices for managing MongoDB post-deplo
 
 ## 4. Upgrades
 - **Version Compatibility:**
-  - [**Check Compatibility:**](https://www.mongodb.com/docs/drivers/about-compatibility/) Ensure new MongoDB versions are [compatible with your applications and drivers](https://www.mongodb.com/docs/drivers/).
+  - [**Check Compatibility:**](https://www.mongodb.com/docs/drivers/about-compatibility/) Ensure new MongoDB versions are compatible with your [applications drivers](https://www.mongodb.com/docs/drivers/).
   - [**Read Release Notes:**](https://www.mongodb.com/docs/manual/release-notes/#release-notes) Understand new features, bug fixes, and deprecations.
 - **Testing:**
   - **Test Environment:** Upgrade in a staging environment first.
