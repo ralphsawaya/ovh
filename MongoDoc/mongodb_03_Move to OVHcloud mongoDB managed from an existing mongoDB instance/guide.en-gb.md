@@ -65,13 +65,13 @@ The [mongosync](https://www.mongodb.com/docs/cluster-to-cluster-sync/current/ref
 - **Metrics Collection**: Collect current metrics such as CPU usage, RAM, IOPS, disk space, and network usage. This will help you choose the appropriate OVH cluster size.
 - **Backup**: Create a comprehensive backup of your current MongoDB instance.
 
-### Select OVH Plan
-- Based on the metrics collected (CPU, RAM, Disk IOPS, Disk Space, etc.), choose an OVH plan that meets or exceeds the current specifications of your MongoDB instance.
+### Select OVH cloud Plan
+- Based on the metrics collected (CPU, RAM, Disk IOPS, Disk Space, etc.), choose an OVH cloud plan that meets or exceeds the current specifications of your MongoDB instance.
 - Consider future growth and scalability needs. You might want to consider how to [size a MongoDB clsuter](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_02_Best_practise_to_implement%20_your_first_mongoDB_instance/guide.en-gb.md#mongodb-cluster-sizing).
 
-## 2. Setup OVH Cluster
+## 2. Setup OVH cloud Cluster
 - **Create Cluster**: [Set up the new OVH managed MongoDB cluster](https://help.ovhcloud.com/csm/en-public-cloud-databases-getting-started?id=kb_article_view&sysparm_article=KB0048745).
-- **Configuration**: Configure the OVH cluster settings to match your current MongoDB cluster's configuration as closely as possible.
+- **Configuration**: Configure the OVH cloud cluster settings to match your current MongoDB cluster's configuration as closely as possible.
 
 ## 3. Data Migration Tools
 
@@ -81,7 +81,7 @@ Use one of the tools mentioned in the [previous section](https://github.com/ralp
 
 ### Test Migration
 - Perform a test migration on a dataset to validate the process. Use the SimRunner and YCSB tools mentioned in the [previous section](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_03_Move%20to%20OVHcloud%20mongoDB%20managed%20from%20an%20existing%20mongoDB%20instance/guide.en-gb.md#migration-tools).
-- Verify data integrity and performance on the OVH cluster.
+- Verify data integrity and performance on the OVH cloud cluster.
 
 ### Schedule Migration
 - Plan the migration during a maintenance window to minimize impact.
@@ -95,9 +95,9 @@ Use one of the tools mentioned in the [previous section](https://github.com/ralp
 - **Continuous Synchronization**: If using tools like `mongosync` or `Relational Migrator`, mentioned in the [previous section](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_03_Move%20to%20OVHcloud%20mongoDB%20managed%20from%20an%20existing%20mongoDB%20instance/guide.en-gb.md#migration-tools), which offer continuous synchronization, monitor the synchronization logs.
 - **Identify Synchronization Lag**: Wait until the logs indicate that the target cluster is only a few seconds behind (e.g., 2 seconds) the source cluster.
 - **Stop Writes to Source Cluster**: At this point, stop all write operations to the source cluster to ensure no data loss.
-- **Update Application Configuration**: Change the application configuration to point to the new OVH cluster.
+- **Update Application Configuration**: Change the application configuration to point to the new OVH cloud cluster.
 - **Deploy Changes**: Deploy the updated configuration to your application.
-- **Restart Application**: Restart the application to begin using the new OVH target cluster.
+- **Restart Application**: Restart the application to begin using the new OVH cloud target cluster.
 
 ## 6. Post-Migration Tasks
 
@@ -106,7 +106,7 @@ Use one of the tools mentioned in the [previous section](https://github.com/ralp
 - Check for any discrepancies or missing data.
 
 ### Monitor Performance
-- Continuously monitor the new OVH cluster to ensure it meets performance expectations.
+- Continuously monitor the new OVH cloud cluster to ensure it meets performance expectations.
 - Adjust configurations as needed based on performance metrics.
 
 ## We want your feedback!
