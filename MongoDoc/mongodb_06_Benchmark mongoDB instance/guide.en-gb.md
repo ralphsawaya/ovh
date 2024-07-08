@@ -21,9 +21,9 @@ In this documentation, we will discuss a step-by-step approach to benchmark and 
 ## Step 2: Setting Up Benchmarking Tools
 
 ### YCSB (Yahoo! Cloud Serving Benchmark)
-YCSB is a framework for benchmarking and comparing the performance of various databases. It supports a wide range of workloads and provides a standardized way to measure throughput and latency.
+[YCSB](https://github.com/brianfrankcooper/YCSB) is a framework for benchmarking and comparing the performance of various databases. It supports a wide range of workloads and provides a standardized way to measure throughput and latency.
 
-- Install [YCSB](https://github.com/brianfrankcooper/YCSB) and set up the workload configurations that match your current database usage patterns.
+- Install YCSB and set up the workload configurations that match your current database usage patterns.
 
 ### SimRunner
 [SimRunner](https://github.com/schambon/SimRunner) is a tool that binds:
