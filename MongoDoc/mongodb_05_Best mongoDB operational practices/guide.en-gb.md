@@ -89,16 +89,13 @@ This articles discusses essential best practices for managing MongoDB post-deplo
 
 ## 4. Upgrades
 - **Version Compatibility:**
-  - **Check Compatibility:** Ensure new MongoDB versions are compatible with your applications and drivers.
-  - **Read Release Notes:** Understand new features, bug fixes, and deprecations.
+  - [**Check Compatibility:**](https://www.mongodb.com/docs/drivers/about-compatibility/) Ensure new MongoDB versions are [compatible with your applications and drivers](https://www.mongodb.com/docs/drivers/).
+  - [**Read Release Notes:**](https://www.mongodb.com/docs/manual/release-notes/#release-notes) Understand new features, bug fixes, and deprecations.
 - **Testing:**
   - **Test Environment:** Upgrade in a staging environment first.
   - **Data Integrity:** Ensure data consistency and integrity post-upgrade.
 - **Backup Before Upgrade:**
   - **Full Backup:** Perform a full backup before starting the upgrade.
-- **Rolling Upgrades:**
-  - **Replica Sets:** Upgrade secondary nodes first, then the primary.
-  - **Sharded Clusters:** Upgrade the config servers, then the shard servers.
 - **Upgrade Path:**
   - **Follow the Recommended Path:** Use the documented upgrade paths provided by MongoDB.
 
