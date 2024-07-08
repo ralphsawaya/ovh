@@ -4,18 +4,35 @@ excerpt: Main reasons to choose mongoDB as your database engine
 updated: 2024-06-27
 ---
 
-## Objective
+# Migrating to MongoDB: A Comprehensive Guide to Sizing Your Cluster
 
-Public Cloud Databases allow you to focus on building and deploying cloud applications while OVHcloud takes care of the database infrastructure and maintenance in operational conditions. 
+Migrating an application from
 
-blablabla
+## Step 1: Understanding Your Current Workload
 
-**This guide explains the reason why xxx.**
+### Collect Metrics from Your Current Database
+- **CPU Usage**: Measure the average and peak CPU usage.
+- **Memory Usage**: Note the average and peak memory usage.
+- **Disk I/O**: Measure the IOPS (Input/Output Operations Per Second) and throughput.
+- **Query Performance**: Collect data on query response times and throughput.
+- **Data Size**: Measure the total size of the data and the rate of growth.
 
+Use tools like the following to collect these metrics:
+- **Oracle**: Oracle Enterprise Manager, AWR (Automatic Workload Repository) reports.
+- **MySQL**: MySQL Enterprise Monitor, `SHOW STATUS` commands.
+- **PostgreSQL**: pg_stat_statements, pg_stat_activity, `EXPLAIN ANALYZE`.
 
-## title 
+## Step 2: Setting Up Benchmarking Tools
 
-### sub
+### YCSB (Yahoo! Cloud Serving Benchmark)
+YCSB is a framework for benchmarking and comparing the performance of various databases. It supports a wide range of workloads and provides a standardized way to measure throughput and latency.
+
+- Install YCSB and set up the workload configurations that match your current database usage patterns.
+
+  ```bash
+  git clone https://github.com/brianfrankcooper/YCSB.git
+  cd YCSB
+  mvn clean package
 
 ## We want your feedback!
 
