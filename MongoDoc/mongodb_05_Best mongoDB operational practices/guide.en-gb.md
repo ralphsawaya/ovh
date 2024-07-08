@@ -114,7 +114,7 @@ This articles discusses essential best practices for managing MongoDB post-deplo
 ## 6. Performance Tuning
 - **Indexes:**
   - **Use Appropriate Indexes:** Create indexes to support query patterns.
-  - **Index Management:** Regularly review and optimize indexes.
+  - **Index Management:** Regularly [review and optimize indexes]().
 - **Configuration Optimization:**
   - **Memory Allocation:** Adjust `wiredTigerCacheSizeGB` for optimal performance.
   - **Connection Limits:** Set appropriate limits for maximum connections.
