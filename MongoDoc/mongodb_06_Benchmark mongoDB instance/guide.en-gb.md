@@ -33,6 +33,28 @@ YCSB is a framework for benchmarking and comparing the performance of various da
 
 Install SimRunner and configure it to simulate the load based on your current database metrics, and then create a configuration file for SimRunner that mimics your current workload.
 
+## Step 3: Estimating Resource Requirements
+
+### CPU and Memory
+- Use the metrics collected from your current database to estimate the CPU and memory requirements. Ensure to account for peak usage.
+- Perform benchmarking using YCSB and SimRunner to see how MongoDB handles your workload. Adjust the configurations to achieve optimal performance.
+
+### Disk I/O and Storage
+- MongoDB's storage engine (WiredTiger by default) is designed to handle high IOPS efficiently. Compare the IOPS requirements with the results from your benchmarks.
+- Consider the total data size and the rate of growth to estimate the storage requirements. MongoDB compresses data, so account for the compression ratio when sizing storage.
+
+## Step 4: Configuring Your MongoDB Cluster
+
+
+## Step 5: Testing and Validation
+
+### Performance Testing
+- Run performance tests using YCSB and SimRunner on your MongoDB cluster.
+- Monitor the performance and adjust the cluster size and configurations as needed.
+
+### Validation
+- Validate that your application performs as expected with MongoDB.
+- Ensure that all functionalities are working correctly and that the performance meets your requirements.
 
 ## We want your feedback!
 
