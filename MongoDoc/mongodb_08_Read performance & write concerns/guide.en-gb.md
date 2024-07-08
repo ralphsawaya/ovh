@@ -4,18 +4,72 @@ excerpt: Main reasons to choose mongoDB as your database engine
 updated: 2024-06-27
 ---
 
-## Objective
+## Introduction
 
-Public Cloud Databases allow you to focus on building and deploying cloud applications while OVHcloud takes care of the database infrastructure and maintenance in operational conditions. 
+MongoDB offers powerful mechanisms to control how and where data is read and written within a distributed database environment. [ReadPreference](https://www.mongodb.com/docs/manual/core/read-preference/) allows you to specify from which replica set member (primary or secondary) your read operations should be served, optimizing for performance, consistency, or availability based on your application needs. 
 
-blablabla
+[WriteConcern](https://www.mongodb.com/docs/manual/reference/write-concern/) defines the level of acknowledgment required from the database when a write operation is performed, allowing you to balance between data durability and write performance. Together, these settings provide flexible and fine-grained control over data consistency, availability, and performance in your MongoDB deployment.
 
-**This guide explains the reason why xxx.**
+## ReadPreference
 
+[ReadPreference](https://www.mongodb.com/docs/manual/core/read-preference/) controls how MongoDB clients direct read operations to the members of a replica set. It determines which member of the replica set will be used for read operations. Here are the types of ReadPreference:
 
-## title 
+1. **primary**: Default mode. All read operations go to the primary.
+2. **primaryPreferred**: Reads from the primary if available, otherwise from secondaries.
+3. **secondary**: All read operations go to secondaries.
+4. **secondaryPreferred**: Reads from secondaries if available, otherwise from the primary.
+5. **nearest**: Reads from the member (primary or secondary) with the least network latency.
 
-### sub
+### Configuration via Connection String
+
+You can specify the read preference in the connection string using the `readPreference` parameter.
+
+Example:
+
+```javascript
+mongodb://username:password@host:port/dbname?readPreference=secondary
+```
+
+### Configuration for specific operation
+
+You can also set the read preference programmatically for specific operation.
+
+Example in Python (PyMongo):
+```python
+document = db.collection.find_one({"key": "value"}, read_preference=ReadPreference.NEAREST)
+```
+
+## WriteConcern
+
+[WriteConcern](https://www.mongodb.com/docs/manual/reference/write-concern/) describes the level of acknowledgment requested from MongoDB for write operations. It ensures data durability and consistency by specifying how many members of the replica set must acknowledge the write.
+
+Here are the key options for WriteConcern:
+
+1. **w**: Specifies the number of replica set members that must acknowledge the write.
+   - `0`: No acknowledgment.
+   - `1`: Acknowledgment from the primary only.
+   - `majority`: Acknowledgment from the majority of the replica set members.
+   - A number greater than 1: Acknowledgment from the specified number of members.
+2. **wtimeout**: Specifies a time limit (in milliseconds) for the write concern acknowledgment.
+3. **j**: If true, waits for the write operation to be committed to the journal.
+
+### Configuration via Connection String
+
+You can specify the write concern in the connection string using the `w`, `wtimeout`, and `journal` parameters.
+
+Example:
+
+```javascript
+mongodb://username:password@host:port/dbname?w=majority&wtimeoutMS=5000&journal=true
+```
+### Configuration for Specific Operation
+
+You can set write concern for specific operations rather than globally.
+
+```python
+# Specific write operation with WriteConcern
+result = db.collection.with_options(write_concern=WriteConcern("majority")).insert_one({"key": "value"})
+```
 
 ## We want your feedback!
 
