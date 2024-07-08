@@ -4,18 +4,26 @@ excerpt: Main reasons to choose mongoDB as your database engine
 updated: 2024-06-27
 ---
 
-## Objective
+# MongoDB Kafka Connector Documentation Summary
 
-Public Cloud Databases allow you to focus on building and deploying cloud applications while OVHcloud takes care of the database infrastructure and maintenance in operational conditions. 
+## Introduction
+The [MongoDB Kafka Connector](https://www.mongodb.com/docs/kafka-connector/current/#mongodb-kafka-connector) is an integration tool that bridges MongoDB with Apache Kafka, enabling real-time data synchronization and streaming between the two platforms. This connector facilitates the seamless transfer of data, allowing MongoDB to be used both as a source and a sink within a Kafka ecosystem. By leveraging this connector, developers can build robust data pipelines, ensuring efficient and reliable data flow across their applications.
 
-blablabla
+## Quick Start Guide
+Learn how to get started with the MongoDB Kafka Connector and begin working with data in the Kafka [Connector Quick Start](https://www.mongodb.com/docs/kafka-connector/current/quick-start/#std-label-kafka-quick-start) section.
 
-**This guide explains the reason why xxx.**
+## Tutorials
+Follow [tutorials](https://www.mongodb.com/docs/kafka-connector/current/tutorials/#std-label-kafka-connector-tutorials) to learn how to set up the MongoDB Kafka Connector to read and write data for several use cases.
 
+## Key Components
+1. [Source Connector](https://www.mongodb.com/docs/kafka-connector/current/source-connector/#source-connector): Captures changes from MongoDB and streams them into Kafka topics. It uses MongoDB’s Change Streams to monitor changes in collections and databases.
+2. [Sink Connector](https://www.mongodb.com/docs/kafka-connector/current/sink-connector/#std-label-kafka-sink-overview): Reads data from Kafka topics and writes it into MongoDB collections. This component ensures that data from various Kafka topics can be persisted in MongoDB for further processing or querying.
 
-## title 
-
-### sub
+## Use Cases
+- **Data Streaming**: Real-time data streaming from MongoDB to Kafka for analytics and monitoring.
+- **ETL Pipelines**: Using Kafka as a central hub for ETL processes, with MongoDB serving as a source or sink.
+- **Microservices Integration**: Synchronizing data across microservices architectures, ensuring consistent data states.
+- **Event-Driven Architectures**: Building event-driven systems where MongoDB and Kafka work together to handle events and triggers efficiently.
 
 ## We want your feedback!
 
