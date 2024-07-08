@@ -19,6 +19,12 @@ Follow [tutorials](https://www.mongodb.com/docs/kafka-connector/current/tutorial
 1. [Source Connector](https://www.mongodb.com/docs/kafka-connector/current/source-connector/#source-connector): Captures changes from MongoDB and streams them into Kafka topics. It uses MongoDB’s Change Streams to monitor changes in collections and databases.
 2. [Sink Connector](https://www.mongodb.com/docs/kafka-connector/current/sink-connector/#std-label-kafka-sink-overview): Reads data from Kafka topics and writes it into MongoDB collections. This component ensures that data from various Kafka topics can be persisted in MongoDB for further processing or querying.
 
+## Security and Authentication
+Learn how to secure communications between MongoDB and the MongoDB Kafka Connector in the [Security and Authentication](https://www.mongodb.com/docs/kafka-connector/current/security-and-authentication/#std-label-kafka-connector-security-auth) section. In this section, you can also learn how to configure the MongoDB Kafka Connector to authenticate to MongoDB with your AWS Identity and IAM credentials.
+
+## Monitoring
+Learn how to [monitor](https://www.mongodb.com/docs/kafka-connector/current/monitoring/#std-label-kafka-monitoring) your MongoDB Kafka source and sink connectors in the Monitoring section.
+
 ## Use Cases
 - **Data Streaming**: Real-time data streaming from MongoDB to Kafka for analytics and monitoring.
 - **ETL Pipelines**: Using Kafka as a central hub for ETL processes, with MongoDB serving as a source or sink.
