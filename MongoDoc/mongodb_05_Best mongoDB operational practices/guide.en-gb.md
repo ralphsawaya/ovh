@@ -78,9 +78,9 @@ This articles discusses essential best practices for managing MongoDB post-deplo
   - **Enable Authentication:** Use SCRAM, LDAP, or Kerberos.
   - **Role-Based Access Control (RBAC):** Assign specific roles and permissions.
 - **Encryption:**
-  - **At-Rest Encryption:** Enable storage encryption *******can we configure encryption at REST with OVH?*****
-  - **In-Transit Encryption:** Use TLS/SSL for data encryption over the network.
-- **Network Security:**
+  - **At-Rest Encryption**: OVH cloud Advanced plan automatically encrypts data at REST.
+  - **In-Transit Encryption:** TLS is enabled for all OVH cloud clusters.
+- [**Network Security:**](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-mongodb-managing-service?id=kb_article_view&sysparm_article=KB0049064)
   - **Firewall:** Restrict access to MongoDB instances.
   - **IP Whitelisting:** Allow only trusted IP addresses to access the database.
 - **Auditing:**
@@ -103,17 +103,16 @@ This articles discusses essential best practices for managing MongoDB post-deplo
   - **Follow the Recommended Path:** Use the documented upgrade paths provided by MongoDB.
 
 ## 5. Users and Roles Management
-- **User Management:**
+- [**User Management:**](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-mongodb-managing-service?id=kb_article_view&sysparm_article=KB0049064)
   - **Create Users with Specific Roles:** Assign roles based on the principle of least privilege.
   - **Disable Unused Accounts:** Regularly review and disable inactive accounts.
-- **Role Management:**
-  - **Custom Roles:** Create custom roles if default roles do not meet specific requirements.
+- [**Role Management:**](https://www.mongodb.com/docs/manual/reference/built-in-roles/#self-hosted-deployment-built-in-roles)
   - **Role Audit:** Periodically audit roles and permissions.
 - **Password Management:**
   - **Strong Passwords:** Enforce strong password policies.
   - **Rotation Policies:** Implement regular password rotation policies.
 - **Multi-Factor Authentication (MFA):**
-  - **Enable MFA:** Add an extra layer of security for administrative accounts.
+  - **Enable MFA:** OVH cloud offers already MFA.
 
 ## 6. Performance Tuning
 - **Indexes:**
