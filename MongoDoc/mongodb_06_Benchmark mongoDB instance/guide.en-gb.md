@@ -4,9 +4,9 @@ excerpt: Main reasons to choose mongoDB as your database engine
 updated: 2024-06-27
 ---
 
-# Migrating to MongoDB: A Comprehensive Guide to Sizing Your Cluster
+# Objective
 
-Migrating an application from
+In this documentation, we will discuss a step-by-step approach to benchmark and size your MongoDB cluster based on the load and metrics of your current database. This includes estimating resource requirements, configuring your cluster, and comparing network performance to ensure a smooth and efficient migration. By following these guidelines, you can accurately transition from a traditional relational database to MongoDB while maintaining optimal performance and reliability.
 
 ## Step 1: Understanding Your Current Workload
 
