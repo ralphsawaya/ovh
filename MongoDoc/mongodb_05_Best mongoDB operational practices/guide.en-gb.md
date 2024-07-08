@@ -12,7 +12,7 @@ This articles discusses essential best practices for managing MongoDB post-deplo
 # MongoDB Post-Deployment Operational Best Practices
 
 ## 1. Monitoring
-- **OVH Built-in Monitoring Tools:**
+- **OVH cloud Built-in Monitoring Tools:**
   - [Metrics tab](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-mongodb-monitoring?id=kb_article_view&sysparm_article=KB0061661): Provides comprehensive monitoring dashboards.
 - **Third-Party Tools:**
   - [Prometheus](https://prometheus.io/): Integrates with MongoDB Exporter for metrics collection.
