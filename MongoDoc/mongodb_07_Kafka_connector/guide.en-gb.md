@@ -25,6 +25,9 @@ Learn how to secure communications between MongoDB and the MongoDB Kafka Connect
 ## Monitoring
 Learn how to [monitor](https://www.mongodb.com/docs/kafka-connector/current/monitoring/#std-label-kafka-monitoring) your MongoDB Kafka source and sink connectors in the Monitoring section.
 
+## Troubleshooting
+Learn how to resolve issues you may encounter while running the MongoDB Kafka Connector in the [Troubleshooting](https://www.mongodb.com/docs/kafka-connector/current/troubleshooting/#std-label-kafka-troubleshooting) section.
+
 ## Use Cases
 - **Data Streaming**: Real-time data streaming from MongoDB to Kafka for analytics and monitoring.
 - **ETL Pipelines**: Using Kafka as a central hub for ETL processes, with MongoDB serving as a source or sink.
