@@ -113,17 +113,7 @@ This articles discusses essential best practices for managing MongoDB post-deplo
 
 ## 6. Performance Tuning
 - **Indexes:**
-  - **Use Appropriate Indexes:** Create indexes to support query patterns.
-  - **Index Management:** Regularly [review and optimize indexes](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_02_Best_practise_to_implement%20_your_first_mongoDB_instance/guide.en-gb.md#indexing).
-- **Configuration Optimization:**
-  - **Memory Allocation:** Adjust `wiredTigerCacheSizeGB` for optimal performance.
-  - **Connection Limits:** Set appropriate limits for maximum connections.
-- **Query Optimization:**
-  - **Analyze Queries:** Use the explain plan to understand query performance.
-  - **Avoid Long-Running Queries:** Identify and optimize long-running queries.
-
-By following these best practices, you can ensure your MongoDB deployment remains secure, reliable, and performs optimally post-deployment. Regular monitoring, robust backup strategies, stringent security measures, meticulous upgrade procedures, and efficient user and role management are key to successful MongoDB operations.
-
+  - [**Use Appropriate Indexes:**](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_02_Best_practise_to_implement%20_your_first_mongoDB_instance/guide.en-gb.md#indexing) Create indexes to support query patterns and Regularly review and optimize indexes.
 
 ## We want your feedback!
 
