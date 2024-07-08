@@ -78,7 +78,7 @@ This articles discusses essential best practices for managing MongoDB post-deplo
   - **Enable Authentication:** Use SCRAM, LDAP, or Kerberos.
   - **Role-Based Access Control (RBAC):** Assign specific roles and permissions.
 - **Encryption:**
-  - **At-Rest Encryption:** Enable storage encryption.
+  - **At-Rest Encryption:** Enable storage encryption *******can we configure encryption at REST with OVH?*****
   - **In-Transit Encryption:** Use TLS/SSL for data encryption over the network.
 - **Network Security:**
   - **Firewall:** Restrict access to MongoDB instances.
