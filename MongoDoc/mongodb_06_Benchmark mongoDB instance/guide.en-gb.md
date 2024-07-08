@@ -17,22 +17,22 @@ Migrating an application from
 - **Query Performance**: Collect data on query response times and throughput.
 - **Data Size**: Measure the total size of the data and the rate of growth.
 
-Use tools like the following to collect these metrics:
-- **Oracle**: Oracle Enterprise Manager, AWR (Automatic Workload Repository) reports.
-- **MySQL**: MySQL Enterprise Monitor, `SHOW STATUS` commands.
-- **PostgreSQL**: pg_stat_statements, pg_stat_activity, `EXPLAIN ANALYZE`.
 
 ## Step 2: Setting Up Benchmarking Tools
 
 ### YCSB (Yahoo! Cloud Serving Benchmark)
 YCSB is a framework for benchmarking and comparing the performance of various databases. It supports a wide range of workloads and provides a standardized way to measure throughput and latency.
 
-- Install YCSB and set up the workload configurations that match your current database usage patterns.
+- Install [YCSB](https://github.com/brianfrankcooper/YCSB) and set up the workload configurations that match your current database usage patterns.
 
-  ```bash
-  git clone https://github.com/brianfrankcooper/YCSB.git
-  cd YCSB
-  mvn clean package
+### SimRunner
+[SimRunner](https://github.com/schambon/SimRunner) is a tool that binds:
+
+- a powerful data generator for MongoDB
+- a declarative and highly scalable workload generator
+
+Install SimRunner and configure it to simulate the load based on your current database metrics, and then create a configuration file for SimRunner that mimics your current workload.
+
 
 ## We want your feedback!
 
