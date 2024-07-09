@@ -1,6 +1,6 @@
 ---
-title: MongoDB - Why MongoDB
-excerpt: Main reasons to choose mongoDB as your database engine
+title: MongoDB - Benchmark MongoDB Instances
+excerpt: Benchmark MongoDB Instances
 updated: 2024-06-27
 ---
 
