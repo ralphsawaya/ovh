@@ -23,13 +23,20 @@ Under `Data Streaming` create `Kafka Connect` and `Kafka` services.
 
 ![alt text](./images/dataStreamingKafka.png)
 
+
 Select the `KafkaConnect` service and under `Service Integration`, click the `+ Add an Integration` button and select `KafkaConnect` as integration type, an then add the `Kafka` service.
 
 ![alt text](./images/KafkaConnectServiceIntegration.png)
 
+
 Under `Connectors` tab in `KafkaConnect`, click the `+ Add a Connector` and then select either `MongoDB Kafka Sink Connector` or `MongoDB Kafka Source Connector`.
 
 ![alt text](./images/KafkaConnectConnector.png)
+
+
+You can refer to [Sink Connector Configuration Properties](https://www.mongodb.com/docs/kafka-connector/current/sink-connector/configuration-properties/) and [Source Connector Configuration Properties](https://www.mongodb.com/docs/kafka-connector/current/source-connector/configuration-properties/#source-connector-configuration-properties) to complete the setup.
+
+![alt text](./images/ConnectorProperties.png)
 
 
 ## Monitoring
