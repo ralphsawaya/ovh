@@ -1,6 +1,6 @@
 ---
-title: MongoDB - Why MongoDB
-excerpt: Main reasons to choose mongoDB as your database engine
+title: MongoDB - MongoDB readPreference and writeConcern
+excerpt: MongoDB readPreference and writeConcern
 updated: 2024-06-27
 ---
 
