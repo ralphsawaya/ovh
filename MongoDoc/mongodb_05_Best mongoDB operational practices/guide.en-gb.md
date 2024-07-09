@@ -1,6 +1,6 @@
 ---
-title: MongoDB - Why MongoDB
-excerpt: Main reasons to choose mongoDB as your database engine
+title: MongoDB - Best practice to operate an OVHcloud managed MongoDB
+excerpt: Best practice to operate an OVHcloud managed MongoDB
 updated: 2024-06-27
 ---
 
