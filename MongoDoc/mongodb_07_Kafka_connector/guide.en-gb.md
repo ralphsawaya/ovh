@@ -29,6 +29,7 @@ Select the `KafkaConnect` service and under `Service Integration`, click the `+ 
 
 Under `Connectors` tab in `KafkaConnect`, click the `+ Add a Connector` and then select either `MongoDB Kafka Sink Connector` or `MongoDB Kafka Source Connector`.
 
+![alt text](./images/KafkaConnectConnector.png)
 
 
 ## Monitoring
