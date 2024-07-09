@@ -8,9 +8,15 @@ updated: 2024-06-27
 
 MongoDB offers powerful mechanisms to control how and where data is read and written within a distributed database environment.
 
-[ReadPreference](https://www.mongodb.com/docs/manual/core/read-preference/) allows you to specify from which replica set member (primary or secondary) your read operations should be served, optimizing for performance, consistency, or availability based on your application needs. 
+[ReadPreference](https://www.mongodb.com/docs/manual/core/read-preference/) allows you to specify from which replica set member (primary or secondary) your read operations should be served, optimizing for performance, consistency, or availability based on your application needs.
+
+By default, MongoDB's read preference is set to read from the primary node. This ensures the most up-to-date data is read. However, by setting the read preference to secondary, you can distribute read operations across all secondary nodes, improving read scalability and reducing the load on the primary node. This can enhance performance and reduce latency, especially in geographically distributed deployments.
 
 [WriteConcern](https://www.mongodb.com/docs/manual/reference/write-concern/) defines the level of acknowledgment required from the database when a write operation is performed, allowing you to balance between data durability and write performance. Together, these settings provide flexible and fine-grained control over data consistency, availability, and performance in your MongoDB deployment.
+
+MongoDB's write concern is meant to provide flexibility in balancing data durability and write performance. The w=1 write concern means the write operation is acknowledged by only the primary node, offering lower latency and higher throughput, suitable for use cases where performance is critical and occasional data loss is acceptable. On the other hand, **majority** write concern ensures the write is acknowledged by the majority of replica set members, providing higher data durability and consistency, ideal for applications where data integrity and reliability are paramount, such as financial transactions or critical data systems.
+
+
 
 ## ReadPreference
 
