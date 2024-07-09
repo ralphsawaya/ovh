@@ -1,6 +1,6 @@
 ---
-title: MongoDB - Why MongoDB
-excerpt: Main reasons to choose mongoDB as your database engine
+title: MongoDB - Kafka Connector
+excerpt: Setup MongoDB Kafka Connector with OVHcloud
 updated: 2024-06-27
 ---
 
