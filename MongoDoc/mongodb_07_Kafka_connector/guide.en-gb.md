@@ -27,7 +27,7 @@ Under `Data Streaming` create `KafkaConnect` and `Kafka` services.
 
 
 #### STEP 2: Integrate the `Kafka` service to `KafkaConnect`
-Select the `KafkaConnect` service and under `Service Integration`, click the `+ Add an Integration` button and select `KafkaConnect` as integration type, an then add the `Kafka` service.
+Select the `Kafka Connect` service and under `Service Integration`, click the `+ Add an Integration` button and select `KafkaConnect` as integration type, an then add the `Kafka` service.
 
 ![alt text](./images/KafkaConnectServiceIntegration.png)
 
