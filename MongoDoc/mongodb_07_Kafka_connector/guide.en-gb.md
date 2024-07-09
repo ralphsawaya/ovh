@@ -19,6 +19,12 @@ Follow [tutorials](https://www.mongodb.com/docs/kafka-connector/current/tutorial
 1. [Source Connector](https://www.mongodb.com/docs/kafka-connector/current/source-connector/#source-connector): Captures changes from MongoDB and streams them into Kafka topics. It uses MongoDB’s Change Streams to monitor changes in collections and databases.
 2. [Sink Connector](https://www.mongodb.com/docs/kafka-connector/current/sink-connector/#std-label-kafka-sink-overview): Reads data from Kafka topics and writes it into MongoDB collections. This component ensures that data from various Kafka topics can be persisted in MongoDB for further processing or querying.
 
+### Setup Kafka Sink and Source Connectors
+
+Under `Data Streaming` create `Kafka Connect` and `Kafka` services.
+
+![alt text](./images/dataStreamingKafka.png)
+
 ## Monitoring
 Learn how to [monitor](https://www.mongodb.com/docs/kafka-connector/current/monitoring/#std-label-kafka-monitoring) your MongoDB Kafka source and sink connectors in the Monitoring section.
 
