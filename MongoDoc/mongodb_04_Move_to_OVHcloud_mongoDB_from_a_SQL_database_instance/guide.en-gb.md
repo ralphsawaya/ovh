@@ -1,6 +1,6 @@
 ---
-title: MongoDB - Why MongoDB
-excerpt: Main reasons to choose mongoDB as your database engine
+title: MongoDB - Relational Migrator
+excerpt: Migrate from a Relational Database to MongoDB
 updated: 2024-06-27
 ---
 
