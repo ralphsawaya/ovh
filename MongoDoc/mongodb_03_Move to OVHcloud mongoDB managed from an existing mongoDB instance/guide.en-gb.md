@@ -1,6 +1,6 @@
 ---
-title: MongoDB - Why MongoDB
-excerpt: Main reasons to choose mongoDB as your database engine
+title: MongoDB - Migrate From MongoDB to OVH cloud managed MongoDB
+excerpt: Best practices to move from an existing MongoDB instance to an OVH cloud managed MongoDB
 updated: 2024-06-27
 ---
 
