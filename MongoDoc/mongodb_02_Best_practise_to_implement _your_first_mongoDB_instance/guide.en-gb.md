@@ -1,6 +1,6 @@
 ---
-title: MongoDB - I Currently Do Not Have MongoDB And I want Initial Sizing
-excerpt: Main reasons to choose mongoDB as your database engine
+title: MongoDB - Cluster Sizing
+excerpt: I Currently Do Not Have MongoDB And I want Initial Sizing
 updated: 2024-06-27
 ---
 
