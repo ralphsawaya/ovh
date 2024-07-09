@@ -6,7 +6,7 @@ updated: 2024-06-27
 
 ## Introduction
 
-MongoDB offers powerful mechanisms to control how and where data is read and written within a distributed database environment.
+MongoDB offers the possibility to control how and where data is read and written within a distributed database environment.
 
 [ReadPreference](https://www.mongodb.com/docs/manual/core/read-preference/) allows you to specify from which replica set member (primary or secondary) your read operations should be served, optimizing for performance, consistency, or availability based on your application needs.
 
