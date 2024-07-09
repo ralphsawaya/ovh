@@ -4,8 +4,6 @@ excerpt: Main reasons to choose mongoDB as your database engine
 updated: 2024-06-27
 ---
 
-# MongoDB Kafka Connector Documentation Summary
-
 ## Introduction
 The [MongoDB Kafka Connector](https://www.mongodb.com/docs/kafka-connector/current/#mongodb-kafka-connector) is an integration tool that bridges MongoDB with Apache Kafka, enabling real-time data synchronization and streaming between the two platforms. This connector facilitates the seamless transfer of data, allowing MongoDB to be used both as a source and a sink within a Kafka ecosystem. By leveraging this connector, developers can build robust data pipelines, ensuring efficient and reliable data flow across their applications.
 
