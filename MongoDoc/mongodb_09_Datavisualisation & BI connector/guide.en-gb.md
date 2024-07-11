@@ -34,7 +34,9 @@ mongosqld --mongo-uri "mongodb://node2-0b70a1b78fff6c0e.database.cloud.ovh.net:2
 
 Refer to the MongoDB documentation on launching the BI Connector via the [command line](https://www.mongodb.com/docs/bi-connector/current/launch/#start-mongosqld-from-the-command-line) or [system service](https://www.mongodb.com/docs/bi-connector/current/launch/#install-mongosqld-as-a-system-service).
 
-Refer to MongoDB documentation for addtional information on [starting the mongosqld](https://www.mongodb.com/docs/bi-connector/current/reference/mongosqld/). 
+Refer to MongoDB documentation for addtional information on [starting the mongosqld](https://www.mongodb.com/docs/bi-connector/current/reference/mongosqld/).
+
+![alt text](./images/mongosqldCmd.png)
 
 
 ### STEP 3: Connect BI Tools
