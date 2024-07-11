@@ -6,17 +6,28 @@ updated: 2024-06-27
 
 ## Introduction
 
-Business Intelligence (BI) tools like Tableau and Power BI are popular products for data visualization and analysis. They enable users to transform raw data into meaningful insights through interactive dashboards and reports. The MongoDB Connector for Business Intelligence (BI) allows you to create queries with SQL to visualize, graph, and report on your three-dimensional MongoDB data using relational business intelligence tools. This guide will walk you through the process of connecting BI tools to MongoDB using the MongoDB BI Connector.
+Business Intelligence (BI) tools like Tableau and Power BI are popular products for data visualization and analysis. They enable users to transform raw data into meaningful insights through interactive dashboards and reports. The [MongoDB BI Connector](https://www.mongodb.com/docs/bi-connector/current/) allows you to create queries with SQL to visualize, graph, and report on your three-dimensional MongoDB data using relational business intelligence tools.
 
-The MongoDB BI Connector acts as a bridge between MongoDB and BI tools, allowing you to visualize and analyze your MongoDB data without complex data transformations. This guide will cover the installation of the BI Connector, configuration, and connection to your BI tool.
+The MongoDB BI Connector acts as a bridge between MongoDB and BI tools, allowing you to visualize and analyze your MongoDB data without complex data transformations. This guide will cover the installation of the BI Connector, configuration, and connection of your BI tool to OVHcloud cluster.
+
+![alt text](./images/BIConnector.png)
 
 ## Quick Start Guide
 
-Refer to the MongoDB documentation for a [Quick Start Guide](https://www.mongodb.com/docs/bi-connector/current/local-quickstart/#quick-start-guide-for-windows)
+Refer to the MongoDB documentation for a [Quick Start Guide](https://www.mongodb.com/docs/bi-connector/current/local-quickstart/#quick-start-guide-for-windows).
 
 ## Connect the BI tool to the OVHcloud cluster
 
-### Install the BI Connector
+### STEP 1: Install the BI Connector
+
+Refer to the MongoDB documentation for [installing the BI connector](https://www.mongodb.com/docs/bi-connector/current/installation/#install-bi-connector-on-premises).
+
+### STEP 2: Launch the BI Connector
+
+Refer to the MongoDB documentation for [launching the BI Connector](https://www.mongodb.com/docs/bi-connector/current/launch/#launch-bi-connector)
+
+below are some example:
+
 
 ## We want your feedback!
 
