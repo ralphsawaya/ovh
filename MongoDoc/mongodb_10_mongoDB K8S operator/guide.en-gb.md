@@ -17,7 +17,7 @@ There are two versions of the MongoDB Kubernetes Operator:
 ## Prerequisites
 
 1. An OVHcloud Public Cloud account.
-2. A Kubernetes cluster deployed on OVHcloud.
+2. A [Kubernetes cluster deployed on OVHcloud](https://help.ovhcloud.com/csm/en-ie-public-cloud-kubernetes-create-cluster?id=kb_article_view&sysparm_article=KB0037221).
 
 ## Installation
 
