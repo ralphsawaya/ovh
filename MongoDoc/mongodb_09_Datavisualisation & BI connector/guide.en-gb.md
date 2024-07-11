@@ -1,21 +1,22 @@
 ---
-title: MongoDB - Why MongoDB
-excerpt: Main reasons to choose mongoDB as your database engine
+title: MongoDB - BI Connector
+excerpt: Connect Microsoft Power BI, Tableau Desktop, Microsoft Excel
 updated: 2024-06-27
 ---
 
-## Objective
+## Introduction
 
-Public Cloud Databases allow you to focus on building and deploying cloud applications while OVHcloud takes care of the database infrastructure and maintenance in operational conditions. 
+Business Intelligence (BI) tools like Tableau and Power BI are popular products for data visualization and analysis. They enable users to transform raw data into meaningful insights through interactive dashboards and reports. The MongoDB Connector for Business Intelligence (BI) allows you to create queries with SQL to visualize, graph, and report on your three-dimensional MongoDB data using relational business intelligence tools. This guide will walk you through the process of connecting BI tools to MongoDB using the MongoDB BI Connector.
 
-blablabla
+The MongoDB BI Connector acts as a bridge between MongoDB and BI tools, allowing you to visualize and analyze your MongoDB data without complex data transformations. This guide will cover the installation of the BI Connector, configuration, and connection to your BI tool.
 
-**This guide explains the reason why xxx.**
+## Quick Start Guide
 
+Refer to the MongoDB documentation for a [Quick Start Guide](https://www.mongodb.com/docs/bi-connector/current/local-quickstart/#quick-start-guide-for-windows)
 
-## title 
+## Connect the BI tool to the OVHcloud cluster
 
-### sub
+### Install the BI Connector
 
 ## We want your feedback!
 
