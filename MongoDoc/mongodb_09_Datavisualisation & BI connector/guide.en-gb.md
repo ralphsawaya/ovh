@@ -44,6 +44,7 @@ Refer to MongoDB documentation for addtional information on [starting the mongos
 
 Refer to the MongoDB documentation for [connecting the BI tool](https://www.mongodb.com/docs/bi-connector/current/client-applications/).
 
+
 ![alt text](./images/ODBC-OVHcloud.PNG)
 
 ![alt text](./images/tableauSQL.PNG)
