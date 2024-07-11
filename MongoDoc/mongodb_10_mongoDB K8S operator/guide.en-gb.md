@@ -8,7 +8,7 @@ updated: 2024-06-27
 
 ## Overview
 
-The [MongoDB Kubernetes Operator](https://www.mongodb.com/docs/kubernetes-operator/upcoming/#mongodb-enterprise-kubernetes-operator) enables you to manage MongoDB instances within a Kubernetes cluster. By leveraging Kubernetes, you can automate deployment, scaling, and management of MongoDB databases. OVHcloud offers an [environment that supports the deployment of Kubernetes Operators](https://help.ovhcloud.com/csm/en-ie-public-cloud-kubernetes-deploy-helm-operator?id=kb_article_view&sysparm_article=KB0049802) via Helm, making it easy to integrate MongoDB into your cloud-native applications.
+The [MongoDB Kubernetes Operator](https://www.mongodb.com/docs/kubernetes-operator/upcoming/#mongodb-enterprise-kubernetes-operator) enables you to manage MongoDB instances within a Kubernetes cluster. By leveraging Kubernetes, you can automate deployment, scaling, and management of MongoDB databases. OVHcloud offers an [environment that supports the deployment of Kubernetes Operators](https://help.ovhcloud.com/csm/en-ie-public-cloud-kubernetes-deploy-helm-operator?id=kb_article_view&sysparm_article=KB0049802) via Helm, making it easy to integrate MongoDB into your applications.
 
 ## Installation
 
