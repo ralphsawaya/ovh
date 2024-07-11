@@ -1,6 +1,6 @@
 ---
 title: MongoDB - Kubernetes Operator
-excerpt: Main reasons to choose mongoDB as your database engine
+excerpt: Deploy Kubernetes operator on OVHcloud
 updated: 2024-06-27
 ---
 
