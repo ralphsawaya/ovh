@@ -29,7 +29,7 @@ Refer to the MongoDB documentation for [launching the BI Connector](https://www.
 below is an example for starting the connector with the OVHcloud cluster:
 
 ```javascript
-mongosqld --mongo-uri "mongodb://node2-0b70a1b78fff6c0e.database.cloud.ovh.net:27017,node1-0b70a1b78fff6c0e.database.cloud.ovh.net:27017,node3-0b70a1b78fff6c0e.database.cloud.ovh.net:27017/" --auth -u mongoadmin -p erm0JRULGak56OKW1Yf4v --mongo-ssl
+mongosqld --mongo-uri "mongodb://node2-0b70a1b78fff6c0e.database.cloud.ovh.net:27017,node1-0b70a1b78fff6c0e.database.cloud.ovh.net:27017,node3-0b70a1b78fff6c0e.database.cloud.ovh.net:27017/" --auth -u myuser -p mypassword --mongo-ssl
 ```
 
 Refer to MongoDB documentation for addtional information on [starting the mongosqld](https://www.mongodb.com/docs/bi-connector/current/reference/mongosqld/). 
