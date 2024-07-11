@@ -14,6 +14,11 @@ There are two versions of the MongoDB Kubernetes Operator:
 - [Community Operator](https://github.com/mongodb/mongodb-kubernetes-operator)
 - [Enterprise Operator](https://www.mongodb.com/docs/kubernetes-operator/upcoming/)
 
+## Prerequisites
+
+1. An OVHcloud Public Cloud account.
+2. A Kubernetes cluster deployed on OVHcloud.
+
 ## Installation
 
 For detailed installation instructions, refer to the [MongoDB Kubernetes Operator Installation Guide](https://www.mongodb.com/docs/kubernetes-operator/upcoming/installation/).
