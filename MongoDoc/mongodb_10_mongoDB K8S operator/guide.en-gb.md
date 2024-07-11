@@ -1,5 +1,5 @@
 ---
-title: MongoDB - Why MongoDB
+title: MongoDB - Kubernetes Operator
 excerpt: Main reasons to choose mongoDB as your database engine
 updated: 2024-06-27
 ---
@@ -9,6 +9,10 @@ updated: 2024-06-27
 ## Overview
 
 The [MongoDB Kubernetes Operator](https://www.mongodb.com/docs/kubernetes-operator/upcoming/#mongodb-enterprise-kubernetes-operator) enables you to manage MongoDB instances within a Kubernetes cluster. By leveraging Kubernetes, you can automate deployment, scaling, and management of MongoDB databases. OVHcloud offers an [environment that supports the deployment of Kubernetes Operators](https://help.ovhcloud.com/csm/en-ie-public-cloud-kubernetes-deploy-helm-operator?id=kb_article_view&sysparm_article=KB0049802) via Helm, making it easy to integrate MongoDB into your applications.
+
+There are two versions of the MongoDB Kubernetes Operator:
+- **Community Operator**: [GitHub Repository](https://github.com/mongodb/mongodb-kubernetes-operator)
+- **Enterprise Operator**: [Official Documentation](https://www.mongodb.com/docs/kubernetes-operator/upcoming/)
 
 ## Installation
 
@@ -30,10 +34,10 @@ The MongoDB Kubernetes Operator streamlines the process of running MongoDB in Ku
 
 The MongoDB Kubernetes Operator supports the following resource specifications:
 
-- **Ops Manager Resource Specification**: Manages MongoDB Ops Manager deployment and operations.
-- **MongoDB User Resource Specification**: Defines user accounts and roles within MongoDB.
-- **MongoDB Database Resource Specification**: Manages databases within a MongoDB deployment.
-- **Multi-Kubernetes-Cluster Resource Specification**: Supports deployment across multiple Kubernetes clusters.
+- [Ops Manager Resource Specification](https://www.mongodb.com/docs/kubernetes-operator/upcoming/reference/k8s-operator-om-specification/): Manages MongoDB Ops Manager deployment and operations.
+- [MongoDB User Resource Specification](https://www.mongodb.com/docs/kubernetes-operator/upcoming/reference/k8s-operator-mongodbuser-specification/): Defines user accounts and roles within MongoDB.
+- [MongoDB Database Resource Specification](https://www.mongodb.com/docs/kubernetes-operator/upcoming/reference/k8s-operator-specification/#mongodb-database-resource-specification): Manages databases within a MongoDB deployment.
+- [Multi-Kubernetes-Cluster Resource Specification](https://www.mongodb.com/docs/kubernetes-operator/upcoming/reference/k8s-operator-multi-cluster-specification/#multi-kubernetes-cluster-resource-specification): Supports deployment across multiple Kubernetes clusters.
 
 ## Conclusion
 
