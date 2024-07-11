@@ -18,6 +18,10 @@ There are two versions of the MongoDB Kubernetes Operator:
 
 For detailed installation instructions, refer to the [MongoDB Kubernetes Operator Installation Guide](https://www.mongodb.com/docs/kubernetes-operator/upcoming/installation/).
 
+## Quick Start Guide
+
+For a quickstart guide, refer to [Quick Start for the Kubernetes Operator](https://www.mongodb.com/docs/kubernetes-operator/upcoming/kind-quick-start/)
+
 ## Introduction to MongoDB Kubernetes Operator
 
 The MongoDB Kubernetes Operator streamlines the process of running MongoDB in Kubernetes environments. It automates tasks such as provisioning, scaling, and managing MongoDB clusters, making database management more efficient and reliable.
@@ -39,11 +43,11 @@ The MongoDB Kubernetes Operator supports the following resource specifications:
 - [MongoDB Database Resource Specification](https://www.mongodb.com/docs/kubernetes-operator/upcoming/reference/k8s-operator-specification/#mongodb-database-resource-specification): Manages databases within a MongoDB deployment.
 - [Multi-Kubernetes-Cluster Resource Specification](https://www.mongodb.com/docs/kubernetes-operator/upcoming/reference/k8s-operator-multi-cluster-specification/#multi-kubernetes-cluster-resource-specification): Supports deployment across multiple Kubernetes clusters.
 
-## Conclusion
+### Deploy Ressources
+ - [Deploy Ops Manager Resources on Kubernetes Clusters](https://github.com/mongodb/mongodb-kubernetes-operator)
+ - [Deploy and Configure MongoDB Database Resources](https://www.mongodb.com/docs/kubernetes-operator/upcoming/mdb-resources/#deploy-and-configure-mongodb-database-resources)
+ - [Deploy MongoDB Resources on Multiple Kubernetes Clusters](https://www.mongodb.com/docs/kubernetes-operator/upcoming/multi-cluster/#deploy-mongodb-resources-on-multiple-kubernetes-clusters)
 
-Deploying the MongoDB Kubernetes Operator on OVHcloud allows for efficient and scalable management of MongoDB databases. By leveraging the capabilities of Kubernetes and Helm, you can ensure high availability, automated scaling, and robust data management for your applications.
-
-For more details, visit the official [MongoDB Kubernetes Operator documentation](https://github.com/mongodb/mongodb-kubernetes-operator).
 
 ## We want your feedback!
 
