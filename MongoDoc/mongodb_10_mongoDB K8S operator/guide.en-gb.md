@@ -27,7 +27,7 @@ For detailed installation instructions, refer to the [MongoDB Kubernetes Operato
 
 For a quickstart guide, refer to [Quick Start for the Kubernetes Operator](https://www.mongodb.com/docs/kubernetes-operator/upcoming/kind-quick-start/)
 
-## Introduction to MongoDB Kubernetes Operator
+## MongoDB Kubernetes Operator
 
 The MongoDB Kubernetes Operator streamlines the process of running MongoDB in Kubernetes environments. It automates tasks such as provisioning, scaling, and managing MongoDB clusters, making database management more efficient and reliable.
 
