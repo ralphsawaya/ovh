@@ -26,7 +26,7 @@ Refer to the MongoDB documentation for [installing the BI connector](https://www
 
 Refer to the MongoDB documentation for [launching the BI Connector](https://www.mongodb.com/docs/bi-connector/current/launch/#launch-bi-connector)
 
-below is an example for starting the connector with the OVHcloud cluster:
+below is an example for starting the connector with the OVHcloud cluster via the command line:
 
 ```javascript
 mongosqld --mongo-uri "mongodb://node2-0b70a1b78fff6c0e.database.cloud.ovh.net:27017,node1-0b70a1b78fff6c0e.database.cloud.ovh.net:27017,node3-0b70a1b78fff6c0e.database.cloud.ovh.net:27017/" --auth -u myuser -p mypassword --mongo-ssl
