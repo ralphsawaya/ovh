@@ -28,6 +28,12 @@ This articles discusses essential best practices for managing MongoDB post-deplo
   - **Memory (RAM) Utilization**: 
     - Indicates the amount of RAM used by MongoDB.
     - High memory usage can enhance performance but may suggest the need for more RAM if consistently high.
+      
+  - **Cache Activity**
+    - readInto (replica set) or cache read into (sharded cluster) displays the rate in bytes per second of data read from disk into memory to service queries.
+    - writtenFrom (replica set) or cache written from (sharded cluster) displays the rate in bytes per second of data written from memory into disk to service writes.
+   
+    High cache activity indicates that the working set is not fitting into RAM. Therefore, it is advisable to increase the RAM size in this situation
 
   - **Disk Usage**: 
     - Shows the amount of disk space used by MongoDB data.
