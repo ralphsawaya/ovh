@@ -3,6 +3,8 @@ title: MongoDB - MongoDB readPreference and writeConcern
 excerpt: MongoDB readPreference and writeConcern
 updated: 2024-06-27
 ---
+> [!WARNING]
+> MongoDB parameters such as readPreference and writeConcern have performance implications.
 
 ## Introduction
 
