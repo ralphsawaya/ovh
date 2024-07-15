@@ -71,7 +71,7 @@ Use one of the tools mentioned in the [previous section](https://github.com/ralp
 - Monitor the process to ensure data is transferred correctly.
 
 ### Cut Off Process
-- **Continuous Synchronization**: If using tools like `mongosync` or `Relational Migrator`, mentioned in the [previous section](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_03_Move%20to%20OVHcloud%20mongoDB%20managed%20from%20an%20existing%20mongoDB%20instance/guide.en-gb.md#migration-tools), which offer continuous synchronization, monitor the synchronization logs.
+- **Continuous Synchronization**: If using `mongosync`  mentioned in the [previous section](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_03_Move%20to%20OVHcloud%20mongoDB%20managed%20from%20an%20existing%20mongoDB%20instance/guide.en-gb.md#migration-tools), which offer continuous synchronization, monitor the synchronization logs.
 - **Identify Synchronization Lag**: Wait until the logs indicate that the target cluster is only a few seconds behind (e.g., 2 seconds) the source cluster.
 - **Stop Writes to Source Cluster**: At this point, stop all write operations to the source cluster to ensure no data loss.
 - **Update Application Configuration**: Change the application configuration to point to the new OVH cloud cluster.
