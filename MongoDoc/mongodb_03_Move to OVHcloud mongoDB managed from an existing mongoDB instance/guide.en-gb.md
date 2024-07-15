@@ -62,10 +62,6 @@ Use one of the tools mentioned in the [previous section](https://github.com/ralp
 
 ## 5. Migration Execution
 
-### Test Migration
-- Perform a test migration on a dataset to validate the process. Use the SimRunner and YCSB tools mentioned in the [previous section](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_03_Move%20to%20OVHcloud%20mongoDB%20managed%20from%20an%20existing%20mongoDB%20instance/guide.en-gb.md#migration-tools).
-- Verify data integrity and performance on the OVH cloud cluster.
-
 ### Schedule Migration
 - Plan the migration during a maintenance window to minimize impact.
 - Inform stakeholders of potential downtime.
