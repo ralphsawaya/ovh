@@ -9,27 +9,13 @@ updated: 2024-06-27
 The primary objective of this documentation is to provide a comprehensive approach to MongoDB database migration, ensuring data integrity, minimal downtime, and optimal performance. Whether you are migrating from:
 
 - MongoDB instance to a new MongoDB instance.
-- RDBMS to MongoDB.
 - Any Document DB to MongoDB.
 
 This guide covers the essential tools and processes required for a successful migration.
 
 ## Migration Tools
 
-### Tools to Prepare for Migration
-
-These tools are used for preparation, simulation, and design before starting the actual migration process.
-
-#### 1. SimRunner
-[SimRunner](https://github.com/schambon/SimRunner) is a simulation tool designed to help test and validate data migration scenarios. It is useful for identifying potential issues before performing actual migrations.
-
-#### 2. YCSB (Yahoo! Cloud Serving Benchmark)
-[YCSB](https://github.com/brianfrankcooper/YCSB/blob/master/mongodb/README.md) is a benchmarking tool for evaluating the performance of different databases, including MongoDB. It helps in understanding the performance characteristics and ensuring that the migrated database meets the required performance standards.
-
-#### 3. MongoDB Relational Migrator
-[MongoDB Relational Migrator](https://www.mongodb.com/docs/relational-migrator/) is designed to simplify the process of migrating data from relational databases to MongoDB. It provides an intuitive interface and powerful mapping features to transform and import data efficiently.
-
-### Tools to Execute the Migration - With Downtime
+### Tools With Downtime
 
 These tools are used during migration processes where some expected downtime.
 
@@ -43,17 +29,14 @@ Use the [`--dumpDbUsersAndRoles`](https://www.mongodb.com/docs/database-tools/mo
 
 Use the [`restoreDbUsersAndRoles`](https://www.mongodb.com/docs/database-tools/mongorestore/#std-option-mongorestore.--restoreDbUsersAndRoles) option to Restore user and role definitions for the given database. Restoring the admin database by specifying `--db admin` to mongorestore already restores all users and roles.
 
-### Tools to execute the Migration - Minimal Downtime
+### Tools With Minimal Downtime
 
 These tools are designed to minimize downtime during the migration process.
 
 #### 1. mongosync
 The [mongosync](https://www.mongodb.com/docs/cluster-to-cluster-sync/current/reference/mongosync/) binary is the primary process used in Cluster-to-Cluster Sync. provides you with continuous, uni-directional data synchronization of MongoDB clusters in the same or different environments. Check the mongosync [limitations](https://www.mongodb.com/docs/cluster-to-cluster-sync/current/reference/limitations/) before starting the migration.
 
-#### 2. MongoDB Relational Migrator
-[MongoDB Relational Migrator](https://www.mongodb.com/docs/relational-migrator/) is designed to simplify the process of migrating data from relational databases to MongoDB. It provides an intuitive interface and powerful mapping features to transform and import data efficiently.
-
-#### 3. MongoDB Kafka Connector
+#### 2. MongoDB Kafka Connector
 [MongoDB Kafka Connector](https://www.mongodb.com/docs/kafka-connector/current/) allows you to integrate MongoDB with Apache Kafka, enabling real-time data synchronization and minimizing downtime during migrations by streaming data changes directly to MongoDB.
 
 # Migration Strategy
