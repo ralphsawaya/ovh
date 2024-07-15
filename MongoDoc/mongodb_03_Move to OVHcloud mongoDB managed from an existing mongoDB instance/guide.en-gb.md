@@ -15,7 +15,7 @@ This guide covers the essential tools and processes required for a successful mi
 
 ## Migration Tools
 
-### Tools With Downtime
+### Tools With Expected Downtime
 
 These tools are used during migration processes where some expected downtime.
 
