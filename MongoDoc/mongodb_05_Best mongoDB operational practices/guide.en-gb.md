@@ -20,8 +20,8 @@ This articles discusses essential best practices for managing MongoDB post-deplo
   - [Datadog](https://docs.datadoghq.com/integrations/mongo/?tab=replicaset): Offers deep MongoDB integration for metrics and alerts.
   - [Hatchet](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_01_Why_mongoDB/guide.en-gb.md#hatchet): Parses the logs to help you identify slow queries.
     
-- **Key Metrics for Monitoring MongoDB Cluster**
-  - **CPU Utilization**: 
+- [**Key Metrics for Monitoring MongoDB Cluster**](https://www.mongodb.com/docs/atlas/review-available-metrics/#review-available-metrics)
+  - **Normalized System CPU**: 
     - Measures the percentage of CPU resources in use.
     - High CPU usage can indicate heavy load or the need for hardware scaling.
 
