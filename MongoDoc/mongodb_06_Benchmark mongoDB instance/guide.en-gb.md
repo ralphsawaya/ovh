@@ -6,7 +6,7 @@ updated: 2024-06-27
 
 # Objective
 
-In this documentation, we will discuss a step-by-step approach to benchmark and size your OVHcloud MongoDB cluster based on a specific load. This includes estimating resource requirements and configuring your cluster.
+This guide aims to provide a detailed, step-by-step approach to benchmarking and sizing your OVHcloud MongoDB cluster based on specific loads. It covers estimating resource requirements, configuring the cluster, and using tools like YCSB and SimRunner for performance testing. By following this guide, you will be able to measure throughput, latency, and make informed decisions about the appropriate OVHcloud plan to meet your application's needs, ensuring optimal performance and scalability.
 
 ## Setting Up Benchmarking Tools
 
