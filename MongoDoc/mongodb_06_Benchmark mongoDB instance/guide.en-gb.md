@@ -68,6 +68,7 @@ insertproportion=0
 
 requestdistribution=zipfian
 ```
+See https://github.com/brianfrankcooper/YCSB/wiki/Core-Properties for the list of available workload properties.
 
 ### STEP 3: Load Data into MongoDB with YCSB - Example Loading the Provided `workloada`
 While located in the `ycsb-0.17.0` directory, execute the following command with the provided `workloada` to load data into MongoDB.
@@ -77,6 +78,8 @@ While located in the `ycsb-0.17.0` directory, execute the following command with
 ![alt text](./images/YCSBLoad.png)
 
 Verify that the database `ycsb` and collection `usertable` got created and loaded with data.
+
+For more details, see https://github.com/brianfrankcooper/YCSB/wiki/Running-a-Workload for a detailed documentation on how to run a workload.
 
 ### STEP 4: Run The YCSB Workload - Example Running the Provided `workloada`
 While located in the `YCSB > ycsb-0.17.0` directory, execute the following command with the provided `workloada` to run the workload.
