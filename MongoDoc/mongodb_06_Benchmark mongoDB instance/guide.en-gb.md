@@ -29,9 +29,9 @@ Install SimRunner and configure it to simulate the load based on your current da
 > With YCSB version 0.17.0, make sure you have Python 2 installed, as YCSB will encounter errors if Python 3 is used.
 
 ### STEP 1: Determine Primary node of MongoDB cluster
-- Connect to the MongoDB cluster with the mongoshell, and then issue the command `rs.status()`.
-- Find the element with `members.stateStr: 'PRIMARY'` .
-- Take note of the value of the `members.name` field for that element. eg. `name: 'node2-0b70a1b78fff6c0e-admin.database.cloud.ovh.net:27017'`. You will use it in STEP 2 to load and run YCSB.
+1. Connect to the MongoDB cluster with the mongoshell, and then issue the command `rs.status()`.
+2. Find the element with `members.stateStr: 'PRIMARY'` .
+3. Take note of the value of the `members.name` field for that element. eg. `name: 'node2-0b70a1b78fff6c0e-admin.database.cloud.ovh.net:27017'`. You will use it in STEP 2 to load and run YCSB.
 
 ### STEP 2: Load Data into MongoDB - Example loading the provided `workloada`
 While located in the `YCSB > ycsb-0.17.0` directory, execute the following command with the provided `workloada` to load data into MongoDB.
