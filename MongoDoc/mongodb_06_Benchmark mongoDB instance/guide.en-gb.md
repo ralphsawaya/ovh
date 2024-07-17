@@ -126,9 +126,10 @@ Take note of the run command output in STEP 4, and benchmark it with other datab
 ![alt text](./images/simRunnerRun.png)
 
 - The report output, `mongoReporter`,  of the execution was set to be stored on the locally running MongoDB: `"connectionString": "mongodb://localhost:27017"`
+  
+![alt text](./images/simRunnerReport.png)
+
 - Monitor the performance and adjust the cluster size and configurations as needed.
-
-
 
 ## Step 9: Validation
 - Validate that your application performs as expected with MongoDB.
