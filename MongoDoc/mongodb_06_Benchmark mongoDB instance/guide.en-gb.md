@@ -31,7 +31,7 @@ Install SimRunner and configure it to simulate the load based on your current da
 ### STEP 0: Set up an OVHcloud MongoDB Cluster
 - [Set up the OVH MongoDB cluster](https://help.ovhcloud.com/csm/en-public-cloud-databases-getting-started?id=kb_article_view&sysparm_article=KB0048745). Make sure to select a plan with similar hardware specifications compared to the other databases with which you would like to benchmark.
 
-### STEP 1: Determine Primary node of MongoDB cluster
+### STEP 1: Determine The Primary Node of MongoDB Cluster
 1. Connect to the MongoDB cluster with the mongoshell, and then issue the command `rs.status()`.
 2. Find the element with `members.stateStr: 'PRIMARY'` .
 3. Take note of the value of the `members.name` field for that element. eg. `name: 'node2-0b70a1b78fff6c0e-admin.database.cloud.ovh.net:27017'`. You will use it in STEP 3 to load and run YCSB.
