@@ -95,7 +95,7 @@ While located in the `YCSB > ycsb-0.17.0` directory, execute the following comma
 ### STEP 5: Analyze and Benchmark the YCSB Output Metrics
 Take note of the run command output in STEP 4, and benchmark it with other databases.
 
-### Step 6: Select OVH cloud Plan
+### Step 6: Select OVHcloud Plan
 Now that you have selected MongoDB as your database, it is time to setup the appropriate cluster.
 - Based on the metrics collected (CPU, RAM, Disk IOPS, Disk Space, etc.), choose an OVH cloud plan that meets the requirements of your application.
 - Consider future growth and scalability needs. You might want to consider how to [size a MongoDB cluster](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_02_Best_practise_to_implement%20_your_first_mongoDB_instance/guide.en-gb.md#mongodb-cluster-sizing).
