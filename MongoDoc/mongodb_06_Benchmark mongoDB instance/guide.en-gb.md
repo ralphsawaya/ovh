@@ -8,22 +8,13 @@ updated: 2024-06-27
 
 In this documentation, we will discuss a step-by-step approach to benchmark and size your MongoDB cluster based on a specific load. This includes estimating resource requirements, configuring your cluster, and comparing network performance.
 
-## Step 1: Understanding Your Current Workload
-
-### Collect Metrics from Your Current Database
-- **CPU Usage**: Measure the average and peak CPU usage.
-- **Memory Usage**: Note the average and peak memory usage.
-- **Disk I/O**: Measure the IOPS (Input/Output Operations Per Second) and throughput.
-- **Query Performance**: Collect data on query response times and throughput.
-- **Data Size**: Measure the total size of the data and the rate of growth.
-
-
-## Step 2: Setting Up Benchmarking Tools
+## Setting Up Benchmarking Tools
 
 ### YCSB (Yahoo! Cloud Serving Benchmark)
 [YCSB](https://github.com/brianfrankcooper/YCSB) is a framework for benchmarking and comparing the performance of various databases. It supports a wide range of workloads and provides a standardized way to measure throughput and latency.
 
-- Install YCSB and set up the workload configurations that match your current database usage patterns.
+- Go through the [README](https://github.com/brianfrankcooper/YCSB/?tab=readme-ov-file#links) to install YCSB.
+- Refer to the [MongoDB README](https://github.com/brianfrankcooper/YCSB/tree/master/mongodb) to run YCSB on MongoDB.
 
 ### SimRunner
 [SimRunner](https://github.com/schambon/SimRunner) is a tool that binds:
@@ -32,6 +23,10 @@ In this documentation, we will discuss a step-by-step approach to benchmark and 
 - a declarative and highly scalable workload generator
 
 Install SimRunner and configure it to simulate the load based on your current database metrics, and then create a configuration file for SimRunner that mimics your current workload.
+
+## Run YCSB on OVHcloud MongoDB
+> [!WARNING]  
+> With YCSB version 0.17.0, make sure you have Python 2 installed, as YCSB will encounter errors if Python 3 is used.
 
 ## Step 3: Estimating Resource Requirements
 
