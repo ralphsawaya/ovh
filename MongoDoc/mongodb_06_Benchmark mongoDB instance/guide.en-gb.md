@@ -28,7 +28,16 @@ Install SimRunner and configure it to simulate the load based on your current da
 > [!WARNING]  
 > With YCSB version 0.17.0, make sure you have Python 2 installed, as YCSB will encounter errors if Python 3 is used.
 
-## Step 3: Estimating Resource Requirements
+### STEP 1: Determine Primary node of MongoDB cluster
+- Connect to the MongoDB cluster with the mongoshell, and then issue the command `rs.status()`.
+- Find the element with `members.stateStr: 'PRIMARY'` .
+- Take note of the value of the `name` field. eg. `name: 'node2-0b70a1b78fff6c0e-admin.database.cloud.ovh.net:27017'`
+
+### STEP 2: Load Workload Data into MongoDB
+- 
+
+
+## Estimating Resource Requirements
 
 ### CPU and Memory
 - Use the metrics collected from your current database to estimate the CPU and memory requirements. Ensure to account for peak usage.
