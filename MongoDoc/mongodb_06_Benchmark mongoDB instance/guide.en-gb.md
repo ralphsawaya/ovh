@@ -31,10 +31,14 @@ Install SimRunner and configure it to simulate the load based on your current da
 ### STEP 1: Determine Primary node of MongoDB cluster
 1. Connect to the MongoDB cluster with the mongoshell, and then issue the command `rs.status()`.
 2. Find the element with `members.stateStr: 'PRIMARY'` .
-3. Take note of the value of the `members.name` field for that element. eg. `name: 'node2-0b70a1b78fff6c0e-admin.database.cloud.ovh.net:27017'`. You will use it in STEP 2 to load and run YCSB.
+3. Take note of the value of the `members.name` field for that element. eg. `name: 'node2-0b70a1b78fff6c0e-admin.database.cloud.ovh.net:27017'`. You will use it in STEP 3 to load and run YCSB.
 
-### STEP 2: Load Data into MongoDB - Example Loading the Provided `workloada`
-While located in the `YCSB > ycsb-0.17.0` directory, execute the following command with the provided `workloada` to load data into MongoDB.
+### STEP 2: Configure The Workload
+
+YCSB provide pre-configured workloads under the `ycsb-0.17.0 > workloads` folder. You can setup your own workload based on the behavior of your application.
+
+### STEP 3: Load Data into MongoDB - Example Loading the Provided `workloada`
+While located in the `ycsb-0.17.0` directory, execute the following command with the provided `workloada` to load data into MongoDB.
 ```javascript
 ./bin/ycsb load mongodb -p mongodb.url="mongodb://myuser:mypassword@node2-0b70a1b78fff6c0e.database.cloud.ovh.net:27017/admin?replicaSet=replicaset&ssl=true" -s -P workloads/workloada
 ```
@@ -43,7 +47,7 @@ While located in the `YCSB > ycsb-0.17.0` directory, execute the following comma
 
 Verify that the database `ycsb` and collection `usertable` got created and loaded with data.
 
-### STEP 3: Run the workload - Example Running the Provided `workloada`
+### STEP 4: Run the workload - Example Running the Provided `workloada`
 While located in the `YCSB > ycsb-0.17.0` directory, execute the following command with the provided `workloada` to run the workload.
 ```javascript
 ./bin/ycsb run mongodb -p mongodb.url="mongodb://myuser:mypassword@node2-0b70a1b78fff6c0e.database.cloud.ovh.net:27017/admin?replicaSet=replicaset&ssl=true" -s -P workloads/workloada
