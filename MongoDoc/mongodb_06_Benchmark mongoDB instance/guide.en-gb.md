@@ -29,7 +29,7 @@ Install SimRunner and configure it to simulate the load based on your current da
 > With YCSB version 0.17.0, make sure you have Python 2 installed, as YCSB will encounter errors if Python 3 is used.
 
 ### STEP 0: Set up an OVHcloud MongoDB Cluster
-- [Set up the OVH MongoDB cluster](https://help.ovhcloud.com/csm/en-public-cloud-databases-getting-started?id=kb_article_view&sysparm_article=KB0048745).
+- [Set up the OVH MongoDB cluster](https://help.ovhcloud.com/csm/en-public-cloud-databases-getting-started?id=kb_article_view&sysparm_article=KB0048745). Make sure to select a plan with similar hardware specifications compared to the other databases with which you would like to benchmark.
 
 ### STEP 1: Determine Primary node of MongoDB cluster
 1. Connect to the MongoDB cluster with the mongoshell, and then issue the command `rs.status()`.
@@ -59,6 +59,7 @@ While located in the `YCSB > ycsb-0.17.0` directory, execute the following comma
 Take note of the run command output in STEP 4, and benchmark it with other databases.
 
 ### Step 6: Select OVH cloud Plan
+Now that you have selected MongoDB as your database, it is time to setup the appropriate cluster.
 - Based on the metrics collected (CPU, RAM, Disk IOPS, Disk Space, etc.), choose an OVH cloud plan that meets the requirements of your application.
 - Consider future growth and scalability needs. You might want to consider how to [size a MongoDB cluster](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_02_Best_practise_to_implement%20_your_first_mongoDB_instance/guide.en-gb.md#mongodb-cluster-sizing).
 
