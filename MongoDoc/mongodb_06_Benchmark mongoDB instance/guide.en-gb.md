@@ -31,13 +31,16 @@ Install SimRunner and configure it to simulate the load based on your current da
 ### STEP 1: Determine Primary node of MongoDB cluster
 - Connect to the MongoDB cluster with the mongoshell, and then issue the command `rs.status()`.
 - Find the element with `members.stateStr: 'PRIMARY'` .
-- Take note of the value of the `name` field. eg. `name: 'node2-0b70a1b78fff6c0e-admin.database.cloud.ovh.net:27017'`
+- Take note of the value of the `name` field. eg. `name: 'node2-0b70a1b78fff6c0e-admin.database.cloud.ovh.net:27017'`. You will use it in STEP 2 to load and run YCSB.
 
-### STEP 2: Load Workload Data into MongoDB
-- 
+### STEP 2: Load Workload Data into MongoDB - Example loading `workloada`
+While located in the `YCSB > ycsb-0.17.0` directory, execute the following command to load the provided `workloada` into MongoDB
+```javascript
+./bin/ycsb load mongodb -p mongodb.url="mongodb://myuser:mypassword@node2-0b70a1b78fff6c0e.database.cloud.ovh.net:27017/admin?replicaSet=replicaset&ssl=true" -s -P workloads/workloada
+```
+Verify that the database `ycsb` and collection `usertable` got created and loaded with data.
 
-
-## Estimating Resource Requirements
+### STEP 3: 
 
 ### CPU and Memory
 - Use the metrics collected from your current database to estimate the CPU and memory requirements. Ensure to account for peak usage.
