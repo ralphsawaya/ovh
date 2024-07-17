@@ -31,7 +31,8 @@ below is an example for starting the connector with the OVHcloud cluster via the
 ```javascript
 mongosqld --mongo-uri "mongodb://node2-0b70a1b78fff6c0e.database.cloud.ovh.net:27017,node1-0b70a1b78fff6c0e.database.cloud.ovh.net:27017,node3-0b70a1b78fff6c0e.database.cloud.ovh.net:27017/" --auth -u myuser -p mypassword --mongo-ssl
 ```
-> **_NOTE:_**  Ensure that the IP address of the machine running mongosqld is authorized in your OVHcloud MongoDB cluster.
+> [!IMPORTANT]
+> Ensure that the IP address of the machine running mongosqld is authorized in your OVHcloud MongoDB cluster.
 
 Refer to the MongoDB documentation on launching the BI Connector via the [command line](https://www.mongodb.com/docs/bi-connector/current/launch/#start-mongosqld-from-the-command-line) or [system service](https://www.mongodb.com/docs/bi-connector/current/launch/#install-mongosqld-as-a-system-service).
 
@@ -40,7 +41,7 @@ Refer to MongoDB documentation for addtional information on [starting the mongos
 ![alt text](./images/mongosqldCmd.png)
 
 
-### STEP 3: Connect BI Tools
+### STEP 3: Connect BI Tools - Example with Tableau
 
 Refer to the MongoDB documentation for [connecting the BI tool](https://www.mongodb.com/docs/bi-connector/current/client-applications/).
 
