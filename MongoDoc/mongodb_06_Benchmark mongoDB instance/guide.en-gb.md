@@ -6,7 +6,7 @@ updated: 2024-06-27
 
 # Objective
 
-In this documentation, we will discuss a step-by-step approach to benchmark and size your MongoDB cluster based on the load and metrics of your current database. This includes estimating resource requirements, configuring your cluster, and comparing network performance to ensure a smooth and efficient migration. By following these guidelines, you can accurately transition from a traditional relational database to MongoDB while maintaining optimal performance and reliability.
+In this documentation, we will discuss a step-by-step approach to benchmark and size your MongoDB cluster based on a specific load. This includes estimating resource requirements, configuring your cluster, and comparing network performance.
 
 ## Step 1: Understanding Your Current Workload
 
