@@ -167,11 +167,9 @@ Now that you have selected MongoDB as your database, it is time to setup the app
   
 ![alt text](./images/simRunnerOutput.png)
 
-- Monitor the performance and adjust the cluster size and configurations as required by the application.
-
 ## Step 9: Validation
+- Monitor the performance and adjust the cluster size and configurations as required by the application.
 - Validate that your application performs as expected with MongoDB.
-- Ensure that all functionalities are working correctly and that the performance meets your requirements.
 
 ## We want your feedback!
 
