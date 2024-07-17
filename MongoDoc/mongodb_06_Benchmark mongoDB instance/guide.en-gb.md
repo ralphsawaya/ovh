@@ -33,14 +33,22 @@ Install SimRunner and configure it to simulate the load based on your current da
 - Find the element with `members.stateStr: 'PRIMARY'` .
 - Take note of the value of the `name` field. eg. `name: 'node2-0b70a1b78fff6c0e-admin.database.cloud.ovh.net:27017'`. You will use it in STEP 2 to load and run YCSB.
 
-### STEP 2: Load Workload Data into MongoDB - Example loading `workloada`
-While located in the `YCSB > ycsb-0.17.0` directory, execute the following command to load the provided `workloada` into MongoDB
+### STEP 2: Load Data into MongoDB - Example loading the provided `workloada`
+While located in the `YCSB > ycsb-0.17.0` directory, execute the following command with the provided `workloada` to load data into MongoDB.
 ```javascript
 ./bin/ycsb load mongodb -p mongodb.url="mongodb://myuser:mypassword@node2-0b70a1b78fff6c0e.database.cloud.ovh.net:27017/admin?replicaSet=replicaset&ssl=true" -s -P workloads/workloada
 ```
+
+![alt text](./images/YCSBLoad.png)
+
 Verify that the database `ycsb` and collection `usertable` got created and loaded with data.
 
 ### STEP 3: 
+While located in the `YCSB > ycsb-0.17.0` directory, execute the following command with the provided `workloada` to run the workload.
+```javascript
+./bin/ycsb run mongodb -p mongodb.url="mongodb://myuser:mypassword@node2-0b70a1b78fff6c0e.database.cloud.ovh.net:27017/admin?replicaSet=replicaset&ssl=true" -s -P workloads/workloada
+```
+![alt text](./images/YCSBrun.png)
 
 ### CPU and Memory
 - Use the metrics collected from your current database to estimate the CPU and memory requirements. Ensure to account for peak usage.
