@@ -6,7 +6,7 @@ updated: 2024-06-27
 
 # Objective
 
-In this documentation, we will discuss a step-by-step approach to benchmark and size your OVHcloud MongoDB cluster based on a specific load. This includes estimating resource requirements, configuring your cluster, and comparing network performance.
+In this documentation, we will discuss a step-by-step approach to benchmark and size your OVHcloud MongoDB cluster based on a specific load. This includes estimating resource requirements and configuring your cluster.
 
 ## Setting Up Benchmarking Tools
 
