@@ -63,10 +63,65 @@ Take note of the run command output in STEP 4, and benchmark it with other datab
 - Consider future growth and scalability needs. You might want to consider how to [size a MongoDB cluster](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_02_Best_practise_to_implement%20_your_first_mongoDB_instance/guide.en-gb.md#mongodb-cluster-sizing).
 
 ### Step 7: Setup OVH cloud Cluster
-- **Create Cluster**: [Set up the new OVH managed MongoDB cluster](https://help.ovhcloud.com/csm/en-public-cloud-databases-getting-started?id=kb_article_view&sysparm_article=KB0048745).
+- [Set up the OVHcloud MongoDB cluster](https://help.ovhcloud.com/csm/en-public-cloud-databases-getting-started?id=kb_article_view&sysparm_article=KB0048745).
 
-## Step 8: Performance Testing With SimRunner 
-- Run performance tests using SimRunner on your MongoDB cluster.
+### Step 8: Performance Testing With SimRunner 
+- Go through the [README](https://github.com/schambon/SimRunner?tab=readme-ov-file#) to install and run SimRunner.
+- Run performance tests using SimRunner on your MongoDB cluster: `java -jar SimRunner.jar <config file>`. Here is an example of a configuration file:
+```json
+{
+    "connectionString": "mongodb+srv://myuser:mypassword@mongodb-8fff6c0e-o01ba0bef.database.cloud.ovh.net/admin?replicaSet=replicaset&ssl=true",
+    "reportInterval": 1000,
+    "http": {
+        "enabled": false,
+        "port": 3000,
+        "host": "localhost"
+    },
+    "mongoReporter": {
+        "enabled": true,
+        "connectionString": "mongodb://localhost:27017",
+        "database": "simrunner",
+        "collection": "report",
+        "drop": false,
+        "runtimeSuffix": false
+    },
+    "templates": [
+        {
+            "name": "person",
+            "database": "test",
+            "collection": "people",
+            "drop": false,
+            "template": {
+                "_id": "%objectid",
+                "first": "%name.firstName",
+                "last": "%name.lastName",
+                "birthday": "%date.birthday"
+            },
+            "remember": ["_id", { "field": "first", "preload": false}],
+            "indexes": []
+        }
+    ],
+    "workloads": [
+        {
+            "name": "Insert some people",
+            "template": "person",
+            "op": "insert",
+            "threads": 1,
+            "pace": 100,
+            "batch": 1000
+        },
+        {
+            "name": "Find people by key",
+            "template": "person",
+            "op": "find",
+            "params": {
+                "filter": { "_id": "#_id" }
+            },
+            "threads": 4
+        }
+    ]
+}
+```
 - Monitor the performance and adjust the cluster size and configurations as needed.
 
 
