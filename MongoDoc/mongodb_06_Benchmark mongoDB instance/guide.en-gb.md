@@ -129,7 +129,7 @@ Take note of the run command output in STEP 4, and benchmark it with other datab
   
 ![alt text](./images/simRunnerOutput.png)
 
-- Monitor the performance and adjust the cluster size and configurations as needed.
+- Monitor the performance and adjust the cluster size and configurations as required by the application.
 
 ## Step 9: Validation
 - Validate that your application performs as expected with MongoDB.
