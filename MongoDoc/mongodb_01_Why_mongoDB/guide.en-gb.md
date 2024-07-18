@@ -280,7 +280,7 @@ Amazon DocumentDB is a managed service that emulates the MongoDB API but does no
 - **Compatibility**: Drivers are designed to work seamlessly with MongoDB features, ensuring reliable and efficient data manipulation.
 
 These drivers ensure that applications can efficiently and securely communicate with MongoDB databases across different programming environments.
-## MongoDB Main Tools
+## MongoDB Tools
 
 ### MongoDB Developer Tools
 
