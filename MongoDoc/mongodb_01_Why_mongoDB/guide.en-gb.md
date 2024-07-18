@@ -269,10 +269,10 @@ Amazon DocumentDB is a managed service that emulates the MongoDB API but does no
 | **Consulting and Training**                    | Limited                                       | Extensive consulting and training services        |
 
 
-## [MongoDB Drivers](https://www.mongodb.com/docs/drivers/)
+## MongoDB Drivers
 ![alt text](./images/languageSupport.png)
 
-MongoDB drivers provide the interface for applications to interact with MongoDB databases. They offer:
+[MongoDB drivers](https://www.mongodb.com/docs/drivers/) provide the interface for applications to interact with MongoDB databases. They offer:
 
 - **Native Language Support**: Drivers are available for various programming languages, including JavaScript (Node.js), Python, Java, C#, PHP, Ruby, Go, and more.
 - **Asynchronous Operations**: Many drivers support non-blocking, asynchronous operations to improve performance.
