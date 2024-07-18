@@ -147,7 +147,7 @@ Azure Cosmos DB, a fully managed service from Microsoft, supports multiple data 
 | **Direct Support by Database Engineers**                   | Yes                                             | No                                              |
 | **Consulting Services**                                    | Yes                                             | No                                              |
 
-### [Amazon DocumentDB vs MongoDB](https://www.mongodb.com/resources/compare/documentdb-vs-mongodb)
+### Amazon DocumentDB vs MongoDB
 
 Amazon DocumentDB is a managed service that emulates the MongoDB API but does not support the latest MongoDB features. It focuses on providing a scalable, high-performance database service within the AWS ecosystem but lacks some advanced functionalities like multi-document ACID transactions and global replication.
 
