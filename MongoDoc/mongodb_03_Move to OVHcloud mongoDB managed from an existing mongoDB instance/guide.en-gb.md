@@ -6,7 +6,7 @@ updated: 2024-06-27
 
 ## Objective
 
-The primary objective of this documentation is to provide a comprehensive approach to MongoDB database migration, ensuring data integrity, minimal downtime, and optimal performance. Whether you are migrating from:
+This documentation is to provide a comprehensive approach to MongoDB database migration, ensuring data integrity, minimal downtime, and optimal performance. Whether you are migrating from:
 
 - MongoDB instance to a new MongoDB OVHcloud instance.
 - Any Document DB to MongoDB OVHcloud instance.
