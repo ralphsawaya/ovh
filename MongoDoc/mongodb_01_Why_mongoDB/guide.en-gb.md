@@ -63,7 +63,7 @@ MongoDB also offers comprehensive security features, including encryption at res
 
 - [Robust Ecosystem](https://www.mongodb.com/products/tools): Integration with various tools and platforms such as VS Code, Terraform, Kubernetes, and kafka, enhancing functionality and ease of use.
 
-- **[Community](https://www.mongodb.com/community/forums/) and [Enterprise Support](https://www.mongodb.com/services/support/enterprise-advanced-support-plans)**: Access to a large community and enterprise-level support ensures help and resources are readily available.
+- [Community](https://www.mongodb.com/community/forums/) and [Enterprise Support](https://www.mongodb.com/services/support/enterprise-advanced-support-plans): Access to a large community and enterprise-level support ensures help and resources are readily available.
 
 ## MongoDB vs SQL Database Engines
 
