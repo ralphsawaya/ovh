@@ -145,7 +145,7 @@ Example: If I have 10 million documents in my test data set and the total storag
 
 ### Determine CPU
 
-Unfortunately, CPU is a bit more difficult to estimate because it depends strongly on the use case and the number of cores the CPUs themselves have. Google Cloud Platform offers an interesting document on [CPU Platforms](https://cloud.google.com/compute/docs/cpu-platforms).
+Unfortunately, CPU is a bit more difficult to estimate because it depends strongly on the use case and the number of cores the CPUs themselves have.
 
 However, following the ratio of 1 CPU for every 4GB of RAM for MongoDB clusters usually provides the best performance for the vast majority of applicable use cases. If the application using the MongoDB database does not use much CPU (no aggregation pipeline framework, indexes perfectly covering the majority of the queries), then it is possible to cut the ratio from 1/4 to 1/8. For instance, a workload that performs more writes than reads can easily perform normally with lower CPU usage. The CPU aspect ratio is strictly connected to the WiredTiger storage engine and the quantity of cache it manages. To process the cache properly, the ratio has to be respected.
 
