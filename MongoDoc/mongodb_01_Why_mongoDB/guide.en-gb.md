@@ -332,9 +332,9 @@ While Compass and Studio 3T both offer graphical interfaces for MongoDB, Studio 
 #### mtools
 [mtools](https://github.com/rueckstiess/mtools) is a collection of helper scripts to parse, filter, and visualize MongoDB log files (mongod, mongos). mtools also includes mlaunch, a utility to quickly set up complex MongoDB test environments on a local machine, and mtransfer, a tool for transferring databases between MongoDB instances.
 #### SimRunner
-SimRunner is a tool that binds:
-- a powerful data generator for MongoDB
-- a declarative and highly scalable workload generator
+[SimRunner](https://github.com/schambon/SimRunner) is a tool that binds:
+- a powerful data generator for MongoDB.
+- a declarative and highly scalable workload generator.
 ## Ressources
 
 #### [MongoDB Documentation](https://www.mongodb.com/docs/)
