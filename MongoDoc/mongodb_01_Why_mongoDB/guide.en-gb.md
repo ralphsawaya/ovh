@@ -15,7 +15,7 @@ The database engine uses a storage model based on collections and documents, whe
 MongoDB also offers comprehensive security features, including encryption at rest and in transit, role-based access control, and auditing. These features ensure that data is protected and meets compliance requirements. The MongoDB community and enterprise support options, provide developers and organizations with the resources and assistance needed to optimize their use of the database.
 
 ## Main Benefits of Choosing MongoDB
-- [**Flexible Schema**](https://www.mongodb.com/docs/manual/data-modeling/): MongoDB's document-oriented storage allows for dynamic schema, making it easy to handle unstructured and semi-structured data.
+- [Flexible Schema](https://www.mongodb.com/docs/manual/data-modeling/): MongoDB's document-oriented storage allows for dynamic schema, making it easy to handle unstructured and semi-structured data.
   - #### Example of a MongoDB Collection with 2 Documents:
     ```json
       {
@@ -45,23 +45,23 @@ MongoDB also offers comprehensive security features, including encryption at res
     - <ins>Array Fields</ins>: The phone_numbers field in both documents is an array containing multiple phone numbers.
     - <ins>Varying Fields</ins>: The email field is present only in the first document, while the date_of_birth field is present only in the second document. The structure and number of fields vary between the two documents within the same collection.
 
-- [**Scalability**](https://www.mongodb.com/resources/basics/scaling): Horizontal scaling with replica sets ensures high availability and scalability to meet growing data and workload demands.
+- [Scalability](https://www.mongodb.com/resources/basics/scaling): Horizontal scaling with replica sets ensures high availability and scalability to meet growing data and workload demands.
 
   ![alt text](./images/replicaset.png)
 
-- [**High Performance**](https://www.mongodb.com/docs/manual/administration/analyzing-mongodb-performance/#mongodb-performance): Efficient storage and indexing mechanisms enable fast query responses and data processing.
+- [High Performance](https://www.mongodb.com/docs/manual/administration/analyzing-mongodb-performance/#mongodb-performance): Efficient storage and indexing mechanisms enable fast query responses and data processing.
 
-- [**Rich Query Language**](https://www.mongodb.com/docs/manual/tutorial/query-documents/#query-documents): Supports complex queries, including ad-hoc queries, indexing, aggregation, and geospatial queries.
+- [Rich Query Language](https://www.mongodb.com/docs/manual/tutorial/query-documents/#query-documents): Supports complex queries, including ad-hoc queries, indexing, aggregation, and geospatial queries.
 
-- [**High Availability**](https://www.mongodb.com/resources/basics/high-availability): Automatic failover and data redundancy through replica sets ensure data is always available.
+- [High Availability](https://www.mongodb.com/resources/basics/high-availability): Automatic failover and data redundancy through replica sets ensure data is always available.
 
-- [**Document Model**](https://www.mongodb.com/resources/basics/json-and-bson): The document data model is a powerful way to store and retrieve data in any modern programming language, allowing developers to move quickly.
+- [Document Model](https://www.mongodb.com/resources/basics/json-and-bson): The document data model is a powerful way to store and retrieve data in any modern programming language, allowing developers to move quickly.
 
-- [**Real-Time Analytics**](https://www.mongodb.com/solutions/use-cases/analytics/real-time-analytics): Built-in aggregation framework allows for real-time data analysis and transformation.
+- [Real-Time Analytics](https://www.mongodb.com/solutions/use-cases/analytics/real-time-analytics): Built-in aggregation framework allows for real-time data analysis and transformation.
 
-- [**Strong Security**](https://www.mongodb.com/docs/manual/security/): Comprehensive security features such as encryption at rest and in transit, In-Use Encryption, role-based access control, and auditing.
+- [Strong Security](https://www.mongodb.com/docs/manual/security/): Comprehensive security features such as encryption at rest and in transit, In-Use Encryption, role-based access control, and auditing.
 
-- [**Robust Ecosystem**](https://www.mongodb.com/products/tools): Integration with various tools and platforms such as VS Code, Terraform, Kubernetes, and kafka, enhancing functionality and ease of use.
+- [Robust Ecosystem](https://www.mongodb.com/products/tools): Integration with various tools and platforms such as VS Code, Terraform, Kubernetes, and kafka, enhancing functionality and ease of use.
 
 - **[Community](https://www.mongodb.com/community/forums/) and [Enterprise Support](https://www.mongodb.com/services/support/enterprise-advanced-support-plans)**: Access to a large community and enterprise-level support ensures help and resources are readily available.
 
@@ -84,7 +84,7 @@ MongoDB also offers comprehensive security features, including encryption at res
 
 ![alt text](./images/terminology.png)
 ## MongoDB vs Other Document Databases
-### [MongoDB vs Azure Cosmos DB](https://www.mongodb.com/resources/compare/mongodb-vs-cosmos-db)
+### MongoDB vs Azure Cosmos DB
 
 Azure Cosmos DB, a fully managed service from Microsoft, supports multiple data models (including document, graph, and key-value) and provides global distribution with multi-region write capabilities. It offers multiple consistency levels and integrates seamlessly with other Azure services but does not support all MongoDB features and is limited to the Azure ecosystem.
 
@@ -100,7 +100,6 @@ Azure Cosmos DB, a fully managed service from Microsoft, supports multiple data 
 | **Live Migration**                                         | Yes                                             | Only for eligible accounts                      |
 | **Choice of Instance Configuration**                       | Yes                                             | No                                              |
 | **Support for Multi-Document ACID Transactions**           | Yes                                             | Limited                                         |
-| **JSON Data Type Support**                                 | BSON                                            | BSON                                            |
 | **Maximum Document Size**                                  | 16 MB                                           | 2 MB                                            |
 | **JSON Schema for Data Governance Controls**               | Yes                                             | No                                              |
 | **Integrated Text Search and Graph Queries**               | Yes                                             | No                                              |
@@ -109,11 +108,8 @@ Azure Cosmos DB, a fully managed service from Microsoft, supports multiple data 
 | **Blend Data with Joins and Unions for Analytics Queries** | Yes                                             | No                                              |
 | **Automatic Performance Recommendations**                  | Yes                                             | No                                              |
 | **Replica Set Configuration**                              | Up to 50 replicas                               | 3 data-bearing nodes                            |
-| **Automatic Sharding Support**                             | Yes                                             | Yes                                             |
 | **Hedged Reads**                                           | Yes                                             | No                                              |
 | **Pause and Resume Clusters**                              | Yes                                             | No                                              |
-| **Data Explorer**                                          | Yes                                             | Yes                                             |
-| **SQL-Based Connectivity**                                 | Yes                                             | Yes                                             |
 | **Native Data Visualization**                              | Yes                                             | No                                              |
 | **Supported in On-Premise and Hybrid Deployments**         | Yes                                             | No                                              |
 | **Embeddable Database with Sync for Mobile Devices**       | Yes                                             | No                                              |
@@ -123,8 +119,6 @@ Azure Cosmos DB, a fully managed service from Microsoft, supports multiple data 
 | Feature                                                    | MongoDB                                         | Azure Cosmos DB                                 |
 |------------------------------------------------------------|-------------------------------------------------|-------------------------------------------------|
 | **Multi-Cloud Deployment**                                 | Yes                                             | No                                              |
-| **Active-Active Clusters Supporting Global Writes**        | Yes                                             | Yes                                             |
-| **Cross-Region Replication**                               | Yes                                             | Yes                                             |
 
 #### Monitoring and Disaster Recovery
 
@@ -132,7 +126,6 @@ Azure Cosmos DB, a fully managed service from Microsoft, supports multiple data 
 |------------------------------------------------------------|-------------------------------------------------|-------------------------------------------------|
 | **Automatic Scaling of Compute and Storage**               | Yes                                             | Yes (with limitations)                          |
 | **Monitoring of Database Health with Automated Alerting**  | Yes                                             | Partial                                         |
-| **Backup Snapshots with On-Demand Point in Time Restore**  | Yes                                             | Yes                                             |
 | **Queryable Backups**                                      | Yes                                             | No                                              |
 | **Automated & Consistent Snapshots of Sharded Clusters**   | Yes                                             | No                                              |
 
@@ -142,13 +135,9 @@ Azure Cosmos DB, a fully managed service from Microsoft, supports multiple data 
 |------------------------------------------------------------|-------------------------------------------------|-------------------------------------------------|
 | **Granular Role-Based Access Control**                     | Yes                                             | Limited                                         |
 | **AWS VPC Peering**                                        | Yes                                             | N/A                                             |
-| **Encryption of Data In-Flight**                           | Yes                                             | Yes                                             |
-| **Encryption of Data At-Rest**                             | Yes                                             | Yes                                             |
 | **Client-Side Field Level Encryption**                     | Yes                                             | No                                              |
 | **Encryption of Data In-Use**                              | Yes                                             | No                                              |
 | **Queryable Encryption**                                   | Yes                                             | No                                              |
-| **LDAP Integration**                                       | Yes                                             | Yes                                             |
-| **Database-Level Auditing**                                | Yes                                             | Yes                                             |
 | **Bring Your Own KMS**                                     | Yes                                             | No                                              |
 
 #### Support and Services
