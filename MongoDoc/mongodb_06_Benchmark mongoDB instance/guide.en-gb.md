@@ -19,8 +19,8 @@ This guide aims to provide a detailed, step-by-step approach to benchmarking and
 ### SimRunner
 [SimRunner](https://github.com/schambon/SimRunner) is a tool that binds:
 
-- a powerful data generator for MongoDB
-- a declarative and highly scalable workload generator
+- a powerful data generator for MongoDB.
+- a declarative and highly scalable workload generator.
 
 Install SimRunner and configure it to simulate the load based on your current database metrics, and then create a configuration file for SimRunner that mimics your current workload.
 
