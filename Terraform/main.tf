@@ -22,8 +22,8 @@ provider "openstack" {
   auth_url    = "https://auth.cloud.ovh.net/v3"
   domain_name = "Default"
   tenant_name = "7388611843274102"
-  user_name    = "user-Q7uqJgqswA4j"
-  password    = "7Beca68WqANWnj5krTAX5JpVNypGvxYB"
+  user_name    = "XXXXXX"
+  password    = "XXXXXX"
   region      = "UK1"
 }
 
