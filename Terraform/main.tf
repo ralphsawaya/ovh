@@ -19,9 +19,12 @@ provider "ovh" {
 }
 
 provider "openstack" {
-  auth_url    = var.auth_url
-  domain_name = var.domain_name
-  alias       = "ovh"
+  auth_url    = "https://auth.cloud.ovh.net/v3"
+  domain_name = "Default"
+  tenant_name = "7388611843274102"
+  user_name    = "user-FJvxVcqgvq5k"
+  password    = "7Beca68WqANWnj5krTAX5JpVNypGvxYB"
+  region      = "BHS"
 }
 
 resource "openstack_compute_keypair_v2" "ssh_keypair" {
@@ -129,4 +132,3 @@ output "user_password" {
   value     = ovh_cloud_project_database_mongodb_user.tf_user.password
   sensitive = true
 }
-
