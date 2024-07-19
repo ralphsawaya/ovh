@@ -23,7 +23,7 @@ provider "openstack" {
   domain_name = "Default"
   tenant_name = "7388611843274102"
   user_name    = "user-Q7uqJgqswA4j"
-  password    = "7Beca68WqANWnj5krTAX5JpVNypGvxYB"
+  password    = "XXXXX"
   region      = "UK1"
 }
 
