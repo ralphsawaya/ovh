@@ -22,14 +22,13 @@ provider "openstack" {
   auth_url    = "https://auth.cloud.ovh.net/v3"
   domain_name = "Default"
   tenant_name = "7388611843274102"
-  user_name    = "user-FJvxVcqgvq5k"
-  password    = "XXXXXXXXX"
-  region      = "BHS"
+  user_name    = "user-Q7uqJgqswA4j"
+  password    = "7Beca68WqANWnj5krTAX5JpVNypGvxYB"
+  region      = "UK1"
 }
 
 resource "openstack_compute_keypair_v2" "ssh_keypair" {
   name       = "ssh_keypair"
-  public_key = file("~/.ssh/id_rsa.pub")
 }
 
 resource "openstack_networking_network_v2" "my_private_network" {
