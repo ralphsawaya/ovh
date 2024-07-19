@@ -23,23 +23,33 @@ provider "openstack" {
   domain_name = "Default"
   tenant_name = "7388611843274102"
   user_name    = "user-Q7uqJgqswA4j"
-  password    = "XXXXX"
+  password    = "7Beca68WqANWnj5krTAX5JpVNypGvxYB"
   region      = "UK1"
 }
 
 resource "openstack_compute_keypair_v2" "ssh_keypair" {
-  name       = "ssh_keypair"
+  name = "ssh_keypair"
 }
 
 resource "openstack_networking_network_v2" "my_private_network" {
-  name = "my_private_network"
+  name          = "my_private_network"
+  admin_state_up = "true"
+  region        = "UK1"
 }
 
 resource "openstack_networking_subnet_v2" "my_subnet" {
-  name       = "my_subnet"
-  network_id = openstack_networking_network_v2.my_private_network.id
-  cidr       = "192.168.199.0/24"
-  ip_version = 4
+  name            = "my_subnet"
+  network_id      = openstack_networking_network_v2.my_private_network.id
+  cidr            = "192.168.199.0/24"
+  ip_version      = 4
+  enable_dhcp     = true
+  no_gateway      = false
+  dns_nameservers = ["213.186.33.99"]
+
+  allocation_pool {
+    start = "192.168.199.100"
+    end   = "192.168.199.200"
+  }
 }
 
 resource "ovh_cloud_project_database" "service" {
@@ -113,6 +123,14 @@ resource "ovh_cloud_project_database_ip_restriction" "iprestriction" {
   description  = "Allow access from YCSB benchmark VM"
   cluster_id   = ovh_cloud_project_database.service.id
   engine       = ovh_cloud_project_database.service.engine
+}
+
+output "network_id" {
+  value = openstack_networking_network_v2.my_private_network.id
+}
+
+output "subnet_id" {
+  value = openstack_networking_subnet_v2.my_subnet.id
 }
 
 output "cluster_uri" {
