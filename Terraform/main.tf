@@ -22,8 +22,8 @@ provider "openstack" {
   auth_url    = "https://auth.cloud.ovh.net/v3"
   domain_name = "Default"
   tenant_name = "7388611843274102"
-  user_name    = "XXXXXX"
-  password    = "XXXXXX"
+  user_name    = "user-Q7uqJgqswA4j"
+  password    = "7Beca68WqANWnj5krTAX5JpVNypGvxYB"
   region      = "UK1"
 }
 
@@ -119,11 +119,12 @@ resource "openstack_compute_instance_v2" "vm" {
 
 resource "ovh_cloud_project_database_ip_restriction" "iprestriction" {
   service_name = ovh_cloud_project_database.service.service_name
-  ip           = openstack_compute_instance_v2.vm.access_ip_v4
+  ip           = "${openstack_compute_instance_v2.vm.access_ip_v4}/32"
   description  = "Allow access from YCSB benchmark VM"
   cluster_id   = ovh_cloud_project_database.service.id
   engine       = ovh_cloud_project_database.service.engine
 }
+
 
 output "network_id" {
   value = openstack_networking_network_v2.my_private_network.id
