@@ -27,8 +27,8 @@ provider "openstack" {
   region      = "UK1"
 }
 
-resource "openstack_compute_keypair_v2" "ssh_keypair" {
-  name = "ssh_keypair"
+resource "openstack_compute_keypair_v2" "ssh_keypair2" {
+  name = "ssh_keypair2"
 }
 
 resource "openstack_networking_network_v2" "my_private_network" {
@@ -84,8 +84,8 @@ resource "ovh_cloud_project_database_mongodb_user" "tf_user" {
   roles        = ["readWriteAnyDatabase@admin"]
 }
 
-resource "openstack_networking_secgroup_v2" "ssh_secgroup" {
-  name        = "ssh_secgroup"
+resource "openstack_networking_secgroup_v2" "ssh_secgroup2" {
+  name        = "ssh_secgroup2"
   description = "Security group for SSH access"
 }
 
@@ -96,15 +96,15 @@ resource "openstack_networking_secgroup_rule_v2" "ssh" {
   port_range_min    = 22
   port_range_max    = 22
   remote_ip_prefix  = "0.0.0.0/0"
-  security_group_id = openstack_networking_secgroup_v2.ssh_secgroup.id
+  security_group_id = openstack_networking_secgroup_v2.ssh_secgroup2.id
 }
 
 resource "openstack_compute_instance_v2" "vm" {
   name            = "ycsb-benchmark-vm"
   image_name      = var.image_name
   flavor_name     = var.flavor_name
-  key_pair        = openstack_compute_keypair_v2.ssh_keypair.name
-  security_groups = [openstack_networking_secgroup_v2.ssh_secgroup.name]
+  key_pair        = openstack_compute_keypair_v2.ssh_keypair2.name
+  security_groups = [openstack_networking_secgroup_v2.ssh_secgroup2.name]
 
   network {
     uuid = openstack_networking_network_v2.my_private_network.id
@@ -138,8 +138,7 @@ resource "openstack_compute_instance_v2" "vm" {
     connection {
       type        = "ssh"
       user        = "ubuntu"  # Update this to your instance's user
-      #private_key = file("/Users/ralphsawaya/.ssh/ovh_private_key.pem")
-      private_key = "-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEAvHFaTMOTj/9E2sARDekMb1IDE2AywT4UKdhwDJjJKNYtUHzj\n5ZlD72PKE54eC3OhiZ7LcqvXk044QuF2Ye4jq/zgLk6GitQKnaQCQBKKUKQiWLI5\nI1kNvc8I6ebY4dnLd9JRqC+5g83aZDGu/vrDfTDPAVBjM3t80bozo8I6uMVjgjip\n9Z4J50P5CAEpmi/HCqkEI5LrMsIlvsKr0S8L9bk+hBY+3D6B+8Xg+sD0BJ/SSTC/\nTNTykjmjFGhLeBkiWI3tAvcVKdzssyXB/BvU8AjvdpdhSNkT421Bh2PruPgX33KA\npJOuNL44o2zD3ZCXR2aGEOPWUpvM0WeMqDpw1wIDAQABAoIBAAPeyB3/fk5czcs4\nWqFQggLfSlThiulRHxTk7xgzIx6Fl5Spm/yhMzX9dK8GdlOB4nVzH3aRdPH/j0RA\nYTANtgnYPbp1vmmnhThLoAg02UZiuJndvzKsp42YbPRw2094K6egWDD+Ge9NEQkx\nxAhUmiM+F2JNhlwOUzfzfRAF8zLMQfieJGDgOqRSo7KN3OpFgAbwaU3b20MOyhcj\nz1diwWma3hAXXrvSkASE8/1JvR7DKHm8C6oPYFJ0Yfm9PU9OYWrkqXImv/gQfzNT\nHgoEvN+SyGtid0af6Rss9Ho3Fcs7NZc8rK2JIAjibCIcxV3J7uuth+ysT663fdt4\nrEirf3ECgYEA8c0LvoNpEf6Imr1yBj8ZwZKBFxgH305d/zG/XsizJWECMZFh3Y2t\niFl3ftcPsFkfcVdR5wTIxS9AkwPZdiIcdCsaWD1jfnTFffKMvjs1QMuGFSD7uT/z\nkSwLnzmEdCZWdjESDKShvpy3hvhhZb9iZ6JDHZeSh3HSz0AjttrkW0MCgYEAx4Iu\nodaDa3EMAaFe7hN+kiD2z1LVxPdmmEy/HsdrZGuUf6Rz8Br3tbgvGExyCuWlzS9k\n2uyOk74hrqmfXu6Usn/67yYoS/8tooTRDW1yxYiePfa5M23ah9XM+AyHmJswgB9N\nEdH0ripjUJFi9KT4aq3NItMLP9j0Ps+MJ7XLON0CgYEAhR8/VP7iLN72dELScO/y\njSjMW1uGkgGCLIpF8rgKMQ0MeR+yQpjKriObb0CVyZ/3eJ37YHW41x6hrY7T/X7g\nLXDBi00Y5rkBNcsAg4bzVZ33TtCe5al4vjcCmwG+k3e76EwxxLYquldrjypV7P+F\n/MpPqw4UxO78gc+tGfG/ASMCgYB6cb1o+hzCLiluPrniZ/iAeta/O1mTfztqMYAC\nxeV1RklnZWj6bbKlxpqw0QoVAgiWO4Ysjo6awlAtwFDdlJOSUdWSPNryeXRqkBU1\npnyQG17zLJ9RnxRF1cPsYNQ/ps9Hcu58B12iHsXBRtlyyGTmJDEINHps/xw4CG0+\nWeaVyQKBgQCDps/W4rLK1zwRXFLMEi3AweXiHsDnQzGvNGqMfJFTiwSb93+4dsVQ\nGSf22EnSCJDEe3XA7vN5FX+F/o69I6ViGnszwAW2ztR1rSgz4NU/s9l1MfOozKdx\noy71nt8kOWR0ogCyE4bGWDgeW1I2HR6GYAHFf+j9a1AIAeKoaDJItA==\n-----END RSA PRIVATE KEY-----\n"
+      private_key = openstack_compute_keypair_v2.ssh_keypair2.private_key
       host        = self.access_ip_v4
     }
 
@@ -179,5 +178,10 @@ output "user_name" {
 
 output "user_password" {
   value     = ovh_cloud_project_database_mongodb_user.tf_user.password
+  sensitive = true
+}
+
+output "ssh_private_key" {
+  value     = openstack_compute_keypair_v2.ssh_keypair2.private_key
   sensitive = true
 }
