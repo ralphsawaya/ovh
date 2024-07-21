@@ -78,3 +78,35 @@ variable "key_pair_name" {
   type        = string
   default     = "ssh_keypair"
 }
+
+variable "openstack_auth_url" {
+  description = "openstack_auth_url"
+  type        = string
+}
+
+variable "openstack_tenant_name" {
+  description = "openstack_auth_url"
+  type        = string
+}
+
+variable "openstack_domain_name" {
+  description = "openstack_auth_url"
+  type        = string
+}
+
+variable "openstack_user_name" {
+  description = "openstack_auth_url"
+  type        = string
+}
+
+variable "openstack_password" {
+  description = "openstack_auth_url"
+  type        = string
+}
+
+variable "openstack_region" {
+  description = "openstack_auth_url"
+  type        = string
+}
+
+
