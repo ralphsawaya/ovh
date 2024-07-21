@@ -19,16 +19,16 @@ provider "ovh" {
 }
 
 provider "openstack" {
-  auth_url    = "https://auth.cloud.ovh.net/v3"
-  domain_name = "Default"
-  tenant_name = "7388611843274102"
-  user_name    = "user-Q7uqJgqswA4j"
-  password    = "7Beca68WqANWnj5krTAX5JpVNypGvxYB"
-  region      = "UK1"
+  auth_url    = var.openstack_auth_url
+  domain_name = var.openstack_domain_name
+  tenant_name = var.openstack_tenant_name
+  user_name   = var.openstack_user_name
+  password    = var.openstack_password
+  region      = var.openstack_region
 }
 
-resource "openstack_compute_keypair_v2" "ssh_keypair" {
-  name = "ssh_keypair"
+resource "openstack_compute_keypair_v2" "ssh_keypair2" {
+  name = "ssh_keypair2"
 }
 
 resource "openstack_networking_network_v2" "my_private_network" {
@@ -88,11 +88,13 @@ resource "openstack_compute_instance_v2" "vm" {
   name            = "ycsb-benchmark-vm"
   image_name      = var.image_name
   flavor_name     = var.flavor_name
-  key_pair        = openstack_compute_keypair_v2.ssh_keypair.name
+  key_pair        = openstack_compute_keypair_v2.ssh_keypair2.name
   security_groups = ["default"]
 
   network {
-    uuid = openstack_networking_network_v2.my_private_network.id
+    #uuid = openstack_networking_network_v2.my_private_network.id
+    name      = "Ext-Net"
+
   }
 
   user_data = <<-EOF
