@@ -111,34 +111,34 @@ resource "openstack_compute_instance_v2" "vm" {
   }
 
   user_data = <<-EOF
-              #!/bin/bash
-              exec > /var/log/user_data.log 2>&1
-              set -x
+    #!/bin/bash
+    exec > /var/log/user_data.log 2>&1
+    set -x
 
-              apt-get update
-              apt-get install -y openjdk-11-jre-headless wget unzip s3cmd mongodb-clients jq python2
-              
-              # Update alternatives to set python2 as the default
-              update-alternatives --install /usr/bin/python python /usr/bin/python2 1
-              update-alternatives --install /usr/bin/python python /usr/bin/python3 2
-              update-alternatives --set python /usr/bin/python2
+    apt-get update
+    apt-get install -y openjdk-11-jre-headless wget unzip s3cmd mongodb-clients jq python2
 
-              wget https://github.com/brianfrankcooper/YCSB/releases/download/0.17.0/ycsb-0.17.0.tar.gz
-              tar xvf ycsb-0.17.0.tar.gz
-              apt-get install -y mongodb-clients
-              PRIMARY_NODE=$(mongosh --host ${ovh_cloud_project_database.service.endpoints[0].uri} --tls --username ${ovh_cloud_project_database_mongodb_user.tf_user.name} --password '${ovh_cloud_project_database_mongodb_user.tf_user.password}' --authenticationDatabase admin --eval 'rs.isMaster().primary' --quiet | tr -d '"')
-              cat <<EOL > ~/.s3cfg
-              [default]
-              access_key = "${var.ovh_s3_access_key}"
-              secret_key = "${var.ovh_s3_secret_key}"
-              host_base = "${var.ovh_s3_endpoint}"
-              host_bucket = "${var.ovh_s3_bucket_endpoint}"
-              EOL
-              ./ycsb-0.17.0/bin/ycsb load mongodb -p mongodb.url="mongodb://${ovh_cloud_project_database_mongodb_user.tf_user.name}:${ovh_cloud_project_database_mongodb_user.tf_user.password}@$PRIMARY_NODE/admin?tls=true" -s -P ./ycsb-0.17.0/workloads/workloada
-              ./ycsb-0.17.0/bin/ycsb run mongodb -p mongodb.url="mongodb://${ovh_cloud_project_database_mongodb_user.tf_user.name}:${ovh_cloud_project_database_mongodb_user.tf_user.password}@$PRIMARY_NODE/admin?tls=true" -s -P ./ycsb-0.17.0/workloads/workloada
-              s3cmd --config ~/.s3cfg put output.txt s3://${var.ovh_s3_bucket_name}/ycsb-result.txt
-              shutdown -h now
-              EOF
+    # Update alternatives to set python2 as the default
+    update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    update-alternatives --install /usr/bin/python python /usr/bin/python3 2
+    update-alternatives --set python /usr/bin/python2
+
+    wget https://github.com/brianfrankcooper/YCSB/releases/download/0.17.0/ycsb-0.17.0.tar.gz
+    tar xvf ycsb-0.17.0.tar.gz
+    apt-get install -y mongodb-clients
+    PRIMARY_NODE=$(mongosh --host ${ovh_cloud_project_database.service.endpoints[0].uri} --tls --username ${ovh_cloud_project_database_mongodb_user.tf_user.name} --password '${ovh_cloud_project_database_mongodb_user.tf_user.password}' --authenticationDatabase admin --eval 'rs.isMaster().primary' --quiet | tr -d '"')
+    cat <<EOL > ~/.s3cfg
+    [default]
+    access_key = "${var.ovh_s3_access_key}"
+    secret_key = "${var.ovh_s3_secret_key}"
+    host_base = "${var.ovh_s3_endpoint}"
+    host_bucket = "${var.ovh_s3_bucket_endpoint}"
+    EOL
+    ./ycsb-0.17.0/bin/ycsb load mongodb -p mongodb.url="mongodb://${ovh_cloud_project_database_mongodb_user.tf_user.name}:${ovh_cloud_project_database_mongodb_user.tf_user.password}@$PRIMARY_NODE/admin?tls=true" -s -P ./ycsb-0.17.0/workloads/workloada
+    ./ycsb-0.17.0/bin/ycsb run mongodb -p mongodb.url="mongodb://${ovh_cloud_project_database_mongodb_user.tf_user.name}:${ovh_cloud_project_database_mongodb_user.tf_user.password}@$PRIMARY_NODE/admin?tls=true" -s -P ./ycsb-0.17.0/workloads/workloada
+    s3cmd --config ~/.s3cfg put output.txt s3://${var.ovh_s3_bucket_name}/ycsb-result.txt
+    shutdown -h now
+    EOF
 
   provisioner "remote-exec" {
     connection {
@@ -153,6 +153,7 @@ resource "openstack_compute_instance_v2" "vm" {
     ]
   }
 }
+
 
 resource "ovh_cloud_project_database_ip_restriction" "iprestriction" {
   service_name = ovh_cloud_project_database.service.service_name
