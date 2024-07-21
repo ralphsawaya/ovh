@@ -19,12 +19,12 @@ provider "ovh" {
 }
 
 provider "openstack" {
-  auth_url    = "https://auth.cloud.ovh.net/v3"
-  domain_name = "Default"
-  tenant_name = "7388611843274102"
-  user_name   = "user-Q7uqJgqswA4j"
-  password    = "XXXXXX"
-  region      = "UK1"
+  auth_url    = var.openstack_auth_url
+  domain_name = var.openstack_domain_name
+  tenant_name = var.openstack_tenant_name
+  user_name   = var.openstack_user_name
+  password    = var.openstack_password
+  region      = var.openstack_region
 }
 
 resource "openstack_compute_keypair_v2" "ssh_keypair2" {
