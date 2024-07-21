@@ -27,8 +27,8 @@ provider "openstack" {
   region      = var.openstack_region
 }
 
-resource "openstack_compute_keypair_v2" "ssh_keypair2" {
-  name = "ssh_keypair2"
+resource "openstack_compute_keypair_v2" "ssh_keypair" {
+  name = "ssh_keypair"
 }
 
 resource "openstack_networking_network_v2" "my_private_network" {
@@ -103,7 +103,7 @@ resource "openstack_compute_instance_v2" "vm" {
   name            = "ycsb-benchmark-vm"
   image_name      = var.image_name
   flavor_name     = var.flavor_name
-  key_pair        = openstack_compute_keypair_v2.ssh_keypair2.name
+  key_pair        = openstack_compute_keypair_v2.ssh_keypair.name
   security_groups = [openstack_networking_secgroup_v2.ssh_secgroup.name]
 
   network {
@@ -138,7 +138,7 @@ resource "openstack_compute_instance_v2" "vm" {
     connection {
       type        = "ssh"
       user        = "ubuntu"  # Update this to your instance's user
-      private_key = openstack_compute_keypair_v2.ssh_keypair2.private_key
+      private_key = openstack_compute_keypair_v2.ssh_keypair.private_key
       host        = self.access_ip_v4
     }
 
@@ -182,6 +182,6 @@ output "user_password" {
 }
 
 output "ssh_private_key" {
-  value     = openstack_compute_keypair_v2.ssh_keypair2.private_key
+  value     = openstack_compute_keypair_v2.ssh_keypair.private_key
   sensitive = true
 }
