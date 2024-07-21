@@ -107,7 +107,7 @@ resource "openstack_compute_instance_v2" "vm" {
   security_groups = [openstack_networking_secgroup_v2.ssh_secgroup.name]
 
   network {
-    name      = "Ext-Net"
+    name = "Ext-Net"
   }
 
   user_data = <<-EOF
@@ -116,7 +116,13 @@ resource "openstack_compute_instance_v2" "vm" {
               set -x
 
               apt-get update
-              apt-get install -y openjdk-11-jre-headless wget unzip s3cmd mongodb-clients jq
+              apt-get install -y openjdk-11-jre-headless wget unzip s3cmd mongodb-clients jq python2
+              
+              # Update alternatives to set python2 as the default
+              update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+              update-alternatives --install /usr/bin/python python /usr/bin/python3 2
+              update-alternatives --set python /usr/bin/python2
+
               wget https://github.com/brianfrankcooper/YCSB/releases/download/0.17.0/ycsb-0.17.0.tar.gz
               tar xvf ycsb-0.17.0.tar.gz
               apt-get install -y mongodb-clients
