@@ -34,7 +34,7 @@ resource "openstack_compute_keypair_v2" "ssh_keypair2" {
 resource "openstack_networking_network_v2" "my_private_network" {
   name           = "my_private_network"
   admin_state_up = "true"
-  region         = var.openstack_region
+  region         = "UK1"
 }
 
 resource "openstack_networking_subnet_v2" "my_subnet" {
@@ -107,7 +107,7 @@ resource "openstack_compute_instance_v2" "vm" {
   security_groups = [openstack_networking_secgroup_v2.ssh_secgroup2.name]
 
   network {
-    uuid = openstack_networking_network_v2.my_private_network.id
+    name      = "Ext-Net"
   }
 
   user_data = <<-EOF
@@ -169,10 +169,6 @@ output "cluster_uri" {
 }
 
 output "vm_ip" {
-  value = openstack_compute_instance_v2.vm.access_ip_v4
-}
-
-output "vm_ip_debug" {
   value = openstack_compute_instance_v2.vm.access_ip_v4
 }
 
