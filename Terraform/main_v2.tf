@@ -84,8 +84,8 @@ resource "ovh_cloud_project_database_mongodb_user" "tf_user" {
   roles        = ["readWriteAnyDatabase@admin"]
 }
 
-resource "openstack_networking_secgroup_v2" "ssh_secgroup2" {
-  name        = "ssh_secgroup2"
+resource "openstack_networking_secgroup_v2" "ssh_secgroup" {
+  name        = "ssh_secgroup"
   description = "Security group for SSH access"
 }
 
@@ -96,7 +96,7 @@ resource "openstack_networking_secgroup_rule_v2" "ssh" {
   port_range_min    = 22
   port_range_max    = 22
   remote_ip_prefix  = "0.0.0.0/0"
-  security_group_id = openstack_networking_secgroup_v2.ssh_secgroup2.id
+  security_group_id = openstack_networking_secgroup_v2.ssh_secgroup.id
 }
 
 resource "openstack_compute_instance_v2" "vm" {
@@ -104,7 +104,7 @@ resource "openstack_compute_instance_v2" "vm" {
   image_name      = var.image_name
   flavor_name     = var.flavor_name
   key_pair        = openstack_compute_keypair_v2.ssh_keypair2.name
-  security_groups = [openstack_networking_secgroup_v2.ssh_secgroup2.name]
+  security_groups = [openstack_networking_secgroup_v2.ssh_secgroup.name]
 
   network {
     name      = "Ext-Net"
