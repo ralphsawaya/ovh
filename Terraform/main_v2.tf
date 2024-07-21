@@ -34,7 +34,7 @@ resource "openstack_compute_keypair_v2" "ssh_keypair2" {
 resource "openstack_networking_network_v2" "my_private_network" {
   name           = "my_private_network"
   admin_state_up = "true"
-  region         = "UK1"
+  region         = var.openstack_region
 }
 
 resource "openstack_networking_subnet_v2" "my_subnet" {
@@ -169,6 +169,10 @@ output "cluster_uri" {
 }
 
 output "vm_ip" {
+  value = openstack_compute_instance_v2.vm.access_ip_v4
+}
+
+output "vm_ip_debug" {
   value = openstack_compute_instance_v2.vm.access_ip_v4
 }
 
