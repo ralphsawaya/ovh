@@ -27,8 +27,8 @@ provider "openstack" {
   region      = var.openstack_region
 }
 
-resource "openstack_compute_keypair_v2" "ssh_keypair" {
-  name = "ssh_keypair"
+resource "openstack_compute_keypair_v2" "ssh_keypair5" {
+  name = "ssh_keypair5"
 }
 
 resource "openstack_networking_network_v2" "my_private_network" {
@@ -54,7 +54,7 @@ resource "openstack_networking_subnet_v2" "my_subnet" {
 
 resource "ovh_cloud_project_database" "service" {
   service_name = var.ovh_project_id
-  description  = "mongodb-benchmark"
+  description  = "mongodb-bench"
   engine       = "mongodb"
   version      = "7.0"
   plan         = "production"
@@ -84,8 +84,8 @@ resource "ovh_cloud_project_database_mongodb_user" "tf_user" {
   roles        = ["readWriteAnyDatabase@admin"]
 }
 
-resource "openstack_networking_secgroup_v2" "ssh_secgroup" {
-  name        = "ssh_secgroup"
+resource "openstack_networking_secgroup_v2" "ssh_secgroup5" {
+  name        = "ssh_secgroup5"
   description = "Security group for SSH access"
 }
 
@@ -96,55 +96,41 @@ resource "openstack_networking_secgroup_rule_v2" "ssh" {
   port_range_min    = 22
   port_range_max    = 22
   remote_ip_prefix  = "0.0.0.0/0"
-  security_group_id = openstack_networking_secgroup_v2.ssh_secgroup.id
+  security_group_id = openstack_networking_secgroup_v2.ssh_secgroup5.id
+}
+
+locals {
+  # Extract the username part from the mongodb_user value
+  mongodb_username = split("@", ovh_cloud_project_database_mongodb_user.tf_user.name)[0]
 }
 
 resource "openstack_compute_instance_v2" "vm" {
   name            = "ycsb-benchmark-vm"
   image_name      = var.image_name
   flavor_name     = var.flavor_name
-  key_pair        = openstack_compute_keypair_v2.ssh_keypair.name
-  security_groups = [openstack_networking_secgroup_v2.ssh_secgroup.name]
+  key_pair        = openstack_compute_keypair_v2.ssh_keypair5.name
+  security_groups = [openstack_networking_secgroup_v2.ssh_secgroup5.name]
 
   network {
     name = "Ext-Net"
   }
 
-  user_data = <<-EOF
-    #!/bin/bash
-    exec > /var/log/user_data.log 2>&1
-    set -x
-
-    apt-get update
-    apt-get install -y openjdk-11-jre-headless wget unzip s3cmd mongodb-clients jq python2
-
-    # Update alternatives to set python2 as the default
-    update-alternatives --install /usr/bin/python python /usr/bin/python2 1
-    update-alternatives --install /usr/bin/python python /usr/bin/python3 2
-    update-alternatives --set python /usr/bin/python2
-
-    wget https://github.com/brianfrankcooper/YCSB/releases/download/0.17.0/ycsb-0.17.0.tar.gz
-    tar xvf ycsb-0.17.0.tar.gz
-    apt-get install -y mongodb-clients
-    PRIMARY_NODE=$(mongosh --host ${ovh_cloud_project_database.service.endpoints[0].uri} --tls --username ${ovh_cloud_project_database_mongodb_user.tf_user.name} --password '${ovh_cloud_project_database_mongodb_user.tf_user.password}' --authenticationDatabase admin --eval 'rs.isMaster().primary' --quiet | tr -d '"')
-    cat <<EOL > ~/.s3cfg
-    [default]
-    access_key = "${var.ovh_s3_access_key}"
-    secret_key = "${var.ovh_s3_secret_key}"
-    host_base = "${var.ovh_s3_endpoint}"
-    host_bucket = "${var.ovh_s3_bucket_endpoint}"
-    EOL
-    ./ycsb-0.17.0/bin/ycsb load mongodb -p mongodb.url="mongodb://${ovh_cloud_project_database_mongodb_user.tf_user.name}:${ovh_cloud_project_database_mongodb_user.tf_user.password}@$PRIMARY_NODE/admin?tls=true" -s -P ./ycsb-0.17.0/workloads/workloada
-    ./ycsb-0.17.0/bin/ycsb run mongodb -p mongodb.url="mongodb://${ovh_cloud_project_database_mongodb_user.tf_user.name}:${ovh_cloud_project_database_mongodb_user.tf_user.password}@$PRIMARY_NODE/admin?tls=true" -s -P ./ycsb-0.17.0/workloads/workloada
-    s3cmd --config ~/.s3cfg put output.txt s3://${var.ovh_s3_bucket_name}/ycsb-result.txt
-    shutdown -h now
-    EOF
+  user_data = templatefile("user_data.sh.tpl", {
+    cluster_uri = ovh_cloud_project_database.service.endpoints[0].uri
+    mongodb_user = ovh_cloud_project_database_mongodb_user.tf_user.name
+    mongodb_password = ovh_cloud_project_database_mongodb_user.tf_user.password
+    s3_access_key = var.ovh_s3_access_key
+    s3_secret_key = var.ovh_s3_secret_key
+    s3_endpoint = var.ovh_s3_endpoint
+    s3_bucket_endpoint = var.ovh_s3_bucket_endpoint
+    s3_bucket_name = var.ovh_s3_bucket_name
+  })
 
   provisioner "remote-exec" {
     connection {
       type        = "ssh"
       user        = "ubuntu"  # Update this to your instance's user
-      private_key = openstack_compute_keypair_v2.ssh_keypair.private_key
+      private_key = openstack_compute_keypair_v2.ssh_keypair5.private_key
       host        = self.access_ip_v4
     }
 
@@ -154,13 +140,15 @@ resource "openstack_compute_instance_v2" "vm" {
   }
 }
 
-
 resource "ovh_cloud_project_database_ip_restriction" "iprestriction" {
   service_name = ovh_cloud_project_database.service.service_name
   ip           = "${openstack_compute_instance_v2.vm.access_ip_v4}/32"
   description  = "Allow access from YCSB benchmark VM"
   cluster_id   = ovh_cloud_project_database.service.id
   engine       = ovh_cloud_project_database.service.engine
+
+  depends_on = [openstack_compute_instance_v2.vm]
+  
 }
 
 output "network_id" {
@@ -189,6 +177,40 @@ output "user_password" {
 }
 
 output "ssh_private_key" {
-  value     = openstack_compute_keypair_v2.ssh_keypair.private_key
+  value     = openstack_compute_keypair_v2.ssh_keypair5.private_key
   sensitive = true
+}
+
+output "ovh_cloud_project_database_uri" {
+  value = ovh_cloud_project_database.service.endpoints[0].uri
+}
+
+output "ovh_cloud_project_database_mongodb_user_name" {
+  value = ovh_cloud_project_database_mongodb_user.tf_user.name
+}
+
+output "ovh_cloud_project_database_mongodb_user_password" {
+  value = ovh_cloud_project_database_mongodb_user.tf_user.password
+  sensitive = true
+}
+
+output "ovh_s3_access_key" {
+  value = var.ovh_s3_access_key
+}
+
+output "ovh_s3_secret_key" {
+  value = var.ovh_s3_secret_key
+  sensitive = true
+}
+
+output "ovh_s3_endpoint" {
+  value = var.ovh_s3_endpoint
+}
+
+output "ovh_s3_bucket_endpoint" {
+  value = var.ovh_s3_bucket_endpoint
+}
+
+output "ovh_s3_bucket_name" {
+  value = var.ovh_s3_bucket_name
 }
