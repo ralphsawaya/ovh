@@ -27,8 +27,8 @@ provider "openstack" {
   region      = var.openstack_region
 }
 
-resource "openstack_compute_keypair_v2" "ssh_keypair5" {
-  name = "ssh_keypair5"
+resource "openstack_compute_keypair_v2" "ssh_keypair6" {
+  name = "ssh_keypair6"
 }
 
 resource "openstack_networking_network_v2" "my_private_network" {
@@ -54,7 +54,7 @@ resource "openstack_networking_subnet_v2" "my_subnet" {
 
 resource "ovh_cloud_project_database" "service" {
   service_name = var.ovh_project_id
-  description  = "mongodb-bench"
+  description  = "scarce-richardson"
   engine       = "mongodb"
   version      = "7.0"
   plan         = "production"
@@ -84,8 +84,8 @@ resource "ovh_cloud_project_database_mongodb_user" "tf_user" {
   roles        = ["readWriteAnyDatabase@admin"]
 }
 
-resource "openstack_networking_secgroup_v2" "ssh_secgroup5" {
-  name        = "ssh_secgroup5"
+resource "openstack_networking_secgroup_v2" "ssh_secgroup6" {
+  name        = "ssh_secgroup6"
   description = "Security group for SSH access"
 }
 
@@ -96,20 +96,15 @@ resource "openstack_networking_secgroup_rule_v2" "ssh" {
   port_range_min    = 22
   port_range_max    = 22
   remote_ip_prefix  = "0.0.0.0/0"
-  security_group_id = openstack_networking_secgroup_v2.ssh_secgroup5.id
-}
-
-locals {
-  # Extract the username part from the mongodb_user value
-  mongodb_username = split("@", ovh_cloud_project_database_mongodb_user.tf_user.name)[0]
+  security_group_id = openstack_networking_secgroup_v2.ssh_secgroup6.id
 }
 
 resource "openstack_compute_instance_v2" "vm" {
   name            = "ycsb-benchmark-vm"
   image_name      = var.image_name
   flavor_name     = var.flavor_name
-  key_pair        = openstack_compute_keypair_v2.ssh_keypair5.name
-  security_groups = [openstack_networking_secgroup_v2.ssh_secgroup5.name]
+  key_pair        = openstack_compute_keypair_v2.ssh_keypair6.name
+  security_groups = [openstack_networking_secgroup_v2.ssh_secgroup6.name]
 
   network {
     name = "Ext-Net"
@@ -117,7 +112,7 @@ resource "openstack_compute_instance_v2" "vm" {
 
   user_data = templatefile("user_data.sh.tpl", {
     cluster_uri = ovh_cloud_project_database.service.endpoints[0].uri
-    mongodb_user = ovh_cloud_project_database_mongodb_user.tf_user.name
+    mongodb_user = split("@", ovh_cloud_project_database_mongodb_user.tf_user.name)[0]
     mongodb_password = ovh_cloud_project_database_mongodb_user.tf_user.password
     s3_access_key = var.ovh_s3_access_key
     s3_secret_key = var.ovh_s3_secret_key
@@ -130,7 +125,7 @@ resource "openstack_compute_instance_v2" "vm" {
     connection {
       type        = "ssh"
       user        = "ubuntu"  # Update this to your instance's user
-      private_key = openstack_compute_keypair_v2.ssh_keypair5.private_key
+      private_key = openstack_compute_keypair_v2.ssh_keypair6.private_key
       host        = self.access_ip_v4
     }
 
@@ -177,7 +172,7 @@ output "user_password" {
 }
 
 output "ssh_private_key" {
-  value     = openstack_compute_keypair_v2.ssh_keypair5.private_key
+  value     = openstack_compute_keypair_v2.ssh_keypair6.private_key
   sensitive = true
 }
 
