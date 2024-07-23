@@ -27,8 +27,8 @@ provider "openstack" {
   region      = var.openstack_region
 }
 
-resource "openstack_compute_keypair_v2" "ssh_keypair9" {
-  name = "ssh_keypair9"
+resource "openstack_compute_keypair_v2" "ssh_keypair" {
+  name = "ssh_keypair"
 }
 
 
@@ -66,8 +66,8 @@ resource "ovh_cloud_project_database_ip_restriction" "iprestriction" {
   engine       = ovh_cloud_project_database.service.engine
 }
 
-resource "openstack_networking_secgroup_v2" "ssh_secgroup9" {
-  name        = "ssh_secgroup9"
+resource "openstack_networking_secgroup_v2" "ssh_secgroup" {
+  name        = "ssh_secgroup"
   description = "Security group for SSH access"
 }
 
@@ -78,15 +78,15 @@ resource "openstack_networking_secgroup_rule_v2" "ssh" {
   port_range_min    = 22
   port_range_max    = 22
   remote_ip_prefix  = "0.0.0.0/0"
-  security_group_id = openstack_networking_secgroup_v2.ssh_secgroup9.id
+  security_group_id = openstack_networking_secgroup_v2.ssh_secgroup.id
 }
 
 resource "openstack_compute_instance_v2" "vm" {
   name            = "ycsb-benchmark-vm"
   image_name      = var.image_name
   flavor_name     = var.flavor_name
-  key_pair        = openstack_compute_keypair_v2.ssh_keypair9.name
-  security_groups = [openstack_networking_secgroup_v2.ssh_secgroup9.name]
+  key_pair        = openstack_compute_keypair_v2.ssh_keypair.name
+  security_groups = [openstack_networking_secgroup_v2.ssh_secgroup.name]
 
   network {
     name = "Ext-Net"
@@ -122,7 +122,7 @@ output "user_password" {
 }
 
 output "ssh_private_key" {
-  value     = openstack_compute_keypair_v2.ssh_keypair9.private_key
+  value     = openstack_compute_keypair_v2.ssh_keypair.private_key
   sensitive = true
 }
 
