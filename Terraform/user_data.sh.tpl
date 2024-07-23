@@ -40,4 +40,4 @@ EOL
 
 ./ycsb-0.17.0/bin/ycsb load mongodb -p mongodb.url="mongodb://${mongodb_user}:${mongodb_password}@$PRIMARY_NODE/admin?ssl=true" -s -P ./ycsb-0.17.0/workloads/workloada
 ./ycsb-0.17.0/bin/ycsb run mongodb -p mongodb.url="mongodb://${mongodb_user}:${mongodb_password}@$PRIMARY_NODE/admin?ssl=true" -s -P ./ycsb-0.17.0/workloads/workloada
-s3cmd --config ~/.s3cfg put output.txt s3://${s3_bucket_name}/ycsb-result.txt
+sudo s3cmd --config ~/.s3cfg put /var/log/user_data.log s3://${s3_bucket_name}/ycsb-result.txt
