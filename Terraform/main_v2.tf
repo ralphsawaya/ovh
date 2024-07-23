@@ -27,34 +27,14 @@ provider "openstack" {
   region      = var.openstack_region
 }
 
-resource "openstack_compute_keypair_v2" "ssh_keypair6" {
-  name = "ssh_keypair6"
+resource "openstack_compute_keypair_v2" "ssh_keypair7" {
+  name = "ssh_keypair7"
 }
 
-resource "openstack_networking_network_v2" "my_private_network" {
-  name           = "my_private_network"
-  admin_state_up = "true"
-  region         = var.openstack_region
-}
-
-resource "openstack_networking_subnet_v2" "my_subnet" {
-  name            = "my_subnet"
-  network_id      = openstack_networking_network_v2.my_private_network.id
-  cidr            = "192.168.199.0/24"
-  ip_version      = 4
-  enable_dhcp     = true
-  no_gateway      = false
-  dns_nameservers = ["213.186.33.99"]
-
-  allocation_pool {
-    start = "192.168.199.100"
-    end   = "192.168.199.200"
-  }
-}
 
 resource "ovh_cloud_project_database" "service" {
   service_name = var.ovh_project_id
-  description  = "scarce-richardson"
+  description  = "benchmark-automation"
   engine       = "mongodb"
   version      = "7.0"
   plan         = "production"
@@ -62,18 +42,12 @@ resource "ovh_cloud_project_database" "service" {
 
   nodes {
     region     = var.region
-    subnet_id  = openstack_networking_subnet_v2.my_subnet.id
-    network_id = openstack_networking_network_v2.my_private_network.id
   }
   nodes {
     region     = var.region
-    subnet_id  = openstack_networking_subnet_v2.my_subnet.id
-    network_id = openstack_networking_network_v2.my_private_network.id
   }
   nodes {
     region     = var.region
-    subnet_id  = openstack_networking_subnet_v2.my_subnet.id
-    network_id = openstack_networking_network_v2.my_private_network.id
   }
 }
 
@@ -103,7 +77,7 @@ resource "openstack_compute_instance_v2" "vm" {
   name            = "ycsb-benchmark-vm"
   image_name      = var.image_name
   flavor_name     = var.flavor_name
-  key_pair        = openstack_compute_keypair_v2.ssh_keypair6.name
+  key_pair        = openstack_compute_keypair_v2.ssh_keypair7.name
   security_groups = [openstack_networking_secgroup_v2.ssh_secgroup6.name]
 
   network {
@@ -125,7 +99,7 @@ resource "openstack_compute_instance_v2" "vm" {
     connection {
       type        = "ssh"
       user        = "ubuntu"  # Update this to your instance's user
-      private_key = openstack_compute_keypair_v2.ssh_keypair6.private_key
+      private_key = openstack_compute_keypair_v2.ssh_keypair7.private_key
       host        = self.access_ip_v4
     }
 
@@ -141,17 +115,6 @@ resource "ovh_cloud_project_database_ip_restriction" "iprestriction" {
   description  = "Allow access from YCSB benchmark VM"
   cluster_id   = ovh_cloud_project_database.service.id
   engine       = ovh_cloud_project_database.service.engine
-
-  depends_on = [openstack_compute_instance_v2.vm]
-  
-}
-
-output "network_id" {
-  value = openstack_networking_network_v2.my_private_network.id
-}
-
-output "subnet_id" {
-  value = openstack_networking_subnet_v2.my_subnet.id
 }
 
 output "cluster_uri" {
@@ -172,7 +135,7 @@ output "user_password" {
 }
 
 output "ssh_private_key" {
-  value     = openstack_compute_keypair_v2.ssh_keypair6.private_key
+  value     = openstack_compute_keypair_v2.ssh_keypair7.private_key
   sensitive = true
 }
 
