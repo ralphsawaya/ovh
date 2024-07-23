@@ -27,34 +27,14 @@ provider "openstack" {
   region      = var.openstack_region
 }
 
-resource "openstack_compute_keypair_v2" "ssh_keypair2" {
-  name = "ssh_keypair2"
+resource "openstack_compute_keypair_v2" "ssh_keypair9" {
+  name = "ssh_keypair9"
 }
 
-resource "openstack_networking_network_v2" "my_private_network" {
-  name          = "my_private_network"
-  admin_state_up = "true"
-  region        = "UK1"
-}
-
-resource "openstack_networking_subnet_v2" "my_subnet" {
-  name            = "my_subnet"
-  network_id      = openstack_networking_network_v2.my_private_network.id
-  cidr            = "192.168.199.0/24"
-  ip_version      = 4
-  enable_dhcp     = true
-  no_gateway      = false
-  dns_nameservers = ["213.186.33.99"]
-
-  allocation_pool {
-    start = "192.168.199.100"
-    end   = "192.168.199.200"
-  }
-}
 
 resource "ovh_cloud_project_database" "service" {
   service_name = var.ovh_project_id
-  description  = "mongodb-benchmark"
+  description  = "benchmark-automation"
   engine       = "mongodb"
   version      = "7.0"
   plan         = "production"
@@ -62,18 +42,12 @@ resource "ovh_cloud_project_database" "service" {
 
   nodes {
     region     = var.region
-    subnet_id  = openstack_networking_subnet_v2.my_subnet.id
-    network_id = openstack_networking_network_v2.my_private_network.id
   }
   nodes {
     region     = var.region
-    subnet_id  = openstack_networking_subnet_v2.my_subnet.id
-    network_id = openstack_networking_network_v2.my_private_network.id
   }
   nodes {
     region     = var.region
-    subnet_id  = openstack_networking_subnet_v2.my_subnet.id
-    network_id = openstack_networking_network_v2.my_private_network.id
   }
 }
 
@@ -84,56 +58,50 @@ resource "ovh_cloud_project_database_mongodb_user" "tf_user" {
   roles        = ["readWriteAnyDatabase@admin"]
 }
 
-resource "openstack_compute_instance_v2" "vm" {
-  name            = "ycsb-benchmark-vm"
-  image_name      = var.image_name
-  flavor_name     = var.flavor_name
-  key_pair        = openstack_compute_keypair_v2.ssh_keypair2.name
-  security_groups = ["default"]
-
-  network {
-    #uuid = openstack_networking_network_v2.my_private_network.id
-    name      = "Ext-Net"
-
-  }
-
-  user_data = <<-EOF
-              #!/bin/bash
-              apt-get update
-              apt-get install -y openjdk-11-jre-headless wget unzip s3cmd mongodb-clients jq
-              wget https://github.com/brianfrankcooper/YCSB/releases/download/0.17.0/ycsb-0.17.0.tar.gz
-              tar xvf ycsb-0.17.0.tar.gz
-              apt-get install -y mongodb-clients
-              PRIMARY_NODE=$(mongosh --host ${ovh_cloud_project_database.service.endpoints[0].uri} --tls --username ${ovh_cloud_project_database_mongodb_user.tf_user.name} --password '${ovh_cloud_project_database_mongodb_user.tf_user.password}' --authenticationDatabase admin --eval 'rs.isMaster().primary' --quiet | tr -d '"')
-              cat <<EOL > ~/.s3cfg
-              [default]
-              access_key = "${var.ovh_s3_access_key}"
-              secret_key = "${var.ovh_s3_secret_key}"
-              host_base = "${var.ovh_s3_endpoint}"
-              host_bucket = "${var.ovh_s3_bucket_endpoint}"
-              EOL
-              ./ycsb-0.17.0/bin/ycsb load mongodb -p mongodb.url="mongodb://${ovh_cloud_project_database_mongodb_user.tf_user.name}:${ovh_cloud_project_database_mongodb_user.tf_user.password}@$PRIMARY_NODE/admin?tls=true" -s -P ./ycsb-0.17.0/workloads/workloada
-              ./ycsb-0.17.0/bin/ycsb run mongodb -p mongodb.url="mongodb://${ovh_cloud_project_database_mongodb_user.tf_user.name}:${ovh_cloud_project_database_mongodb_user.tf_user.password}@$PRIMARY_NODE/admin?tls=true" -s -P ./ycsb-0.17.0/workloads/workloada
-              s3cmd --config ~/.s3cfg put output.txt s3://${var.ovh_s3_bucket_name}/ycsb-result.txt
-              shutdown -h now
-              EOF
-}
-
 resource "ovh_cloud_project_database_ip_restriction" "iprestriction" {
   service_name = ovh_cloud_project_database.service.service_name
-  ip           = "${openstack_compute_instance_v2.vm.access_ip_v4}/32"
+  ip           = "0.0.0.0/0"
   description  = "Allow access from YCSB benchmark VM"
   cluster_id   = ovh_cloud_project_database.service.id
   engine       = ovh_cloud_project_database.service.engine
 }
 
-
-output "network_id" {
-  value = openstack_networking_network_v2.my_private_network.id
+resource "openstack_networking_secgroup_v2" "ssh_secgroup9" {
+  name        = "ssh_secgroup9"
+  description = "Security group for SSH access"
 }
 
-output "subnet_id" {
-  value = openstack_networking_subnet_v2.my_subnet.id
+resource "openstack_networking_secgroup_rule_v2" "ssh" {
+  direction         = "ingress"
+  ethertype         = "IPv4"
+  protocol          = "tcp"
+  port_range_min    = 22
+  port_range_max    = 22
+  remote_ip_prefix  = "0.0.0.0/0"
+  security_group_id = openstack_networking_secgroup_v2.ssh_secgroup9.id
+}
+
+resource "openstack_compute_instance_v2" "vm" {
+  name            = "ycsb-benchmark-vm"
+  image_name      = var.image_name
+  flavor_name     = var.flavor_name
+  key_pair        = openstack_compute_keypair_v2.ssh_keypair9.name
+  security_groups = [openstack_networking_secgroup_v2.ssh_secgroup9.name]
+
+  network {
+    name = "Ext-Net"
+  }
+
+  user_data = templatefile("user_data.sh.tpl", {
+    cluster_uri = ovh_cloud_project_database.service.endpoints[0].uri
+    mongodb_user = split("@", ovh_cloud_project_database_mongodb_user.tf_user.name)[0]
+    mongodb_password = ovh_cloud_project_database_mongodb_user.tf_user.password
+    s3_access_key = var.ovh_s3_access_key
+    s3_secret_key = var.ovh_s3_secret_key
+    s3_endpoint = var.ovh_s3_endpoint
+    s3_bucket_endpoint = var.ovh_s3_bucket_endpoint
+    s3_bucket_name = var.ovh_s3_bucket_name
+  })
 }
 
 output "cluster_uri" {
@@ -151,4 +119,43 @@ output "user_name" {
 output "user_password" {
   value     = ovh_cloud_project_database_mongodb_user.tf_user.password
   sensitive = true
+}
+
+output "ssh_private_key" {
+  value     = openstack_compute_keypair_v2.ssh_keypair9.private_key
+  sensitive = true
+}
+
+output "ovh_cloud_project_database_uri" {
+  value = ovh_cloud_project_database.service.endpoints[0].uri
+}
+
+output "ovh_cloud_project_database_mongodb_user_name" {
+  value = ovh_cloud_project_database_mongodb_user.tf_user.name
+}
+
+output "ovh_cloud_project_database_mongodb_user_password" {
+  value = ovh_cloud_project_database_mongodb_user.tf_user.password
+  sensitive = true
+}
+
+output "ovh_s3_access_key" {
+  value = var.ovh_s3_access_key
+}
+
+output "ovh_s3_secret_key" {
+  value = var.ovh_s3_secret_key
+  sensitive = true
+}
+
+output "ovh_s3_endpoint" {
+  value = var.ovh_s3_endpoint
+}
+
+output "ovh_s3_bucket_endpoint" {
+  value = var.ovh_s3_bucket_endpoint
+}
+
+output "ovh_s3_bucket_name" {
+  value = var.ovh_s3_bucket_name
 }
