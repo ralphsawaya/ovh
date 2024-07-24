@@ -108,3 +108,5 @@ variable "openstack_region" {
   description = "openstack_auth_url"
   type        = string
 }
+
+
