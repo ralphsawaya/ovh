@@ -1,6 +1,6 @@
 # Terraform - Benchmark OVH MongoDB Instance with YCSB
 
-The intent of this project is to run the YCSB (Yahoo! Cloud Serving Benchmark) tool on an OVH MongoDB managed instance. The script will instantiate the MongoDB OVH instance and a VM to execute the YCSB script.
+The intent of this project is to run the [YCSB (Yahoo! Cloud Serving Benchmark)](https://github.com/brianfrankcooper/YCSB/tree/master) tool on an OVH MongoDB managed instance for the purpose of benchmarking. The script will instantiate the MongoDB OVH instance and a VM where the YCSB script will be executed.
 
 ## Getting Started
 
@@ -21,7 +21,7 @@ The intent of this project is to run the YCSB (Yahoo! Cloud Serving Benchmark) t
 
 2. **Provide Variables:**
 
-    Create a `terraform.tfvars` file and provide the necessary variables. Here is an example:
+    Provide the necessary variables in `terraform.tfvars`. Here is an example:
 
     ```hcl
     # terraform.tfvars
@@ -31,7 +31,7 @@ The intent of this project is to run the YCSB (Yahoo! Cloud Serving Benchmark) t
 
 3. **Provide Custom Workload Content:**
 
-    Before running Terraform, make sure to customize `myworkload` content according to your requirements.
+    Before running Terraform, make sure to customize the  YCSB workload file `myworkload` according to your requirements. You can see workload examples [here](https://github.com/brianfrankcooper/YCSB/tree/master/workloads)
 
 ### Usage
 
