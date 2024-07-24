@@ -10,14 +10,12 @@ terraform {
     }
   }
 }
-
 provider "ovh" {
   endpoint           = "ovh-eu"
   application_key    = var.ovh_application_key
   application_secret = var.ovh_application_secret
   consumer_key       = var.ovh_consumer_key
 }
-
 provider "openstack" {
   auth_url    = var.openstack_auth_url
   domain_name = var.openstack_domain_name
@@ -26,11 +24,9 @@ provider "openstack" {
   password    = var.openstack_password
   region      = var.openstack_region
 }
-
 resource "openstack_compute_keypair_v2" "ssh_keypair" {
   name = "ssh_keypair"
 }
-
 
 resource "ovh_cloud_project_database" "service" {
   service_name = var.ovh_project_id
@@ -39,7 +35,6 @@ resource "ovh_cloud_project_database" "service" {
   version      = "7.0"
   plan         = "production"
   flavor       = "db2-2"
-
   nodes {
     region     = var.region
   }
@@ -50,14 +45,12 @@ resource "ovh_cloud_project_database" "service" {
     region     = var.region
   }
 }
-
 resource "ovh_cloud_project_database_mongodb_user" "tf_user" {
   service_name = ovh_cloud_project_database.service.service_name
   cluster_id   = ovh_cloud_project_database.service.id
   name         = "tf_mongodb_user"
   roles        = ["readWriteAnyDatabase@admin"]
 }
-
 resource "ovh_cloud_project_database_ip_restriction" "iprestriction" {
   service_name = ovh_cloud_project_database.service.service_name
   ip           = "0.0.0.0/0"
@@ -65,12 +58,10 @@ resource "ovh_cloud_project_database_ip_restriction" "iprestriction" {
   cluster_id   = ovh_cloud_project_database.service.id
   engine       = ovh_cloud_project_database.service.engine
 }
-
 resource "openstack_networking_secgroup_v2" "ssh_secgroup" {
   name        = "ssh_secgroup"
   description = "Security group for SSH access"
 }
-
 resource "openstack_networking_secgroup_rule_v2" "ssh" {
   direction         = "ingress"
   ethertype         = "IPv4"
@@ -80,19 +71,16 @@ resource "openstack_networking_secgroup_rule_v2" "ssh" {
   remote_ip_prefix  = "0.0.0.0/0"
   security_group_id = openstack_networking_secgroup_v2.ssh_secgroup.id
 }
-
 resource "openstack_compute_instance_v2" "vm" {
   name            = "ycsb-benchmark-vm"
   image_name      = var.image_name
   flavor_name     = var.flavor_name
   key_pair        = openstack_compute_keypair_v2.ssh_keypair.name
   security_groups = [openstack_networking_secgroup_v2.ssh_secgroup.name]
-
   network {
     name = "Ext-Net"
   }
-
-  user_data = templatefile("user_data.sh.tpl", {
+  user_data = templatefile("run_ycsb.sh.tpl", {
     cluster_uri = ovh_cloud_project_database.service.endpoints[0].uri
     mongodb_user = split("@", ovh_cloud_project_database_mongodb_user.tf_user.name)[0]
     mongodb_password = ovh_cloud_project_database_mongodb_user.tf_user.password
@@ -101,61 +89,49 @@ resource "openstack_compute_instance_v2" "vm" {
     s3_endpoint = var.ovh_s3_endpoint
     s3_bucket_endpoint = var.ovh_s3_bucket_endpoint
     s3_bucket_name = var.ovh_s3_bucket_name
+    myworkload_content = file("myworkload")
   })
 }
-
 output "cluster_uri" {
   value = ovh_cloud_project_database.service.endpoints[0].uri
 }
-
 output "vm_ip" {
   value = openstack_compute_instance_v2.vm.access_ip_v4
 }
-
 output "user_name" {
   value = ovh_cloud_project_database_mongodb_user.tf_user.name
 }
-
 output "user_password" {
   value     = ovh_cloud_project_database_mongodb_user.tf_user.password
   sensitive = true
 }
-
 output "ssh_private_key" {
   value     = openstack_compute_keypair_v2.ssh_keypair.private_key
   sensitive = true
 }
-
 output "ovh_cloud_project_database_uri" {
   value = ovh_cloud_project_database.service.endpoints[0].uri
 }
-
 output "ovh_cloud_project_database_mongodb_user_name" {
   value = ovh_cloud_project_database_mongodb_user.tf_user.name
 }
-
 output "ovh_cloud_project_database_mongodb_user_password" {
   value = ovh_cloud_project_database_mongodb_user.tf_user.password
   sensitive = true
 }
-
 output "ovh_s3_access_key" {
   value = var.ovh_s3_access_key
 }
-
 output "ovh_s3_secret_key" {
   value = var.ovh_s3_secret_key
   sensitive = true
 }
-
 output "ovh_s3_endpoint" {
   value = var.ovh_s3_endpoint
 }
-
 output "ovh_s3_bucket_endpoint" {
   value = var.ovh_s3_bucket_endpoint
 }
-
 output "ovh_s3_bucket_name" {
   value = var.ovh_s3_bucket_name
 }
