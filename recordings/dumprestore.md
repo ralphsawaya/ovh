@@ -26,14 +26,17 @@
   - MongoDB Enterprise installation includes `mongodb-database-tools` package (contains `mongodump` and `mongorestore`)
 
 ## Demo Steps
-
-1. **Mongodump Command:**
+1. **Check MongoDB installtion on VM and OVH:**
+   - Verify MongoDB packages installed on VM and connect with mongosh.
+   - Verify the MongoDB OVHcloud installtion with users and IP whitelisting.
+   
+3. **Mongodump Command:**
    - Demonstrate how to use `mongodump` to back up the databases from the source VM.
 
-2. **Mongorestore Command:**
+4. **Mongorestore Command:**
    - Show the use of `mongorestore` to restore the backup to the OVHcloud MongoDB cluster.
 
-3. **Verification:**
+5. **Verification:**
    - Verify that the data has been successfully restored to the OVHcloud MongoDB cluster.
 
 ## Conclusion
