@@ -1,4 +1,4 @@
-# MongoDB Backup and Restore Demo
+# MongoDB mongodump and mongorestore Demo
 
 ## Introduction
 
