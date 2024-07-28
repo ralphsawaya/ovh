@@ -95,15 +95,16 @@ While located in the `YCSB > ycsb-0.17.0` directory, execute the following comma
 ### STEP 5: Analyze and Benchmark the YCSB Output Metrics
 Take note of the run command output in STEP 4, and benchmark it with other databases.
 
-### Step 6: Select OVHcloud Plan
+## Performance Testing With SimRunner
+### Step 1: Select OVHcloud Plan
 Now that you have selected MongoDB as your database, it is time to setup the appropriate cluster.
 - Based on the metrics collected (CPU, RAM, Disk IOPS, Disk Space, etc.), choose an OVH cloud plan that meets the requirements of your application.
 - Consider future growth and scalability needs. You might want to consider how to [size a MongoDB cluster](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_02_Best_practise_to_implement%20_your_first_mongoDB_instance/guide.en-gb.md#mongodb-cluster-sizing).
 
-### Step 7: Setup OVH cloud Cluster
+### Step 2: Setup OVH cloud Cluster
 - [Set up the OVHcloud MongoDB cluster](https://help.ovhcloud.com/csm/en-public-cloud-databases-getting-started?id=kb_article_view&sysparm_article=KB0048745).
 
-### Step 8: Performance Testing With SimRunner 
+### Step 3: Performance Testing With SimRunner 
 - Go through the [README](https://github.com/schambon/SimRunner?tab=readme-ov-file#) to install and run SimRunner.
 - Run performance tests using SimRunner on your MongoDB cluster: `java -jar SimRunner.jar <config file>`. Here is an example of a configuration file:
 ```json
@@ -167,7 +168,7 @@ Now that you have selected MongoDB as your database, it is time to setup the app
   
 ![alt text](./images/simRunnerOutput.png)
 
-## Step 9: Validation
+## Step 4: Validation
 - Monitor the performance and adjust the cluster size and configurations as required by the application.
 - Validate that your application performs as expected with MongoDB.
 
