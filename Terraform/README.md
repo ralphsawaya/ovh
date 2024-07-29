@@ -57,6 +57,7 @@ The intent of this project is to run the [YCSB (Yahoo! Cloud Serving Benchmark)]
 
 ### Logs and Results
 
+- You can can connect to the VM using the generated ssh private key which you find in file `terraform.tfstate` 
 - Logs for the instantiated VM can be found at:
   - `/var/log/ycsb_init.log`
   - `/var/log/ycsb_result.log`
