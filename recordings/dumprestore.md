@@ -1,4 +1,4 @@
-# MongoDB mongodump and mongorestore Demo
+# Demo mongodump and mongorestore 
 
 ## Introduction
 
