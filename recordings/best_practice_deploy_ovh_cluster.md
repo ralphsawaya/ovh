@@ -1,6 +1,7 @@
 # Demo Moving to OVHcloud MongoDB Managed from an Existing MongoDB Instance
 
 ## 1. Setting Up OVHcloud MongoDB Managed Instance
+- **Size your cluster**
 - **1.1 Creating a MongoDB Service in OVHcloud**
   - Step-by-step walkthrough of creating a MongoDB service in OVHcloud
   - Configuring instance parameters
