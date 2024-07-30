@@ -17,7 +17,7 @@
   - Authentication and authorization (SCRAM, LDAP, Kerberos).
   - Encryption at rest and in transit.
   - Network security (firewalls, IP whitelisting).
-  - Auditing and log reviews.
+  - Private vs Public Networks for Managed MongoDB Database
 
 - **Upgrades:**
   - Version compatibility checks.
