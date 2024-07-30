@@ -22,7 +22,6 @@
   - Practical demo of integrating Kafka Connector with MongoDB
 
 ## 3. Migration Execution Process
-![alt text](./images/diagram_migration_strategy.png)
 - **3.1 Initial Backup**
   - Using `mongodump` to create a backup of the existing MongoDB instance
   - Ensuring the backup is stored securely
