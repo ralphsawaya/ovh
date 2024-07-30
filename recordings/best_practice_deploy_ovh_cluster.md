@@ -1,4 +1,4 @@
-# Demo Agenda: Moving to OVHcloud MongoDB Managed from an Existing MongoDB Instance
+# Demo Moving to OVHcloud MongoDB Managed from an Existing MongoDB Instance
 
 ## 1. Setting Up OVHcloud MongoDB Managed Instance
 - **1.1 Creating a MongoDB Service in OVHcloud**
