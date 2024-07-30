@@ -87,7 +87,7 @@ This articles discusses essential best practices for managing MongoDB post-deplo
 - **Encryption:**
   - **At-Rest Encryption**: OVH cloud Advanced plan automatically encrypts data at REST.
   - **In-Transit Encryption:** TLS is enabled for all OVH cloud clusters.
-- [**Network Security:**](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-mongodb-managing-service?id=kb_article_view&sysparm_article=KB0049064)
+- [Network Security:](https://help.ovhcloud.com/csm/en-ie-public-cloud-databases-mongodb-managing-service?id=kb_article_view&sysparm_article=KB0049064)
   - **Firewall:** Restrict access to MongoDB instances.
   - **IP Whitelisting:** Allow only trusted IP addresses to access the database.
 - **Auditing:**
