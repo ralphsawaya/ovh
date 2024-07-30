@@ -14,7 +14,7 @@
   - Best practices for backup frequency, retention, testing, and encryption.
 
 - **Security:**
-  - Authentication and authorization (SCRAM, LDAP, Kerberos).
+  - Authentication and authorization.
   - Encryption at rest and in transit.
   - Network security (firewalls, IP whitelisting).
   - Private vs Public Networks for Managed MongoDB Database
