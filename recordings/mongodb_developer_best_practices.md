@@ -9,7 +9,7 @@
   - Best practices for data modeling.
   - Common design patterns for optimal database structure.
 
-- **Indexing:**
+- **[Indexing](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_02_Best_practise_to_implement%20_your_first_mongoDB_instance/guide.en-gb.md#indexing):**
   - Importance of indexing for performance.
   - Strategies for creating and managing indexes.
 
