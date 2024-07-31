@@ -15,6 +15,8 @@
 
 - **[ReadPreference and WriteConcern](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_08_Read%20performance%20%26%20write%20concerns/guide.en-gb.md):**
   - Configuring read and write preferences to balance performance and data consistency.
+    
+- **InsertOne() vs InsertMany**
 
 - **Leverage MongoDB Change Streams:**
   - Using change streams to react to real-time data changes.
