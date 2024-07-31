@@ -13,7 +13,7 @@
   - Importance of indexing for performance.
   - Strategies for creating and managing indexes.
 
-- **ReadPreference and WriteConcern:**
+- **[ReadPreference and WriteConcern](https://github.com/ralphsawaya/ovh/blob/main/MongoDoc/mongodb_08_Read%20performance%20%26%20write%20concerns/guide.en-gb.md):**
   - Configuring read and write preferences to balance performance and data consistency.
 
 - **Leverage MongoDB Change Streams:**
