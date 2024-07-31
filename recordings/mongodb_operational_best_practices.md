@@ -1,4 +1,3 @@
-# MongoDB Demo Agenda
 
 ## MongoDB Operational Best Practices
 
